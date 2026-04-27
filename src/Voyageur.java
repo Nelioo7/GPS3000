@@ -3,7 +3,7 @@ package src;
 /**
  * Fournit une instance de la classe Voyageur
  * @author Erwann Besegher
- * @version 1.0.1
+ * @version 1.1.0
  */
 public class Voyageur {
     
@@ -13,18 +13,17 @@ public class Voyageur {
     /** Son prénom */
     private String prenom;
 
-    // TODO: ajouter un critère à optimiser
+    /** Critère à optimiser pour le calcul de l'itinéraire */
+    private TypeCout critereOpti;
 
-    public Voyageur(String nom, String prenom) {
+    public Voyageur(String nom, String prenom, TypeCout critereOpti) {
         this.nom = nom;
         this.prenom = prenom;
-
-        //ajouter le critère à optimiser explicitement
+        this.critereOpti = critereOpti;
     }
 
-    // Constructeur sans le critère donné -> valeur par défaut
-    // public Voyageur(String nom, String prenom) {
-    //     this(nom, prenom);
-    // }
+    public Voyageur(String nom, String prenom) { // si on ne fournit pas de critère
+        this(nom, prenom, TypeCout.TEMPS); // par défaut on veut économiser le temps de trajet
+    }
 
 }
