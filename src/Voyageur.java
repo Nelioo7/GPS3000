@@ -1,7 +1,7 @@
 package src;
 
 /**
- * Fournit uen instance de la classe Voyageur
+ * Fournit une instance de la classe Voyageur
  * @author Erwann Besegher
  * @version 1.0.0
  */
