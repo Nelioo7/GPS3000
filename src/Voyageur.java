@@ -3,7 +3,7 @@ package src;
 /**
  * Fournit une instance de la classe Voyageur
  * @author Erwann Besegher
- * @version 1.0.0
+ * @version 1.0.1
  */
 public class Voyageur {
     
