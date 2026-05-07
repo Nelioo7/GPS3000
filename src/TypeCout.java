@@ -6,5 +6,7 @@ package src;
  * @version 1.0.0
  */
 public enum TypeCout {
-    CO2, TEMPS, PRIX
+    CO2,
+    TEMPS,
+    PRIX
 }
