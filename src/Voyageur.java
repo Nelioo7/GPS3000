@@ -7,13 +7,13 @@ package src;
  */
 public class Voyageur {
     
-    /** Le nom du voyageur */
+    // Le nom du voyageur
     private String nom;
     
-    /** Son prénom */
+    // Son prénom
     private String prenom;
 
-    /** Critère à optimiser pour le calcul de l'itinéraire */
+    // Critère à optimiser pour le calcul de l'itinéraire
     private TypeCout critereOpti;
 
     public Voyageur(String nom, String prenom, TypeCout critereOpti) {
