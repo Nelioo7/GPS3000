@@ -35,8 +35,7 @@ public class Main {
             "villeA;villeC;TRAIN;42;1.4;50",
             "villeB;villeC;TRAIN;14;1.4;60",
             "villeC;villeD;AVION;110;150;22",
-            "villeC;villeD;TRAIN;65;1.2;90",
-            "villeA;villeD;BUS;15;0.5;160"
+            "villeC;villeD;TRAIN;65;1.2;90"
         ));
 
         // Récupération des choix utilisateur
