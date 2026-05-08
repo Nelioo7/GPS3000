@@ -1,4 +1,4 @@
-package src.poo;
+package poo;
 
 /**
  * Fournit les différents critères à optimiser dans la recherche d'itinéraire.

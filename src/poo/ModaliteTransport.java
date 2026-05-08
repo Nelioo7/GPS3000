@@ -1,4 +1,4 @@
-package src.poo;
+package poo;
 
 /**
  * Fournit les différents moyens de transport disponibles.

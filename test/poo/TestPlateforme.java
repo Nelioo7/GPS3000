@@ -1,13 +1,10 @@
-package test.poo;
+package poo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.Test;
 
-import src.poo.Plateforme;
-import src.poo.Trajet;
-import src.poo.Ville;
 /**
      * Classe de tests pour Plateforme.
      * Ce test vérifie le bon fonctionnement des constructeurs et de la méthode getNom de la classe Plateforme.

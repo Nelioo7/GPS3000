@@ -1,4 +1,4 @@
-package src.poo;
+package poo;
 /**
  * Base de données centrale du réseau de transport.
  * @author Erwann Besegher

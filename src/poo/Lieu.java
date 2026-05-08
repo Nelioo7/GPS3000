@@ -1,4 +1,4 @@
-package src.poo;
+package poo;
 
 /**
  * Interface Lieu

@@ -1,11 +1,8 @@
-package test.poo;
+package poo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
-
-import src.poo.CoutConnexion;
-import src.poo.TypeCout;
 
 /**
  * Classe de tests pour CoutConnexion.

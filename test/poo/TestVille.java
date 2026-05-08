@@ -1,10 +1,8 @@
-package test.poo;
+package poo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
-
-import src.poo.Ville;
 
 public class TestVille {
 

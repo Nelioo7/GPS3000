@@ -1,4 +1,4 @@
-package src.poo;
+package poo;
 
 import java.util.HashMap;
 import java.util.Map;

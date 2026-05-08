@@ -1,4 +1,4 @@
-package src.poo;
+package poo;
 
 /**
  * Fournit une instance de la classe Voyageur
