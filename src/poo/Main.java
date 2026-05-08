@@ -16,7 +16,7 @@ import graphes.GraphesV1;
 /**
  * Programme de test pour la Version 1 de l'assistant de voyage.
  * @author Amayas Mehmel
- * @version 1.3.0
+ * @version 1.3.1
  */
 public class Main {
 
@@ -36,7 +36,8 @@ public class Main {
             "villeA;villeC;TRAIN;42;1.4;50",
             "villeB;villeC;TRAIN;14;1.4;60",
             "villeC;villeD;AVION;110;150;22",
-            "villeC;villeD;TRAIN;65;1.2;90"
+            "villeC;villeD;TRAIN;65;1.2;90",
+            "villeA;villeD;BUS;15;0.5;160"
         ));
 
         // Récupération des choix utilisateur
