@@ -127,3 +127,14 @@ Nous utilisons JUnit pour nos tests et nos tests sont dans le dossier `test/`
 | `equals()` | Deux villes avec le même nom `"Marseille"` | `true` |
 | `equals()` | Deux villes avec des noms différents `"Marseille"` et `"Lyon"` | `false` |
 | `hashCode()` | Deux villes avec le même nom `"Nice"` | Même hashCode |
+
+**Classe CoutConnexion**
+
+| Méthode | Cas testé | Résultat attendu |
+|---|---|---|
+| `CoutConnexion(prix, temps, co2)` | Construction avec `60.0`, `80.0`, `1.7` | `getCout(PRIX)` → `60.0` |
+| `CoutConnexion(prix, temps, co2)` | Construction avec `60.0`, `80.0`, `1.7` | `getCout(TEMPS)` → `80.0` |
+| `CoutConnexion(prix, temps, co2)` | Construction avec `60.0`, `80.0`, `1.7` | `getCout(CO2)` → `1.7` |
+| `CoutConnexion(typeCout, valeur)` | Construction avec uniquement `PRIX = 50.0` | `getCout(PRIX)` → `50.0` |
+| `CoutConnexion(typeCout, valeur)` | Construction avec uniquement `PRIX = 50.0` | `getCout(TEMPS)` → `null` |
+| `CoutConnexion(typeCout, valeur)` | Construction avec uniquement `PRIX = 50.0` | `getCout(CO2)` → `null` |
