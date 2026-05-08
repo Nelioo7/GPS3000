@@ -41,23 +41,40 @@ Les paramètres à entrer dans l'appli sont les suivants:
 .
 ├── bin
 ├── lib
-│   └── junit-platform-console-standalone-6.0.3 (1).jar
+│   ├── jgrapht-core-1.5.1.jar
+│   ├── jheaps-0.14.jar
+│   ├── junit-platform-console-standalone-6.0.3 (1).jar
+│   ├── junit-platform-console-standalone-6.0.3 (2).jar
+│   └── sae_s2_2026.jar
 ├── rapport
 │   ├── img
-│   ├── Rapport.md
+│   │   └── uml.png
+│   ├── RapportGraphes.md
 │   └── uml.drawio
 ├── README.md
 ├── src
-│   ├── Connexion.java
-│   ├── CoutConnexion.java
-│   ├── Lieu.java
-│   ├── ModaliteTransport.java
-│   ├── Plateforme.java
-│   ├── TraitementDonnees.java
-│   ├── TypeCout.java
-│   └── Voyageur.java
+│   ├── graphes
+│   │   └── GraphesV1.java
+│   └── poo
+│       ├── Connexion.java
+│       ├── CoutConnexion.java
+│       ├── GestionnaireItineraire.java
+│       ├── Lieu.java
+│       ├── Main.java
+│       ├── Plateforme.java
+│       ├── TraitementDonnees.java
+│       ├── Trajet.java
+│       ├── TypeCout.java
+│       ├── Ville.java
+│       └── Voyageur.java
 └── test
-    └── testVoyageur.java
+    └── poo
+        ├── TestCoutConnexion.java
+        ├── TestPlateforme.java
+        ├── TestTraitementDonnees.java
+        ├── TestTrajet.java
+        ├── TestVille.java
+        └── TestVoyageur.java
 ```
 
 ## Conception
