@@ -15,12 +15,12 @@ import poo.Ville;
  * Prototype exécutable pour la Version 1 partie graphes.
  * Scénario international (Lille -> Sydney).
  * @author Amayas Mehmel
- * @version 1.2.0
+ * @version 1.2.1
  */
 public class GraphesV1 {
 
     public static void main(String[] args) {
-        System.out.println("=== PROTOTYPE GRAPHES V1 : SCÉNARIO INTERNATIONAL ===\n");
+        System.out.println("=== PROTOTYPE GRAPHE V1 ===\n");
 
         // création du graphe
         MultiGrapheOrienteValue graphe = new MultiGrapheOrienteValue();
