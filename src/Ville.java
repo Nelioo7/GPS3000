@@ -1,6 +1,6 @@
 package src;
 /**
- * Description
+ * Représentation d'une ville par son nom.
  * @author Amayas Mehmel
  * @version 1.0.0
  */

@@ -1,7 +1,7 @@
 package src;
 
 /**
- * Description
+ * Liaison entre deux lieux avec coûts et transport.
  * @author Amayas Mehmel
  * @version 1.0.0
  */

@@ -1,7 +1,7 @@
 package src;
 
 /**
- * Description
+ * Base de données centrale du réseau de transport.
  * @author Erwann Besegher
  * @author Amayas Mehmel
  * @version 1.1.0
