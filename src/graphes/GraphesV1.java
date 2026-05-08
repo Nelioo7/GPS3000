@@ -13,63 +13,62 @@ import poo.Ville;
 
 /**
  * Prototype exécutable pour la Version 1 partie graphes.
+ * Scénario international (Lille -> Sydney).
  * @author Amayas Mehmel
- * @version 1.1.5
+ * @version 1.2.0
  */
-
 public class GraphesV1 {
 
     public static void main(String[] args) {
-        System.out.println("=== PROTOTYPE GRAPHES V1 : SCÉNARIO 5 VILLES / 15 CONNEXIONS ===\n");
+        System.out.println("=== PROTOTYPE GRAPHES V1 : SCÉNARIO INTERNATIONAL ===\n");
 
         // création du graphe
         MultiGrapheOrienteValue graphe = new MultiGrapheOrienteValue();
 
-        // création des 5 villes (Sommets)
+        // création des 6 villes (Sommets) d'après le rapport
         Ville lille = new Ville("Lille");
         Ville paris = new Ville("Paris");
-        Ville lyon = new Ville("Lyon");
-        Ville marseille = new Ville("Marseille");
-        Ville bordeaux = new Ville("Bordeaux");
+        Ville jakarta = new Ville("Jakarta");
+        Ville newYork = new Ville("New York");
+        Ville sydney = new Ville("Sydney");
+        Ville tokyo = new Ville("Tokyo");
 
         graphe.ajouterSommet(lille);
         graphe.ajouterSommet(paris);
-        graphe.ajouterSommet(lyon);
-        graphe.ajouterSommet(marseille);
-        graphe.ajouterSommet(bordeaux);
+        graphe.ajouterSommet(jakarta);
+        graphe.ajouterSommet(newYork);
+        graphe.ajouterSommet(sydney);
+        graphe.ajouterSommet(tokyo);
 
-        // création des 15 connexions 
-        // on va filtrer manuellement pour le scénario (ex: L'utilisateur ne veut que le TRAIN)
-        ModaliteTransport modeChoisi = ModaliteTransport.TRAIN;
-        TypeCout critereOptimisation = TypeCout.PRIX; // l'utilisateur veut le moins cher
+        // Préférences de l'utilisatrice
+        ModaliteTransport modeChoisi = ModaliteTransport.AVION;
+        TypeCout critereOptimisation = TypeCout.PRIX; 
 
         System.out.println("Préférences de l'utilisatrice :");
         System.out.println("- Transport choisi : " + modeChoisi);
         System.out.println("- Critère à optimiser : " + critereOptimisation);
-        System.out.println("- Trajet : Lille -> Marseille\n");
+        System.out.println("- Trajet : Lille -> Sydney\n");
 
-        // tableau des 15 connexions avec des valeurs
+        // tableau des connexions directes (les chemins composés ont été retirés)
+        // Rappel de l'ordre : CoutConnexion(prix, temps, co2)
         Trajet[] reseau = {
             // TRAINS
-            new Trajet(lille, paris, ModaliteTransport.TRAIN, new CoutConnexion(40.0, 60.0, 2.0)),
-            new Trajet(paris, lyon, ModaliteTransport.TRAIN, new CoutConnexion(70.0, 120.0, 3.5)),
-            new Trajet(lyon, marseille, ModaliteTransport.TRAIN, new CoutConnexion(50.0, 100.0, 2.5)),
-            new Trajet(paris, bordeaux, ModaliteTransport.TRAIN, new CoutConnexion(80.0, 130.0, 3.0)),
-            new Trajet(bordeaux, marseille, ModaliteTransport.TRAIN, new CoutConnexion(60.0, 140.0, 3.2)),
-            new Trajet(lille, lyon, ModaliteTransport.TRAIN, new CoutConnexion(100.0, 180.0, 4.0)), 
-            new Trajet(paris, marseille, ModaliteTransport.TRAIN, new CoutConnexion(110.0, 190.0, 5.0)), 
-
-            // BUS
-            new Trajet(lille, paris, ModaliteTransport.BUS, new CoutConnexion(15.0, 180.0, 8.0)),
-            new Trajet(paris, lyon, ModaliteTransport.BUS, new CoutConnexion(25.0, 300.0, 12.0)),
-            new Trajet(lyon, marseille, ModaliteTransport.BUS, new CoutConnexion(20.0, 240.0, 10.0)),
-            new Trajet(paris, bordeaux, ModaliteTransport.BUS, new CoutConnexion(30.0, 360.0, 14.0)),
-            new Trajet(bordeaux, marseille, ModaliteTransport.BUS, new CoutConnexion(25.0, 320.0, 11.0)),
+            new Trajet(lille, paris, ModaliteTransport.TRAIN, new CoutConnexion(35.0, 60.0, 1.7)),
 
             // AVIONS
-            new Trajet(lille, marseille, ModaliteTransport.AVION, new CoutConnexion(150.0, 90.0, 120.0)),
-            new Trajet(paris, marseille, ModaliteTransport.AVION, new CoutConnexion(100.0, 75.0, 95.0)),
-            new Trajet(paris, bordeaux, ModaliteTransport.AVION, new CoutConnexion(90.0, 65.0, 85.0))
+            new Trajet(lille, jakarta, ModaliteTransport.AVION, new CoutConnexion(550.0, 780.0, 280.0)),
+            new Trajet(lille, newYork, ModaliteTransport.AVION, new CoutConnexion(820.0, 1140.0, 440.0)),
+            new Trajet(jakarta, sydney, ModaliteTransport.AVION, new CoutConnexion(310.0, 420.0, 155.0)),
+            new Trajet(jakarta, newYork, ModaliteTransport.AVION, new CoutConnexion(820.0, 1140.0, 440.0)),
+            new Trajet(paris, sydney, ModaliteTransport.AVION, new CoutConnexion(900.0, 1320.0, 405.0)),
+            new Trajet(paris, jakarta, ModaliteTransport.AVION, new CoutConnexion(700.0, 810.0, 310.0)),
+            new Trajet(paris, tokyo, ModaliteTransport.AVION, new CoutConnexion(620.0, 780.0, 290.0)),
+            new Trajet(sydney, tokyo, ModaliteTransport.AVION, new CoutConnexion(480.0, 600.0, 215.0)),
+            new Trajet(newYork, tokyo, ModaliteTransport.AVION, new CoutConnexion(520.0, 840.0, 310.0)),
+            new Trajet(newYork, sydney, ModaliteTransport.AVION, new CoutConnexion(950.0, 1260.0, 310.0)),
+
+            // BUS (Ajout fictif pour respecter la consigne "3 modes de transport présents dans l'exemple")
+            new Trajet(lille, paris, ModaliteTransport.BUS, new CoutConnexion(15.0, 180.0, 5.0))
         };
 
         // remplissage du graphe
@@ -79,14 +78,14 @@ public class GraphesV1 {
             }
         }
 
-        // On cherche de Lille à Marseille et on demande k=4
-        List<Chemin> resultats = AlgorithmeKPCC.kpcc(graphe, lille, marseille, 4);
+        // On cherche de Lille à Sydney et on demande k=4
+        List<Chemin> resultats = AlgorithmeKPCC.kpcc(graphe, lille, sydney, 4);
 
         // Affichage des 4 itinéraires
         System.out.println("=== 4 MEILLEURS ITINÉRAIRES ===");
         int i = 1;
         for (Chemin c : resultats) {
-            System.out.println(i + ") " + c.toString() + " [Coût total (" + critereOptimisation + ") : " + c.poids() + "]");
+            System.out.println(i + ") " + c.toString() + " [Coût total (" + critereOptimisation + ") : " + c.poids() + " €]");
             i++;
         }
         
@@ -94,5 +93,4 @@ public class GraphesV1 {
             System.out.println("Aucun itinéraire trouvé.");
         }
     }
-
 }
