@@ -1,9 +1,9 @@
-package src;
+package poo;
 
 /**
  * Fournit une instance de la classe Voyageur
  * @author Erwann Besegher
- * @version 1.3.0
+ * @version 1.0.0
  */
 public class Voyageur {
     
@@ -22,19 +22,23 @@ public class Voyageur {
         this.critereOpti = critereOpti;
     }
 
-    public Voyageur(String nom, String prenom) { // si on ne fournit pas de critère
+    // si on ne fournit pas de critère
+    public Voyageur(String nom, String prenom) { 
         this(nom, prenom, TypeCout.TEMPS); // par défaut on veut économiser le temps de trajet
     }
 
-    public String getNom() { // renvoie le nom
+    // renvoie le nom
+    public String getNom() { 
         return this.nom;
     }
 
-    public String getPrenom() { // renvoie le prenom
+    // renvoie le prenom
+    public String getPrenom() { 
         return this.prenom;
     }
 
-    public TypeCout getCritereOpti() { // renvoie le critère à optimiser pour le calcul
+    // renvoie le critère à optimiser pour le calcul
+    public TypeCout getCritereOpti() { 
         return this.critereOpti;
     }
 
