@@ -13,6 +13,7 @@
     - [Validation des données](#validation-des-données)
     - [Graphes](#graphes)
   - [Tests](#tests)
+    - [Cas testés](#cas-testés)
 
 ---
 
@@ -83,3 +84,17 @@ Dans notre modélisation, les sommets représentent les villes, les arêtes repr
 Nous utilisons les lib fournies pour effectuer le calcul.
 
 ## Tests
+
+Nous utilisons JUnit pour nos tests et nos tests sont dans le dossier `test/`
+
+### Cas testés
+
+| Méthode | Cas testé | Résultat attendu |
+|---------|-----------|------------------|
+| `Voyageur(nom, prenom, critere)` | Constructeur complet avec `"Dupont"`, `"Jean"`, `PRIX` | `getNom()` → `"Dupont"`, `getPrenom()` → `"Jean"`, `getCritereOpti()` → `PRIX` |
+| `Voyageur(nom, prenom)` | Constructeur sans critère avec `"Martin"`, `"Alice"` | `getCritereOpti()` → `TEMPS` (valeur par défaut) |
+| `equals()` | Comparaison avec lui-même (`v1.equals(v1)`) | `true` |
+| `equals()` | Même nom et prénom, critère différent (`v1.equals(v3)`) | `true` |
+| `equals()` | Nom et prénom différents (`v1.equals(v2)`) | `false` |
+| `equals()` | Comparaison avec `null` | `false` |
+| `toString()` | Voyageur avec `"Dupont"`, `"Jean"`, `PRIX` | La chaîne contient `"Dupont"`, `"Jean"` et `"PRIX"` |
