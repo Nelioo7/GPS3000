@@ -118,3 +118,13 @@ Nous utilisons JUnit pour nos tests et nos tests sont dans le dossier `test/`
 | `filtrerDatas()` | Filtre `TRAIN` sur liste mixte (TRAIN, AVION, BUS) | 2 résultats retournés |
 | `filtrerDatas()` | Contenu du premier résultat | Contient `"Paris"` |
 | `filtrerDatas()` | Contenu du second résultat | Contient `"Marseille"` |
+
+**Classe Ville**
+
+| Méthode | Cas testé | Résultat attendu |
+|---|---|---|
+| `Ville(nom)` / `getNom()` | Construction avec `"Paris"` | `getNom()` → `"Paris"` |
+| `toString()` | Ville `"Lille"` | `toString()` → `"Lille"` |
+| `equals()` | Deux villes avec le même nom `"Marseille"` | `true` |
+| `equals()` | Deux villes avec des noms différents `"Marseille"` et `"Lyon"` | `false` |
+| `hashCode()` | Deux villes avec le même nom `"Nice"` | Même hashCode |
