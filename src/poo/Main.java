@@ -1,4 +1,4 @@
-package src.Graphes;
+package src.poo;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -8,7 +8,6 @@ import fr.ulille.but.sae_s2_2026.Chemin;
 import fr.ulille.but.sae_s2_2026.Connexion;
 import fr.ulille.but.sae_s2_2026.Lieu;
 import fr.ulille.but.sae_s2_2026.ModaliteTransport;
-import src.TraitementDonnees;
 
 /**
  * Programme de test pour la Version 1 de l'assistant de voyage.

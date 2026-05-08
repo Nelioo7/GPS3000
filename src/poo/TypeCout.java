@@ -1,4 +1,4 @@
-package src.Graphes;
+package src.poo;
 
 /**
  * Fournit les différents critères à optimiser dans la recherche d'itinéraire.

@@ -1,10 +1,10 @@
-package test.Graphes;
+package test.poo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
 
-import src.Graphes.Ville;
+import src.poo.Ville;
 
 public class TestVille {
 

@@ -1,14 +1,14 @@
-package test.Graphes;
+package test.poo;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.Test;
 
 import fr.ulille.but.sae_s2_2026.ModaliteTransport;
-import src.Graphes.CoutConnexion;
-import src.Graphes.Trajet;
-import src.Graphes.TypeCout;
-import src.Graphes.Ville;
+import src.poo.CoutConnexion;
+import src.poo.Trajet;
+import src.poo.TypeCout;
+import src.poo.Ville;
 
 
 

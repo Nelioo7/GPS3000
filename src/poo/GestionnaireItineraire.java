@@ -1,4 +1,4 @@
-package src.Graphes;
+package src.poo;
 
 import java.util.List;
 

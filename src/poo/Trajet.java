@@ -1,4 +1,4 @@
-package src.Graphes;
+package src.poo;
 
 import fr.ulille.but.sae_s2_2026.Lieu; 
 import fr.ulille.but.sae_s2_2026.Connexion; 

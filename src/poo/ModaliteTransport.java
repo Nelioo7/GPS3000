@@ -1,4 +1,4 @@
-package src.Graphes;
+package src.poo;
 
 /**
  * Fournit les différents moyens de transport disponibles.

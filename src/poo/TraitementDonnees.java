@@ -1,4 +1,4 @@
-package src;
+package src.poo;
 
 
 import fr.ulille.but.sae_s2_2026.ModaliteTransport;

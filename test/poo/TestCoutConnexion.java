@@ -1,11 +1,11 @@
-package test.Graphes;
+package test.poo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
 
-import src.Graphes.CoutConnexion;
-import src.Graphes.TypeCout;
+import src.poo.CoutConnexion;
+import src.poo.TypeCout;
 
 /**
  * Classe de tests pour CoutConnexion.

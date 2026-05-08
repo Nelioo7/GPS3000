@@ -1,4 +1,4 @@
-package src.Graphes;
+package src.poo;
 
 /**
  * Fournit une instance de la classe Voyageur
