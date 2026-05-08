@@ -44,6 +44,8 @@ public class TraitementDonnees {
                 if (ligne.charAt(i) == ';') {
                     if (champ.equals("")) {
                         return false;
+                    } else if (Integer.parseInt(champ) < 0) {
+                        return false;
                     };
                     champ = "";
                 } else {
