@@ -18,7 +18,7 @@ public class testVoyageur {
 
     // Teste du constructeur à trois paramètres et les accesseurs associés.
     @Test
-    private static void testConstructeurComplet() {
+    public void testConstructeurComplet() {
         System.out.println("-- Constructeur complet --");
 
         Voyageur v = new Voyageur("Dupont", "Jean", TypeCout.PRIX);
@@ -30,7 +30,7 @@ public class testVoyageur {
 
     //Teste du constructeur à deux paramètres (critère par défaut : TEMPS).
     @Test
-    private static void testConstructeurParDefaut() {
+    public void testConstructeurParDefaut() {
         System.out.println("-- Constructeur par défaut --");
 
         Voyageur v = new Voyageur("Martin", "Alice");
@@ -40,7 +40,7 @@ public class testVoyageur {
 
     //Teste de la méthode equals() dans différents cas.
     @Test
-    private static void testEquals() {
+    public void testEquals() {
         System.out.println("-- equals() --");
 
         Voyageur v1 = new Voyageur("Dupont", "Jean", TypeCout.PRIX);
@@ -59,7 +59,7 @@ public class testVoyageur {
 
     //Teste de la méthode toString() pour vérifier qu'elle contient les informations essentielles du voyageur.
     @Test
-    private void testToString() {
+    public void testToString() {
         System.out.println("-- toString() --");
         
         Voyageur v = new Voyageur("Dupont", "Jean", TypeCout.PRIX);
