@@ -2,10 +2,29 @@ package src;
 
 import java.util.ArrayList;
 
+
+/**
+ * Classe de traitement des données
+ * Cette classe contient des méthodes pour vérifier la validité des données et pour filtrer les données en fonction d'un mode de transport spécifique
+ * 
+ * @author Jérôme
+ * @version 1.0.0
+*/
 public class TraitementDonnees {
     
     /**
      * Vérifie que les données sont valides (non nulles, non vides, et que chaque champ est rempli)
+     * 
+     * Les données sont considérées comme valides si :
+     * <ul>
+     *  <li>la liste de données n'est pas nulle</li>
+     *  <li>aucune ligne de données n'est nulle ou vide</li>
+     *  <li>chaque champ de chaque ligne de données est rempli (c'est-à-dire qu'il n'est pas vide)</li>
+     * </ul>
+     * 
+     * * @param data la liste de données à vérifier
+     * @return true si les données sont valides, false sinon
+     * 
      * @author Jérôme
      * @version 1.0.0
     */
@@ -44,6 +63,11 @@ public class TraitementDonnees {
 
     /**
      * Filtre les données en fonction d'un mode de transport spécifique
+     * 
+     * * @param data la liste de données à filtrer
+     * * @param transport le mode de transport à filtrer
+     * @return une nouvelle liste de données contenant uniquement les lignes correspondant au mode de transport spéc
+     * 
      * @author Jérôme
      * @version 1.0.0
     */
