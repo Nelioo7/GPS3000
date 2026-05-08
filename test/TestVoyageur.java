@@ -14,7 +14,7 @@ import src.Voyageur;
  * @author Alaëddine
  * @version 1.0.0
  */
-public class testVoyageur {
+public class TestVoyageur {
 
     // Teste du constructeur à trois paramètres et les accesseurs associés.
     @Test
