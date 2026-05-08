@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="_H9hJHuS9NNbUjMo2YYk" name="Page-1">
-        <mxGraphModel dx="3433" dy="1870" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1063" dy="1901" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -34,7 +34,7 @@
                     <mxGeometry y="26" width="140" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="20" value="&lt;b&gt;TraitementDonee&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;rounded=0;arcSize=7;strokeColor=#d6b656;" parent="1" vertex="1">
-                    <mxGeometry x="-600" y="620" width="340" height="70" as="geometry"/>
+                    <mxGeometry x="530" y="-70" width="340" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="22" value="+ &lt;u&gt;verifDatas(ArrayList&amp;lt;String&amp;gt;)&lt;/u&gt;&amp;nbsp; : boolean&lt;br&gt;+ &lt;u&gt;filtrerDatas(ArrayList&amp;lt;String&amp;gt;, ModaliteTransport)&lt;/u&gt;&amp;nbsp;: boolean" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" parent="20" vertex="1">
                     <mxGeometry y="26" width="340" height="44" as="geometry"/>
@@ -57,7 +57,7 @@
                 <mxCell id="45" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endFill=1;" parent="1" source="32" target="37" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="74" style="edgeStyle=none;html=1;entryX=-0.007;entryY=1.013;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="32" target="8">
+                <mxCell id="74" style="edgeStyle=none;html=1;entryX=-0.007;entryY=1.013;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="32" target="8" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="32" value="&lt;b&gt;Plateforme&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;rounded=0;arcSize=7;strokeColor=#d6b656;" parent="1" vertex="1">
@@ -69,7 +69,7 @@
                 <mxCell id="34" value="+ Plateforme(ArrayList&amp;lt;Lieu&amp;gt;, ArrayList&amp;lt;Connexion&amp;gt;)&lt;br&gt;+ Plateforme()&lt;div&gt;+ ajouterLieu(Lieu)&lt;/div&gt;&lt;div&gt;+ ajouterConnexion(Connexion)&lt;/div&gt;&lt;div&gt;+ getLieux() : ArrayList&amp;lt;Lieu&amp;gt;&lt;/div&gt;&lt;div&gt;+ getConnexions() : ArrayList&amp;lt;Connexion&amp;gt;&lt;/div&gt;&lt;div&gt;+ trouverLieu(String) : Lieu&lt;/div&gt;" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" parent="32" vertex="1">
                     <mxGeometry y="40" width="340" height="110" as="geometry"/>
                 </mxCell>
-                <mxCell id="64" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="32" source="32" target="34">
+                <mxCell id="64" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="32" source="32" target="34" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="37" value="&amp;lt;interface&amp;gt; &lt;b&gt;Lieu&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=20;fillColor=#fff2cc;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;rounded=0;arcSize=7;strokeColor=#d6b656;" parent="1" vertex="1">
@@ -78,74 +78,62 @@
                 <mxCell id="47" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.8;entryY=1.023;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="28" target="17" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="50" value="- critereOpti" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="-860" y="442" width="80" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="53" value="0..*&lt;br&gt;- lieux" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="-1070" y="260" width="60" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="54" value="0..*&lt;br&gt;- connexion" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="-1150" y="332" width="70" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="55" value="- typeDeCout" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="-760" y="332" width="90" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="60" style="edgeStyle=none;html=1;dashed=1;endFill=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;dashPattern=8 8;" edge="1" parent="1" source="57" target="37">
+                <mxCell id="60" style="edgeStyle=none;html=1;dashed=1;endFill=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;dashPattern=8 8;" parent="1" source="57" target="37" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="540" y="-110" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="57" value="Ville" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;rounded=0;arcSize=7;strokeColor=#d6b656;" vertex="1" parent="1">
+                <mxCell id="57" value="Ville" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;rounded=0;arcSize=7;strokeColor=#d6b656;" parent="1" vertex="1">
                     <mxGeometry x="50" y="-480" width="165" height="140" as="geometry"/>
                 </mxCell>
-                <mxCell id="58" value="- nom : String" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" vertex="1" parent="57">
+                <mxCell id="58" value="- nom : String" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" parent="57" vertex="1">
                     <mxGeometry y="26" width="165" height="24" as="geometry"/>
                 </mxCell>
-                <mxCell id="59" value="&lt;div&gt;+ Ville(String)&lt;/div&gt;+ getNom() : String&lt;br&gt;+ equals(Object) : boolean&lt;div&gt;+ hashCode() : int&lt;/div&gt;&lt;div&gt;+ toString() : String&lt;/div&gt;" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" vertex="1" parent="57">
+                <mxCell id="59" value="&lt;div&gt;+ Ville(String)&lt;/div&gt;+ getNom() : String&lt;br&gt;+ equals(Object) : boolean&lt;div&gt;+ hashCode() : int&lt;/div&gt;&lt;div&gt;+ toString() : String&lt;/div&gt;" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" parent="57" vertex="1">
                     <mxGeometry y="50" width="165" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="93" style="edgeStyle=none;html=1;dashed=1;endFill=0;dashPattern=8 8;" edge="1" parent="1" source="61" target="8">
+                <mxCell id="93" style="edgeStyle=none;html=1;dashed=1;endFill=0;dashPattern=8 8;" parent="1" source="61" target="8" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="61" value="Trajet" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;rounded=0;arcSize=7;strokeColor=#d6b656;" vertex="1" parent="1">
+                <mxCell id="61" value="Trajet" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;rounded=0;arcSize=7;strokeColor=#d6b656;" parent="1" vertex="1">
                     <mxGeometry x="435" y="-405" width="230" height="230" as="geometry"/>
                 </mxCell>
-                <mxCell id="62" value="- depart : Lieu&lt;div&gt;- arrivee : Lieu&lt;/div&gt;&lt;div&gt;- modalite : ModaliteTransport&lt;/div&gt;&lt;div&gt;- couts : CoutConnexion&lt;/div&gt;" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" vertex="1" parent="61">
+                <mxCell id="62" value="- depart : Lieu&lt;div&gt;- arrivee : Lieu&lt;/div&gt;&lt;div&gt;- modalite : ModaliteTransport&lt;/div&gt;&lt;div&gt;- couts : CoutConnexion&lt;/div&gt;" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" parent="61" vertex="1">
                     <mxGeometry y="26" width="230" height="74" as="geometry"/>
                 </mxCell>
-                <mxCell id="63" value="+ Trajet(Lieu, Lieu, ModaliteTransport, CoutConnexion)&lt;br&gt;&lt;div&gt;+ getDepart() : Lieu&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ getArrivee() : Lieu&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;+ getModalite() : ModaliteTransport&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;+ getCouts() : CoutConnexion&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;+ getPoids(TypeCout) : Double&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;+ toString() : String&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" vertex="1" parent="61">
+                <mxCell id="63" value="+ Trajet(Lieu, Lieu, ModaliteTransport, CoutConnexion)&lt;br&gt;&lt;div&gt;+ getDepart() : Lieu&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;+ getArrivee() : Lieu&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;+ getModalite() : ModaliteTransport&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;+ getCouts() : CoutConnexion&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;+ getPoids(TypeCout) : Double&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;+ toString() : String&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" parent="61" vertex="1">
                     <mxGeometry y="100" width="230" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="95" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="69" target="32">
+                <mxCell id="95" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="69" target="32" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="320" y="20" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="69" value="&lt;b&gt;GestionnaireItineraire&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;rounded=0;arcSize=7;strokeColor=#d6b656;" vertex="1" parent="1">
+                <mxCell id="69" value="&lt;b&gt;GestionnaireItineraire&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;rounded=0;arcSize=7;strokeColor=#d6b656;" parent="1" vertex="1">
                     <mxGeometry x="95" y="-40" width="290" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="70" value="- plateforme : Plateforme" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" vertex="1" parent="69">
+                <mxCell id="70" value="- plateforme : Plateforme" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" parent="69" vertex="1">
                     <mxGeometry y="26" width="290" height="34" as="geometry"/>
                 </mxCell>
-                <mxCell id="71" value="+ GestionnaireItineraire(Plateforme)&lt;div&gt;+ trouverItineraires(Lieu, Lieu, Voyageur, int) : List&amp;lt;Chemin&amp;gt;&lt;/div&gt;" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" vertex="1" parent="69">
+                <mxCell id="71" value="+ GestionnaireItineraire(Plateforme)&lt;div&gt;+ trouverItineraires(Lieu, Lieu, Voyageur, int) : List&amp;lt;Chemin&amp;gt;&lt;/div&gt;" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" parent="69" vertex="1">
                     <mxGeometry y="60" width="290" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="72" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="69" source="69" target="71">
+                <mxCell id="72" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="69" source="69" target="71" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="94" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="62" target="13">
+                <mxCell id="94" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="62" target="13" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="96" value="-lieux&lt;div&gt;0..*&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="96" value="-lieux&lt;div&gt;0..*&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="280" y="-530" width="50" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="97" value="-connexions&lt;div&gt;0..*&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="97" value="-connexions&lt;div&gt;0..*&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="360" y="-500" width="90" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="99" value="-couts&lt;div&gt;1&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="99" value="-couts&lt;div&gt;1&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="710" y="-380" width="60" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="100" value="-critereOpti" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="100" value="-critereOpti" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="1100" y="-480" width="80" height="30" as="geometry"/>
                 </mxCell>
             </root>
