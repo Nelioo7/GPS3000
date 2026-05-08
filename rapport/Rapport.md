@@ -34,6 +34,8 @@
     ```
     .
     ├── bin
+    ├── lib
+    │   └── junit-platform-console-standalone-6.0.3 (1).jar
     ├── rapport
     │   ├── img
     │   ├── Rapport.md
@@ -49,6 +51,7 @@
     │   ├── TypeCout.java
     │   └── Voyageur.java
     └── test
+        └── testVoyageur.java
     ```
 
 ## Conception
