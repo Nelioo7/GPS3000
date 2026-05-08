@@ -1,5 +1,7 @@
 package src;
 
+import fr.ulille.but.sae_s2_2026.Lieu;
+
 /**
  * Interface qui fournit le point de départ, celui d'arrivée et sa modalité de transport
  * @author Erwann Besegher

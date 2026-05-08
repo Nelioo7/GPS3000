@@ -1,5 +1,4 @@
 package src;
-
 /**
  * Base de données centrale du réseau de transport.
  * @author Erwann Besegher
@@ -8,6 +7,10 @@ package src;
  */
 
 import java.util.ArrayList;
+
+import fr.ulille.but.sae_s2_2026.Lieu;
+import fr.ulille.but.sae_s2_2026.Connexion;
+
 
 public class Plateforme {
     // Liste des villes disponibles

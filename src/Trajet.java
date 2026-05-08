@@ -1,24 +1,20 @@
 package src;
 
+import fr.ulille.but.sae_s2_2026.Lieu; 
+import fr.ulille.but.sae_s2_2026.Connexion; 
+import fr.ulille.but.sae_s2_2026.ModaliteTransport;
+
 /**
  * Liaison entre deux lieux avec coûts et transport.
  * @author Amayas Mehmel
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 public class Trajet implements Connexion {
-    // Le lieu de départ
     private Lieu depart;
-
-    // Le lieu d'arrivée
     private Lieu arrive;
-
-    // Le mode de transport
     private ModaliteTransport modalite;
-
-    // Les différents coûts associés (Prix, Temps, CO2)
     private CoutConnexion couts;
-
 
     public Trajet(Lieu depart, Lieu arrive, ModaliteTransport modalite, CoutConnexion couts){
         this.depart = depart;
@@ -27,33 +23,32 @@ public class Trajet implements Connexion {
         this.couts = couts;
     }
 
-    // renvoie le point de départ de la connexion
     @Override
-    public Lieu getDepart() { 
+    public Lieu getDepart() { // renvoie le Lieu officiel de départ
         return this.depart;
     }
 
-    // renvoie le point d'arrivée de la connexion
     @Override
-    public Lieu getArrivee() { 
+    public Lieu getArrivee() { // renvoie le Lieu officiel d'arrivée
         return this.arrive;
     }
 
-    // renvoie le type de transport utilisé
     @Override
-    public ModaliteTransport getModalite() { 
+    public ModaliteTransport getModalite() { // renvoie le type de transport
         return this.modalite;
     }
 
-    // renvoie l'ensemble des coûts
-    public CoutConnexion getCouts(){ 
+    public CoutConnexion getCouts(){ // renvoie l'ensemble des coûts
         return this.couts;
     }
-    
-    // renvoie le coût spécifique selon le critère choisi
-    public Double getPoids(TypeCout critere) { 
+
+    public Double getPoids(TypeCout critere) { // renvoie le coût spécifique
         return this.couts.getCout(critere);
     }
 
-
+    @Override
+    public String toString() {
+        // affiche sous la forme : "villeA -> villeB (TRAIN)"
+        return this.depart.toString() + " -> " + this.arrive.toString() + " (" + this.modalite + ")";
+    }
 }
