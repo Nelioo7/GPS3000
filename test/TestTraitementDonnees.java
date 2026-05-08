@@ -15,7 +15,7 @@ import src.TraitementDonnees;
  * * @author Alaëddine
  * @version 1.0.0
  */
-public class testTraitementDonnees {
+public class TestTraitementDonnees {
 
     @Test
     public void testVerifDatas() {
