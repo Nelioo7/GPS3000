@@ -3,17 +3,20 @@ package poo;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 
 import fr.ulille.but.sae_s2_2026.Chemin;
 import fr.ulille.but.sae_s2_2026.Connexion;
 import fr.ulille.but.sae_s2_2026.Lieu;
 import fr.ulille.but.sae_s2_2026.ModaliteTransport;
 
+import graphes.GraphesV1;
 
 /**
  * Programme de test pour la Version 1 de l'assistant de voyage.
  * @author Amayas Mehmel
- * @version 1.1.0
+ * @version 1.3.0
  */
 public class Main {
 
@@ -22,7 +25,7 @@ public class Main {
         // Vérification des arguments du terminal
         if (args.length < 5) {
             System.out.println("Erreur : Il manque des arguments.");
-            System.out.println("Utilisation : java -cp \"bin;lib/*\" src.Main <Nom> <Prenom> <Critere> <Transport> <DureeMax>");
+            System.out.println("Utilisation : java -cp \"bin;lib/*\" poo.Main <Nom> <Prenom> <Critere> <Transport> <DureeMax>");
             return;
         }
 
@@ -85,12 +88,30 @@ public class Main {
         System.out.println("Recherche pour : " + utilisateur);
         System.out.println("Transport imposé : " + modeChoisi + "\n");
 
-        GestionnaireItineraire moteur = new GestionnaireItineraire(plateforme);
         Lieu depart = plateforme.trouverLieu("villeA");
         Lieu arrivee = plateforme.trouverLieu("villeD");
 
         if (depart != null && arrivee != null) {
-            List<Chemin> resultats = moteur.trouverItineraires(depart, arrivee, utilisateur.getCritereOpti(), 3);
+            
+            // On prépare une Map pour stocker les poids
+            Map<Connexion, Double> aretesValuees = new HashMap<>();
+
+            // On remplit la Map en fonction du critère choisi par l'utilisateur
+            for (Connexion c : plateforme.getConnexions()) {
+                if (c instanceof Trajet) {
+                    double poids = ((Trajet) c).getPoids(utilisateur.getCritereOpti());
+                    aretesValuees.put(c, poids);
+                }
+            }
+
+            // On appelle le moteur de graphe totalement indépendant
+            List<Chemin> resultats = GraphesV1.calculer(
+                plateforme.getLieux(), 
+                aretesValuees, 
+                depart, 
+                arrivee, 
+                3
+            );
 
             int index = 1;
             for (Chemin c : resultats) {
@@ -108,6 +129,8 @@ public class Main {
             if (index == 1) {
                 System.out.println("Aucun itinéraire ne correspond à vos critères.");
             }
+        } else {
+            System.out.println("Erreur : Impossible de trouver les villes de départ et d'arrivée dans le réseau.");
         }
     }
 }
