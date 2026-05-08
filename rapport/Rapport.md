@@ -21,13 +21,18 @@
 
 ### Execution
 
-Pour executer l'application il faut taper la commande ``.
+Pour compiler il faut utiliser `javac -cp "lib/" -d bin src/.java`.
+
+Pour executer il faut utiliser `java -cp "bin:lib/*" src.Main <nom> <prenom> <critereOpti> <transport> <tempsMax>`.
 
 ### Paramètres d'entrée
 
 Les paramètres à entrer dans l'appli sont les suivants:
-- parafhdjkqhf
-- fjeqj (faut qu'on mette les paramètres)
+- le nom
+- le prenom
+- le critère à opti
+- le moyen de transport
+- le temps max
 
 ### Structure du projet
 
@@ -89,6 +94,8 @@ Nous utilisons JUnit pour nos tests et nos tests sont dans le dossier `test/`
 
 ### Cas testés
 
+**Classe Voyageur**
+
 | Méthode | Cas testé | Résultat attendu |
 |---------|-----------|------------------|
 | `Voyageur(nom, prenom, critere)` | Constructeur complet avec `"Dupont"`, `"Jean"`, `PRIX` | `getNom()` → `"Dupont"`, `getPrenom()` → `"Jean"`, `getCritereOpti()` → `PRIX` |
@@ -98,3 +105,16 @@ Nous utilisons JUnit pour nos tests et nos tests sont dans le dossier `test/`
 | `equals()` | Nom et prénom différents (`v1.equals(v2)`) | `false` |
 | `equals()` | Comparaison avec `null` | `false` |
 | `toString()` | Voyageur avec `"Dupont"`, `"Jean"`, `PRIX` | La chaîne contient `"Dupont"`, `"Jean"` et `"PRIX"` |
+
+**Classe TraitementDonnées**
+
+| Méthode | Cas testé | Résultat attendu |
+|---|---|---|
+| `verifDatas()` | Liste valide avec deux lignes complètes | `true` |
+| `verifDatas()` | Liste `null` | `false` |
+| `verifDatas()` | Liste contenant ligne vide `""` | `false` |
+| `verifDatas()` | Champ vide au milieu `"Paris;;TRAIN;120"` | `false` |
+| `verifDatas()` | Dernier champ vide `"Paris;Lyon;TRAIN;"` | `false` |
+| `filtrerDatas()` | Filtre `TRAIN` sur liste mixte (TRAIN, AVION, BUS) | 2 résultats retournés |
+| `filtrerDatas()` | Contenu du premier résultat | Contient `"Paris"` |
+| `filtrerDatas()` | Contenu du second résultat | Contient `"Marseille"` |
