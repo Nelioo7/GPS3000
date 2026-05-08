@@ -7,6 +7,9 @@
     - [Execution](#execution)
     - [Paramètres d'entrée](#paramètres-dentrée)
     - [Structure du projet](#structure-du-projet)
+  - [Conception](#conception)
+  - [Logique](#logique)
+  - [Tests](#tests)
 
 ---
 
@@ -41,3 +44,11 @@
     │   └── Voyageur.java
     └── test
     ```
+
+## Conception
+
+mettre uml + justifier nos choix
+
+## Logique
+
+## Tests
