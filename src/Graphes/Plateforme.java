@@ -1,4 +1,4 @@
-package src;
+package src.Graphes;
 /**
  * Base de données centrale du réseau de transport.
  * @author Erwann Besegher

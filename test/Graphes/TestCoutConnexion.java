@@ -1,9 +1,11 @@
+package test.Graphes;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
 
-import src.CoutConnexion;
-import src.TypeCout;
+import src.Graphes.CoutConnexion;
+import src.Graphes.TypeCout;
 
 /**
  * Classe de tests pour CoutConnexion.

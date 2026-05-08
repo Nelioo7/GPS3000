@@ -1,4 +1,4 @@
-package src;
+package src.Graphes;
 
 import java.util.Objects;
 import fr.ulille.but.sae_s2_2026.Lieu;

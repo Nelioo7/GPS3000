@@ -1,4 +1,4 @@
-package src;
+package src.Graphes;
 
 /**
  * Fournit les différents moyens de transport disponibles.
