@@ -20,14 +20,6 @@ import fr.ulille.but.sae_s2_2026.MultiGrapheOrienteValue;
 public class Main {
 
     public static void main(String[] args) {
-        
-        // Vérification des arguments du terminal
-        if (args.length < 5) {
-            System.out.println("Erreur : Il manque des arguments.");
-            System.out.println("Utilisation : java -cp \"bin;lib/*\" poo.Main <Nom> <Prenom> <Critere> <Transport> <DureeMax>");
-            return;
-        }
-
         // Préparation des données brutes
         ArrayList<String> dataBrutes = new ArrayList<>(Arrays.asList(
             "villeA;villeB;TRAIN;60;1.7;80",
