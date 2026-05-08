@@ -1,6 +1,5 @@
 package test.poo;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.Test;
 
