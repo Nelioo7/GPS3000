@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import fr.ulille.but.sae_s2_2026.ModaliteTransport;
+
 /**
  * Classe de tests pour TraitementDonnees.
  * Vérifie le bon fonctionnement des méthodes.
