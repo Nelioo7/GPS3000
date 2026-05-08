@@ -1,6 +1,7 @@
 package poo;
 
 import fr.ulille.but.sae_s2_2026.Lieu;
+import fr.ulille.but.sae_s2_2026.ModaliteTransport;
 
 /**
  * Interface qui fournit le point de départ, celui d'arrivée et sa modalité de transport

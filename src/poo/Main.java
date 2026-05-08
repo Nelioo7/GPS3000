@@ -9,6 +9,7 @@ import fr.ulille.but.sae_s2_2026.Connexion;
 import fr.ulille.but.sae_s2_2026.Lieu;
 import fr.ulille.but.sae_s2_2026.ModaliteTransport;
 
+
 /**
  * Programme de test pour la Version 1 de l'assistant de voyage.
  * @author Amayas Mehmel
@@ -27,12 +28,12 @@ public class Main {
 
         // Préparation des données brutes
         ArrayList<String> dataBrutes = new ArrayList<>(Arrays.asList(
-            "villeA;villeB;Train;60;1.7;80",
-            "villeB;villeD;Train;22;2.4;40",
-            "villeA;villeC;Train;42;1.4;50",
-            "villeB;villeC;Train;14;1.4;60",
-            "villeC;villeD;Avion;110;150;22",
-            "villeC;villeD;Train;65;1.2;90"
+            "villeA;villeB;TRAIN;60;1.7;80",
+            "villeB;villeD;TRAIN;22;2.4;40",
+            "villeA;villeC;TRAIN;42;1.4;50",
+            "villeB;villeC;TRAIN;14;1.4;60",
+            "villeC;villeD;AVION;110;150;22",
+            "villeC;villeD;TRAIN;65;1.2;90"
         ));
 
         // Récupération des choix utilisateur
@@ -89,7 +90,7 @@ public class Main {
         Lieu arrivee = plateforme.trouverLieu("villeD");
 
         if (depart != null && arrivee != null) {
-            List<Chemin> resultats = moteur.trouverItineraires(depart, arrivee, utilisateur, 3);
+            List<Chemin> resultats = moteur.trouverItineraires(depart, arrivee, utilisateur.getCritereOpti(), 3);
 
             int index = 1;
             for (Chemin c : resultats) {

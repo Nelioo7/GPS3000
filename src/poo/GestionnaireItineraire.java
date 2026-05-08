@@ -22,29 +22,21 @@ public class GestionnaireItineraire {
         this.plateforme = plateforme;
     }
 
-    public List<Chemin> trouverItineraires(Lieu depart, Lieu arrivee, Voyageur v, int k) {
-        // On crée un nouveau multigraphe vide
+    public List<Chemin> trouverItineraires(Lieu depart, Lieu arrivee, TypeCout critere, int k) {
         MultiGrapheOrienteValue graphe = new MultiGrapheOrienteValue();
 
-        // On récupère le critère que le voyageur veut optimiser (Prix, Temps ou CO2)
-        TypeCout critere = v.getCritereOpti();
-
-        // On ajoute tous les sommets (villes) au graphe
         for (Lieu l : plateforme.getLieux()) {
             graphe.ajouterSommet(l);
         }
 
-        // On ajoute les arêtes avec le poids correspondant au critère du voyageur
         for (Connexion c : plateforme.getConnexions()) {
-            // On transforme la connexion en Trajet pour accéder à getPoids
-            Trajet t = (Trajet) c;
-            double poids = t.getPoids(critere);
-            
-            // On ajoute l'arête au graphe (la librairie gère l'orientation)
-            graphe.ajouterArete(t, poids);
+            if (c instanceof Trajet) {
+                Trajet t = (Trajet) c;
+                double poids = t.getPoids(critere);
+                graphe.ajouterArete(c, poids);
+            }
         }
 
-        // On lance l'algorithme KPCC pour trouver les k meilleurs chemins
         return AlgorithmeKPCC.kpcc(graphe, depart, arrivee, k);
     }
 }
