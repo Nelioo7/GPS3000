@@ -7,7 +7,7 @@ import java.util.Map;
  * Objet qui fournit une association entre un type de cout et un cout
  * @author Erwann Besegher
  * @author Amayas Mehmel
- * @version 1.0.0
+ * @version 1.1.0
  */
 public class CoutConnexion {
     private Map<TypeCout, Double> coutConnexion; // table d'association type de cout et cout
