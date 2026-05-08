@@ -2,7 +2,6 @@
 
 ---
 - [SAE 2.1/2.2](#sae-2122)
-  - [Soucis JUnit](#soucis-junit)
   - [Lancement de de l'application](#lancement-de-de-lapplication)
     - [Execution](#execution)
     - [Paramètres d'entrée](#paramètres-dentrée)
@@ -16,10 +15,6 @@
     - [Cas testés](#cas-testés)
 
 ---
-
-## Soucis JUnit
-
-Nous avons constaté des soucis avec JUnit, parfois il est necessaire de préciser src.poo ou test.poo
 
 ## Lancement de de l'application
 
