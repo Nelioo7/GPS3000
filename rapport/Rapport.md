@@ -18,41 +18,41 @@
 
 ## Lancement de de l'application
 
-### Execution
+  ### Execution
 
-    Pour executer l'application il faut taper la commande ``.
+      Pour executer l'application il faut taper la commande ``.
 
-### Paramètres d'entrée
+  ### Paramètres d'entrée
 
-    Les paramètres à entrer dans l'appli sont les suivants:
-    - parafhdjkqhf
-    - fjeqj (faut qu'on mette les paramètres)
+      Les paramètres à entrer dans l'appli sont les suivants:
+      - parafhdjkqhf
+      - fjeqj (faut qu'on mette les paramètres)
 
-### Structure du projet
+  ### Structure du projet
 
-    *Le projet suit la structure suivante*
-    ```
-    .
-    ├── bin
-    ├── lib
-    │   └── junit-platform-console-standalone-6.0.3 (1).jar
-    ├── rapport
-    │   ├── img
-    │   ├── Rapport.md
-    │   └── uml.drawio
-    ├── README.md
-    ├── src
-    │   ├── Connexion.java
-    │   ├── CoutConnexion.java
-    │   ├── Lieu.java
-    │   ├── ModaliteTransport.java
-    │   ├── Plateforme.java
-    │   ├── TraitementDonnees.java
-    │   ├── TypeCout.java
-    │   └── Voyageur.java
-    └── test
-        └── testVoyageur.java
-    ```
+      *Le projet suit la structure suivante*
+      ```
+      .
+      ├── bin
+      ├── lib
+      │   └── junit-platform-console-standalone-6.0.3 (1).jar
+      ├── rapport
+      │   ├── img
+      │   ├── Rapport.md
+      │   └── uml.drawio
+      ├── README.md
+      ├── src
+      │   ├── Connexion.java
+      │   ├── CoutConnexion.java
+      │   ├── Lieu.java
+      │   ├── ModaliteTransport.java
+      │   ├── Plateforme.java
+      │   ├── TraitementDonnees.java
+      │   ├── TypeCout.java
+      │   └── Voyageur.java
+      └── test
+          └── testVoyageur.java
+      ```
 
 ## Conception
 
