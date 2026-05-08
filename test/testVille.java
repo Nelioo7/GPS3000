@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import src.Ville;
 
-public class testVille {
+public class TestVille {
 
     /**
     * Classe de tests pour Ville.
