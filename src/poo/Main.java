@@ -3,20 +3,19 @@ package poo;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 
+// Imports de la bibliothèque de graphes
+import fr.ulille.but.sae_s2_2026.AlgorithmeKPCC;
 import fr.ulille.but.sae_s2_2026.Chemin;
 import fr.ulille.but.sae_s2_2026.Connexion;
 import fr.ulille.but.sae_s2_2026.Lieu;
 import fr.ulille.but.sae_s2_2026.ModaliteTransport;
-
-import graphes.GraphesV1;
+import fr.ulille.but.sae_s2_2026.MultiGrapheOrienteValue;
 
 /**
- * Programme de test pour la Version 1 de l'assistant de voyage.
+ * Programme principal pour l'assistant de voyage (Partie POO).
  * @author Amayas Mehmel
- * @version 1.3.1
+ * @version 1.4.5
  */
 public class Main {
 
@@ -80,39 +79,40 @@ public class Main {
                 }
 
                 CoutConnexion couts = new CoutConnexion(prix, temps, co2);
+                // Graphe orienté : on ajoute dans les deux sens si c'est bidirectionnel
                 plateforme.ajouterConnexion(new Trajet(dep, arr, mode, couts));
                 plateforme.ajouterConnexion(new Trajet(arr, dep, mode, couts));
             }
         }
 
         // Calcul et affichage des itinéraires
-        System.out.println("Recherche pour : " + utilisateur);
-        System.out.println("Transport imposé : " + modeChoisi + "\n");
+        System.out.println("Recherche pour : " + utilisateur.getNom() + " " + utilisateur.getPrenom());
+        System.out.println("Transport imposé : " + modeChoisi);
+        System.out.println("Critère d'optimisation : " + critereChoisi + "\n");
 
         Lieu depart = plateforme.trouverLieu("villeA");
         Lieu arrivee = plateforme.trouverLieu("villeD");
 
         if (depart != null && arrivee != null) {
             
-            // On prépare une Map pour stocker les poids
-            Map<Connexion, Double> aretesValuees = new HashMap<>();
+            // 1. Création du graphe de calcul
+            MultiGrapheOrienteValue graphe = new MultiGrapheOrienteValue();
 
-            // On remplit la Map en fonction du critère choisi par l'utilisateur
+            // 2. Ajout des sommets
+            for (Lieu l : plateforme.getLieux()) {
+                graphe.ajouterSommet(l);
+            }
+
+            // 3. Ajout des arêtes avec le poids correspondant au critère choisi
             for (Connexion c : plateforme.getConnexions()) {
                 if (c instanceof Trajet) {
                     double poids = ((Trajet) c).getPoids(utilisateur.getCritereOpti());
-                    aretesValuees.put(c, poids);
+                    graphe.ajouterArete(c, poids);
                 }
             }
 
-            // On appelle le moteur de graphe totalement indépendant
-            List<Chemin> resultats = GraphesV1.calculer(
-                plateforme.getLieux(), 
-                aretesValuees, 
-                depart, 
-                arrivee, 
-                3
-            );
+            // 4. Calcul des 3 meilleurs itinéraires avec la bibliothèque fournie
+            List<Chemin> resultats = AlgorithmeKPCC.kpcc(graphe, depart, arrivee, 3);
 
             int index = 1;
             for (Chemin c : resultats) {
@@ -121,6 +121,7 @@ public class Main {
                     tempsTotal += ((Trajet)a).getPoids(TypeCout.TEMPS);
                 }
 
+                // Filtrage final sur la durée maximale
                 if (tempsTotal <= dureeMax) {
                     System.out.println(index + ") " + c.toString() + " [Temps : " + (int)tempsTotal + " min]");
                     index++;
