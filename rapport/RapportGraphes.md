@@ -8,7 +8,7 @@ Equipe C2: Erwann Besegher, Alaeddine Oudriss, Jérôme Pardoue, Mehmel Amayas
 
 Le schéma suivant représente la situation que nous avons modélisée.
 
-![image1Osef]()
+![image1Osef](./img/gr1.png)
 
 Nous avons défini les connexions directes:
 
@@ -53,7 +53,7 @@ Préférences de l'utilisatrice :
 
 ### 1.2 Modèle pour l'exemple
 
-![image2ToujoursOsef]()
+![image2ToujoursOsef](./img/gr2.png)
 
 ### 1.3 Modélisation pour la Version 1 dans le cas général
 Pour résoudre ce problème de manière abstraite:
