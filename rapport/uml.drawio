@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="_H9hJHuS9NNbUjMo2YYk" name="Page-1">
-        <mxGraphModel dx="1063" dy="1901" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="427" dy="1340" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -112,7 +112,7 @@
                 <mxCell id="69" value="&lt;b&gt;GestionnaireItineraire&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;rounded=0;arcSize=7;strokeColor=#d6b656;" parent="1" vertex="1">
                     <mxGeometry x="95" y="-40" width="290" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="70" value="- plateforme : Plateforme" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" parent="69" vertex="1">
+                <mxCell id="70" value="" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" parent="69" vertex="1">
                     <mxGeometry y="26" width="290" height="34" as="geometry"/>
                 </mxCell>
                 <mxCell id="71" value="+ GestionnaireItineraire(Plateforme)&lt;div&gt;+ trouverItineraires(Lieu, Lieu, Voyageur, int) : List&amp;lt;Chemin&amp;gt;&lt;/div&gt;" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;arcSize=7;" parent="69" vertex="1">
@@ -135,6 +135,9 @@
                 </mxCell>
                 <mxCell id="100" value="-critereOpti" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="1100" y="-480" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" value="-plateforme" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="-82" width="80" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
