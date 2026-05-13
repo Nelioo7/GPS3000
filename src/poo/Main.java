@@ -1,8 +1,10 @@
 package poo;
 
-import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 // Imports de la bibliothèque de graphes
 import fr.ulille.but.sae_s2_2026.AlgorithmeKPCC;
@@ -13,22 +15,45 @@ import fr.ulille.but.sae_s2_2026.ModaliteTransport;
 import fr.ulille.but.sae_s2_2026.MultiGrapheOrienteValue;
 
 /**
- * Programme principal pour l'assistant de voyage (Partie POO).
- * @author Amayas Mehmel
- * @version 1.4.5
+ * Programme principal pour l'assistant de voyage
+ * @author Amayas Mehmel - Erwann Besegher
+ * @version 2.0.0
  */
 public class Main {
 
     public static void main(String[] args) {
         // Préparation des données brutes
-        ArrayList<String> dataBrutes = new ArrayList<>(Arrays.asList(
-            "villeA;villeB;TRAIN;60;1.7;80",
-            "villeB;villeD;TRAIN;22;2.4;40",
-            "villeA;villeC;TRAIN;42;1.4;50",
-            "villeB;villeC;TRAIN;14;1.4;60",
-            "villeC;villeD;AVION;110;150;22",
-            "villeC;villeD;TRAIN;65;1.2;90"
-        ));
+        // ArrayList<String> dataBrutes = new ArrayList<>(Arrays.asList(
+        //     "villeA;villeB;TRAIN;60;1.7;80",
+        //     "villeB;villeD;TRAIN;22;2.4;40",
+        //     "villeA;villeC;TRAIN;42;1.4;50",
+        //     "villeB;villeC;TRAIN;14;1.4;60",
+        //     "villeC;villeD;AVION;110;150;22",
+        //     "villeC;villeD;TRAIN;65;1.2;90"
+        // ));
+
+        // on importe le fichier avec son chemin
+        File fichierCSV = new File(""); // TODO ajouter le chemin du csv
+
+        // on initialise l'ArrayList qui va nous servir à stocker les données
+        ArrayList<String> dataBrutes = new ArrayList<>();
+
+        try { // On initialise un scanner pour parcourir le fichier CSV
+            Scanner scanner = new Scanner(fichierCSV);
+
+            // tant que le scanner possède des lignes
+            while(scanner.hasNext()) {
+                dataBrutes.add(scanner.next()); // on les ajoute dans l'ArrayList
+            }
+            scanner.close(); // on ferme le scanner
+
+        } catch (FileNotFoundException fileNotFoundException) { // si le fichier n'est pas trouvé on affiche un message + la stackTrace
+            System.out.println("Le fichier CSV n'a pas été trouvé.");
+            fileNotFoundException.printStackTrace();
+
+        } catch (Exception exception) { // si il s'agit d'une autre erreur on affiche la stackTrace
+            exception.printStackTrace();
+        }
 
         // Récupération des choix utilisateur
         TypeCout critereChoisi = TypeCout.valueOf(args[2].toUpperCase());
