@@ -33,7 +33,7 @@ public class Main {
         // ));
 
         // on importe le fichier avec son chemin
-        File fichierCSV = new File("res/exemple-correspondances.csv"); // TODO ajouter le chemin du csv
+        File fichierCSV = new File("res/exemple-reseau.csv"); // TODO ajouter le chemin du csv
 
         // on initialise l'ArrayList qui va nous servir à stocker les données
         ArrayList<String> dataBrutes = new ArrayList<>();
