@@ -26,9 +26,19 @@ public class Ville implements Lieu {
 
     @Override
     public boolean equals(Object o) { // vérifie l'égalité entre deux villes
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null) {
+            return false;
+        }
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Ville ville = (Ville) o;
+        if (ville.getNom() == null) {
+            return false;
+        }
         return Objects.equals(this.nom, ville.getNom());
     }
 
