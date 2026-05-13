@@ -33,7 +33,7 @@ public class Main {
         // ));
 
         // on importe le fichier avec son chemin
-        File fichierCSV = new File(""); // TODO ajouter le chemin du csv
+        File fichierCSV = new File("res/exemple-correspondances.csv"); // TODO ajouter le chemin du csv
 
         // on initialise l'ArrayList qui va nous servir à stocker les données
         ArrayList<String> dataBrutes = new ArrayList<>();
@@ -63,7 +63,7 @@ public class Main {
 
         // Utilisation de la classe TraitementDonnees (Validation & Filtrage)
         if (!TraitementDonnees.verifDatas(dataBrutes)) {
-            System.out.println("Erreur : Le format des données sources est invalide.");
+            System.out.println("Erreur: Le format des données sources est invalide.");
             return;
         }
 
