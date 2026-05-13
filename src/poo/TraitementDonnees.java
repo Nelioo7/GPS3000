@@ -71,8 +71,8 @@ public class TraitementDonnees {
      * @param transport le mode de transport à filtrer
      * @return une nouvelle liste de données contenant uniquement les lignes correspondant au mode de transport spéc
      * 
-     * @author Jérôme
-     * @version 1.0.0
+     * @author Jérôme - Erwann Besegher
+     * @version 2.0.0
     */
     public static ArrayList<String> filtrerDatas(ArrayList<String> data, ModaliteTransport transport) {
         ArrayList<String> result = new ArrayList<>();
@@ -82,7 +82,7 @@ public class TraitementDonnees {
 
             for (int i = 0; i < ligne.length(); i++) {
                 if (ligne.charAt(i) == ';') {
-                    if (champ.equals(transport.toString())) {
+                    if (champ.equals(transport.toString().toUpperCase())) {
                         result.add(ligne);
                         break;
                     };
