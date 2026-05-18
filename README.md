@@ -23,7 +23,7 @@
 Pour compiler il faut utiliser `javac -cp "lib/*" -d bin src/poo/*.java`.
 *Nous nous étions trompés sur la ligne de compilations dans a versions précédente.*
 
-Pour executer il faut utiliser `java -cp "bin:lib/*" src.Main <nom> <prenom> <critereOpti> <transport> <tempsMax>`.
+Pour executer il faut utiliser `java -cp "bin:lib/*" poo.Main <nom> <prenom> <critereOpti> <transport> <tempsMax>`.
 
 ### Paramètres d'entrée
 
