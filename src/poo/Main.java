@@ -32,8 +32,10 @@ public class Main {
         //     "villeC;villeD;TRAIN;65;1.2;90"
         // ));
 
+        String cheminFichier = ("res/exemple-reseau.csv");
+
         // on importe le fichier avec son chemin
-        File fichierCSV = new File("res/exemple-reseau.csv");
+        File fichierCSV = new File(cheminFichier);
 
         // on initialise l'ArrayList qui va nous servir à stocker les données
         ArrayList<String> dataBrutes = new ArrayList<>();
@@ -48,7 +50,7 @@ public class Main {
             scanner.close(); // on ferme le scanner
 
         } catch (FileNotFoundException fileNotFoundException) { // si le fichier n'est pas trouvé on affiche un message + la stackTrace
-            System.out.println("Le fichier CSV n'a pas été trouvé.");
+            System.out.println("Le fichier " + cheminFichier + " n'a pas été trouvé.");
             fileNotFoundException.printStackTrace();
 
         } catch (Exception exception) { // si il s'agit d'une autre erreur on affiche la stackTrace
