@@ -39,7 +39,7 @@ public class Main {
         //     "villeC;villeD;AVION;110;150;22",
         //     "villeC;villeD;TRAIN;65;1.2;90"
         // ));
-        String cheminFichier = ("res/exemple-reseau.csv");
+String cheminFichier = ("res/exemple-reseau.csv");
 
         // on importe le fichier avec son chemin
         File fichierCSV = new File(cheminFichier);
@@ -48,13 +48,11 @@ public class Main {
         // on initialise un scanner pour parcourir le fichier CSV
         try { 
             Scanner scanner = new Scanner(fichierCSV);
-            // On utilise hasNextLine() pour lire ligne par ligne
-            while(scanner.hasNextLine()) {
-                String ligne = scanner.nextLine(); // .trim() enlève les espaces/retours à la ligne invisibles
-                if (!ligne.isEmpty()) { // On ignore les lignes vides
-                    // on les ajoute dans l'ArrayList 
-                    dataBrutes.add(ligne);
-                }
+            // tant que le scanner possède des lignes
+            while(scanner.hasNext()) {
+                // CORRECTION ICI : On force la ligne en MAJUSCULES dès la lecture pour que le filtre fonctionne !
+                dataBrutes.add(scanner.next().toUpperCase());
+            // on les ajoute dans l'ArrayList
             }
             scanner.close();
             // on ferme le scanner
@@ -103,30 +101,30 @@ public class Main {
                 }
 
                 CoutConnexion couts = new CoutConnexion(prix, temps, co2);
-                // graphe orienté : on ajoute dans les deux sens si c'est bidirectionnel
+                // Graphe orienté : on ajoute dans les deux sens si c'est bidirectionnel
                 plateforme.ajouterConnexion(new Trajet(dep, arr, mode, couts));
                 plateforme.ajouterConnexion(new Trajet(arr, dep, mode, couts));
             }
         }
 
-        // calcul et affichage des itinéraires
+        // Calcul et affichage des itinéraires
         System.out.println("Recherche pour : " + utilisateur.getNom() + " " + utilisateur.getPrenom());
         System.out.println("Transport imposé : " + modeChoisi);
         System.out.println("Critère d'optimisation : " + critereChoisi + "\n");
 
-        Lieu depart = plateforme.trouverLieu(args[5]);
-        Lieu arrivee = plateforme.trouverLieu(args[6]);
+        Lieu depart = plateforme.trouverLieu(args[5].toUpperCase());
+        Lieu arrivee = plateforme.trouverLieu(args[6].toUpperCase());
 
         if (depart != null && arrivee != null) {
             
             // 1. Création du graphe de calcul
             MultiGrapheOrienteValue graphe = new MultiGrapheOrienteValue();
-            // Ajout des sommets
+            // 2. Ajout des sommets
             for (Lieu l : plateforme.getLieux()) {
                 graphe.ajouterSommet(l);
             }
 
-            // Ajout des arêtes avec le poids correspondant au critère choisi
+            // 3. Ajout des arêtes avec le poids correspondant au critère choisi
             for (Connexion c : plateforme.getConnexions()) {
                 if (c instanceof Trajet) {
                     double poids = ((Trajet) c).getPoids(utilisateur.getCritereOpti());
@@ -134,7 +132,7 @@ public class Main {
                 }
             }
 
-            // Calcul des 3 meilleurs itinéraires avec la bibliothèque fournie
+            // 4. Calcul des 3 meilleurs itinéraires avec la bibliothèque fournie
             List<Chemin> resultats = AlgorithmeKPCC.kpcc(graphe, depart, arrivee, 3);
             int index = 1;
             for (Chemin c : resultats) {
@@ -143,7 +141,7 @@ public class Main {
                     tempsTotal += ((Trajet)a).getPoids(TypeCout.TEMPS);
                 }
 
-                // filtrage final sur la durée maximale
+                // Filtrage final sur la durée maximale
                 if (tempsTotal <= dureeMax) {
                     System.out.println(index + ") " + c.toString() + " [Temps : " + (int)tempsTotal + " min]");
                     index++;
