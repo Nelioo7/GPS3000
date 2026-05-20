@@ -13,41 +13,51 @@ import fr.ulille.but.sae_s2_2026.Connexion;
 import fr.ulille.but.sae_s2_2026.Lieu;
 import fr.ulille.but.sae_s2_2026.ModaliteTransport;
 import fr.ulille.but.sae_s2_2026.MultiGrapheOrienteValue;
-
 /**
  * Programme principal pour l'assistant de voyage
  * @author Amayas Mehmel - Erwann Besegher
  * @version 2.0.0
  */
+
+
 public class Main {
 
     public static void main(String[] args) {
+        if (args.length < 7) {
+            System.out.println("Erreur : Il manque des arguments.");
+            System.out.println("Utilisation : java -cp \"bin;lib/*\" poo.Main <Nom> <Prenom> <Critere> <Transport> <DureeMax> <VilleDepart> <VilleArrivee>");
+            return;
+        }
+
         // Préparation des données brutes
         // ArrayList<String> dataBrutes = new ArrayList<>(Arrays.asList(
         //     "villeA;villeB;TRAIN;60;1.7;80",
         //     "villeB;villeD;TRAIN;22;2.4;40",
         //     "villeA;villeC;TRAIN;42;1.4;50",
+      
         //     "villeB;villeC;TRAIN;14;1.4;60",
         //     "villeC;villeD;AVION;110;150;22",
         //     "villeC;villeD;TRAIN;65;1.2;90"
         // ));
-
         String cheminFichier = ("res/exemple-reseau.csv");
 
         // on importe le fichier avec son chemin
         File fichierCSV = new File(cheminFichier);
-
         // on initialise l'ArrayList qui va nous servir à stocker les données
         ArrayList<String> dataBrutes = new ArrayList<>();
-
-        try { // On initialise un scanner pour parcourir le fichier CSV
+        // on initialise un scanner pour parcourir le fichier CSV
+        try { 
             Scanner scanner = new Scanner(fichierCSV);
-
-            // tant que le scanner possède des lignes
-            while(scanner.hasNext()) {
-                dataBrutes.add(scanner.next()); // on les ajoute dans l'ArrayList
+            // On utilise hasNextLine() pour lire ligne par ligne
+            while(scanner.hasNextLine()) {
+                String ligne = scanner.nextLine(); // .trim() enlève les espaces/retours à la ligne invisibles
+                if (!ligne.isEmpty()) { // On ignore les lignes vides
+                    // on les ajoute dans l'ArrayList 
+                    dataBrutes.add(ligne);
+                }
             }
-            scanner.close(); // on ferme le scanner
+            scanner.close();
+            // on ferme le scanner
 
         } catch (FileNotFoundException fileNotFoundException) { // si le fichier n'est pas trouvé on affiche un message + la stackTrace
             System.out.println("Le fichier " + cheminFichier + " n'a pas été trouvé.");
@@ -62,7 +72,6 @@ public class Main {
         ModaliteTransport modeChoisi = ModaliteTransport.valueOf(args[3].toUpperCase());
         double dureeMax = Double.parseDouble(args[4]);
         Voyageur utilisateur = new Voyageur(args[0], args[1], critereChoisi);
-
         // Utilisation de la classe TraitementDonnees (Validation & Filtrage)
         if (!TraitementDonnees.verifDatas(dataBrutes)) {
             System.out.println("Erreur: Le format des données sources est invalide.");
@@ -70,12 +79,10 @@ public class Main {
         }
 
         List<String> dataFiltrees = TraitementDonnees.filtrerDatas(dataBrutes, modeChoisi);
-
         // Construction du réseau à partir des données filtrées
         Plateforme plateforme = new Plateforme();
         for (String ligne : dataFiltrees) {
             String[] parts = ligne.split(";");
-            
             if (parts.length >= 6) {
                 String nomDep = parts[0];
                 String nomArr = parts[1];
@@ -83,7 +90,6 @@ public class Main {
                 double prix = Double.parseDouble(parts[3]);
                 double co2 = Double.parseDouble(parts[4]);
                 double temps = Double.parseDouble(parts[5]);
-
                 Lieu dep = plateforme.trouverLieu(nomDep);
                 if (dep == null) {
                     dep = new Ville(nomDep);
@@ -97,31 +103,30 @@ public class Main {
                 }
 
                 CoutConnexion couts = new CoutConnexion(prix, temps, co2);
-                // Graphe orienté : on ajoute dans les deux sens si c'est bidirectionnel
+                // graphe orienté : on ajoute dans les deux sens si c'est bidirectionnel
                 plateforme.ajouterConnexion(new Trajet(dep, arr, mode, couts));
                 plateforme.ajouterConnexion(new Trajet(arr, dep, mode, couts));
             }
         }
 
-        // Calcul et affichage des itinéraires
+        // calcul et affichage des itinéraires
         System.out.println("Recherche pour : " + utilisateur.getNom() + " " + utilisateur.getPrenom());
         System.out.println("Transport imposé : " + modeChoisi);
         System.out.println("Critère d'optimisation : " + critereChoisi + "\n");
 
-        Lieu depart = plateforme.trouverLieu("villeA");
-        Lieu arrivee = plateforme.trouverLieu("villeD");
+        Lieu depart = plateforme.trouverLieu(args[5]);
+        Lieu arrivee = plateforme.trouverLieu(args[6]);
 
         if (depart != null && arrivee != null) {
             
             // 1. Création du graphe de calcul
             MultiGrapheOrienteValue graphe = new MultiGrapheOrienteValue();
-
-            // 2. Ajout des sommets
+            // Ajout des sommets
             for (Lieu l : plateforme.getLieux()) {
                 graphe.ajouterSommet(l);
             }
 
-            // 3. Ajout des arêtes avec le poids correspondant au critère choisi
+            // Ajout des arêtes avec le poids correspondant au critère choisi
             for (Connexion c : plateforme.getConnexions()) {
                 if (c instanceof Trajet) {
                     double poids = ((Trajet) c).getPoids(utilisateur.getCritereOpti());
@@ -129,9 +134,8 @@ public class Main {
                 }
             }
 
-            // 4. Calcul des 3 meilleurs itinéraires avec la bibliothèque fournie
+            // Calcul des 3 meilleurs itinéraires avec la bibliothèque fournie
             List<Chemin> resultats = AlgorithmeKPCC.kpcc(graphe, depart, arrivee, 3);
-
             int index = 1;
             for (Chemin c : resultats) {
                 double tempsTotal = 0;
@@ -139,7 +143,7 @@ public class Main {
                     tempsTotal += ((Trajet)a).getPoids(TypeCout.TEMPS);
                 }
 
-                // Filtrage final sur la durée maximale
+                // filtrage final sur la durée maximale
                 if (tempsTotal <= dureeMax) {
                     System.out.println(index + ") " + c.toString() + " [Temps : " + (int)tempsTotal + " min]");
                     index++;
