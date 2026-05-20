@@ -15,7 +15,7 @@ import fr.ulille.but.sae_s2_2026.ModaliteTransport;
 import fr.ulille.but.sae_s2_2026.MultiGrapheOrienteValue;
 /**
  * Programme principal pour l'assistant de voyage
- * @author Amayas Mehmel - Erwann Besegher
+ * @author Amayas Mehmel - Erwann Besegher - Jérôme Pardoue
  * @version 2.0.0
  */
 
@@ -151,6 +151,15 @@ String cheminFichier = ("res/exemple-reseau.csv");
             if (index == 1) {
                 System.out.println("Aucun itinéraire ne correspond à vos critères.");
             }
+
+            GestionnaireItineraire gestionnaire = new GestionnaireItineraire(plateforme);
+
+            try {
+                gestionnaire.trouverItineraires(depart, arrivee, critereChoisi, 3);
+            } catch(VoyageImpossibleException e) {
+                System.out.println(e.getMessage());
+            }
+
         } else {
             System.out.println("Erreur : Impossible de trouver les villes de départ et d'arrivée dans le réseau.");
         }
