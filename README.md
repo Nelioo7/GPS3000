@@ -172,16 +172,35 @@ Nous utilisons JUnit pour nos tests et nos tests sont dans le dossier `test/`
 
 ### Cas testés
 
-**Voyageur**
+**CoutConnexion**
 | Méthode | Cas testé | Résultat attendu |
 |---|---|---|
-| `Voyageur(nom, prenom, critere)` | Constructeur entier `"Dupont"`, `"Jean"`, `PRIX` | `getNom()` -> `"Dupont"`, `getPrenom()` -> `"Jean"`, `getCritereOpti()` -> `PRIX` |
-| `Voyageur(nom, prenom)` | Constructeur vide `"Martin"`, `"Alice"` | `getCritereOpti()` -> `TEMPS` |
-| `equals()` | Comparaison lui-meme (`v1.equals(v1)`) | `true` |
-| `equals()` | Critere différent (`v1.equals(v3)`) | `true` |
-| `equals()` | Nom et prenom differents (`v1.equals(v2)`) | `false` |
-| `equals()` | Comparaison ec `null` | `false` |
-| `toString()` | Voyageur `"Dupont"`, `"Jean"`, `PRIX` | La chaîne contient `"Dupont"`, `"Jean"` et `"PRIX"` |
+| `CoutConnexion(prix, temps, co2)` | Construction `60.0`, `80.0`, `1.7` | `getCout(PRIX)` -> `60.0` |
+| `CoutConnexion(prix, temps, co2)` | Construction `60.0`, `80.0`, `1.7` | `getCout(TEMPS)` -> `80.0` |
+| `CoutConnexion(prix, temps, co2)` | Construction `60.0`, `80.0`, `1.7` | `getCout(CO2)` -> `1.7` |
+| `CoutConnexion(typeCout, valeur)` | Construction uniquement `PRIX = 50.0` | `getCout(PRIX)` -> `50.0` |
+| `CoutConnexion(typeCout, valeur)` | Construction uniquement `PRIX = 50.0` | `getCout(TEMPS)` -> `null` |
+| `CoutConnexion(typeCout, valeur)` | Construction uniquement `PRIX = 50.0` | `getCout(CO2)` -> `null` |
+
+**GestionnaireItinéraire**
+| Méthode | Cas testé | Résultat attendu |
+|---|---|---|
+| `getPointsInteret(chemin)` | Trajet sans changement (`TRAIN`, `TRAIN`, `TRAIN`) | `size()` -> `2`, `[villeA, villeD]` |
+| `getPointsInteret(chemin)` | Un changement (`TRAIN`, `TRAIN`, `AVION`) | `size()` -> `3`, `[villeA, villeC, villeD]` |
+| `getPointsInteret(chemin)` | Deux changements (`TRAIN`, `AVION`, `BUS`) | `size()` -> `4`, `[villeA, villeB, villeC, villeD]` |
+| `trouverItineraires(dep, arr, type, nb)` | Chemin existe | `size() > 0`, ok |
+
+**Plateforme**
+| Méthode | Cas testé | Résultat attendu |
+|---|---|---|
+| `Plateforme()` | Plateforme vide | `getLieux().size()` -> `0` et `getConnexions().size()` -> `0` |
+| `ajouterLieu()` | Ajout ville `"Paris"` | `getLieux().size()` -> `1` |
+| `ajouterLieu()` | Ajout doublon (même ville `"Paris"`) | `getLieux().size()` reste à `1` |
+| `ajouterLieu()` | Verif contenu apres ajout | `getLieux().get(0)` -> `paris` |
+| `ajouterConnexion()` | Ajout Paris -> Lyon | `getConnexions().size()` -> `1` |
+| `ajouterConnexion()` | Verif contenu après ajout | `getConnexions().get(0)` -> le trajet Paris -> Lyon |
+| `trouverLieu()` | Recherche ville existante `"Lille"` | Retourne `Lille` |
+| `trouverLieu()` | Recherche ville absente `"Marseille"` | `null` |
 
 **TraitementDonnees**
 | Méthode | Cas testé | Résultat attendu |
@@ -195,6 +214,18 @@ Nous utilisons JUnit pour nos tests et nos tests sont dans le dossier `test/`
 | `filtrerDatas()` | Verif premier résultat | Contient `"Paris"` |
 | `filtrerDatas()` | Verif second résultat | Contient `"Marseille"` |
 
+**Trajet**
+| Méthode | Cas testé | Résultat attendu |
+|---|---|---|
+| `Trajet(dep, arr, mod, couts)` | Construction avec `TRAIN`, `AVION`, `BUS` | ok |
+| `getDepart()` | Trajet `Paris` -> `Lille` | `ville1` (Paris) |
+| `getArrivee()` | Trajet `Paris` -> `Lille` | `ville2` (Lille) |
+| `getModalite()` | Trajet `Paris` -> `Lille` (`TRAIN`) | `ModaliteTransport.TRAIN` |
+| `getCouts()` | Couts `60.0`, `80.0`, `1.7` | `PRIX`->`60.0`, `TEMPS`->`80.0`, `CO2`->`1.7` |
+| `toString()` | Trajet `Paris` -> `Lille` (`TRAIN`) | `"Paris -> Lille (TRAIN)"` |
+| `toString()` | Trajet `Marseille` -> `Lyon` (`AVION`) | `"Marseille -> Lyon (AVION)"` |
+| `toString()` | Trajet `Bordeaux` -> `Paris` (`BUS`) | `"Bordeaux -> Paris (BUS)"` |
+
 **Ville**
 | Méthode | Cas testé | Résultat attendu |
 |---|---|---|
@@ -204,38 +235,29 @@ Nous utilisons JUnit pour nos tests et nos tests sont dans le dossier `test/`
 | `equals()` | Deux villes noms différents `"Marseille"` et `"Lyon"` | `false` |
 | `hashCode()` | Deux villes même nom `"Nice"` | Même valeur de hashCode |
 
-**CoutConnexion**
+**VoyageImpossibleException**
 | Méthode | Cas testé | Résultat attendu |
 |---|---|---|
-| `CoutConnexion(prix, temps, co2)` | Construction `60.0`, `80.0`, `1.7` | `getCout(PRIX)` -> `60.0` |
-| `CoutConnexion(prix, temps, co2)` | Construction `60.0`, `80.0`, `1.7` | `getCout(TEMPS)` -> `80.0` |
-| `CoutConnexion(prix, temps, co2)` | Construction `60.0`, `80.0`, `1.7` | `getCout(CO2)` -> `1.7` |
-| `CoutConnexion(typeCout, valeur)` | Construction uniquement `PRIX = 50.0` | `getCout(PRIX)` -> `50.0` |
-| `CoutConnexion(typeCout, valeur)` | Construction uniquement `PRIX = 50.0` | `getCout(TEMPS)` -> `null` |
-| `CoutConnexion(typeCout, valeur)` | Construction uniquement `PRIX = 50.0` | `getCout(CO2)` -> `null` |
+| `trouverItineraires(dep, arr, type, nb)` | Aucune connexion entre `villeA` et `villeD` | throws `VoyageImpossibleException` |
+| `trouverItineraires(dep, arr, type, nb)` | Chemin coupé (`A`->`B`, `C`->`D`) | Lève `VoyageImpossibleException` |
+| `getMessage()` | Exception levée `villeA` vers `villeD` | Message contient `"villeA"`, `"villeD"` |
 
-**Trajet**
+**Voyageur**
 | Méthode | Cas testé | Résultat attendu |
 |---|---|---|
-| `Trajet(depart, arrivee, modalite, cout)` | Construction TRAIN, AVION et BUS | ok |
-| `getDepart()` | Trajet Paris -> Lille en TRAIN | `ville1` (Paris) |
-| `getArrivee()` | Trajet Paris -> Lille en TRAIN | `ville2` (Lille) |
-| `getModalite()` | Trajet Paris -> Lille en TRAIN | `TRAIN` |
-| `getCouts().getCout(PRIX)` | Trajet avec couts `60.0, 80.0, 1.7` | `60.0` |
-| `getCouts().getCout(TEMPS)` | Trajet avec couts `60.0, 80.0, 1.7` | `80.0` |
-| `getCouts().getCout(CO2)` | Trajet avec couts `60.0, 80.0, 1.7` | `1.7` |
-| `toString()` | Trajet Paris -> Lille en TRAIN | `"Paris -> Lille (TRAIN)"` |
-| `toString()` | Trajet Marseille -> Lyon en AVION | `"Marseille -> Lyon (AVION)"` |
-| `toString()` | Trajet Bordeaux -> Paris en BUS | `"Bordeaux -> Paris (BUS)"` |
+| `Voyageur(nom, prenom, critere)` | Constructeur entier `"Dupont"`, `"Jean"`, `PRIX` | `getNom()` -> `"Dupont"`, `getPrenom()` -> `"Jean"`, `getCritereOpti()` -> `PRIX` |
+| `Voyageur(nom, prenom)` | Constructeur vide `"Martin"`, `"Alice"` | `getCritereOpti()` -> `TEMPS` |
+| `equals()` | Comparaison lui-meme (`v1.equals(v1)`) | `true` |
+| `equals()` | Critere différent (`v1.equals(v3)`) | `true` |
+| `equals()` | Nom et prenom differents (`v1.equals(v2)`) | `false` |
+| `equals()` | Comparaison ec `null` | `false` |
+| `toString()` | Voyageur `"Dupont"`, `"Jean"`, `PRIX` | La chaîne contient `"Dupont"`, `"Jean"` et `"PRIX"` |
 
-**Plateforme**
-| Méthode | Cas testé | Résultat attendu |
-|---|---|---|
-| `Plateforme()` | Plateforme vide | `getLieux().size()` -> `0` et `getConnexions().size()` -> `0` |
-| `ajouterLieu()` | Ajout ville `"Paris"` | `getLieux().size()` -> `1` |
-| `ajouterLieu()` | Ajout doublon (même ville `"Paris"`) | `getLieux().size()` reste à `1` |
-| `ajouterLieu()` | Verif contenu apres ajout | `getLieux().get(0)` -> `paris` |
-| `ajouterConnexion()` | Ajout Paris -> Lyon | `getConnexions().size()` -> `1` |
-| `ajouterConnexion()` | Verif contenu après ajout | `getConnexions().get(0)` -> le trajet Paris -> Lyon |
-| `trouverLieu()` | Recherche ville existante `"Lille"` | Retourne `Lille` |
-| `trouverLieu()` | Recherche ville absente `"Marseille"` | `null` |
+
+
+
+
+
+
+
+
