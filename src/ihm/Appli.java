@@ -7,8 +7,10 @@ import javax.swing.GroupLayout.Alignment;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Side;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -71,6 +73,32 @@ public class Appli extends Application {
         VBox.setMargin(switchArrows, new Insets(10, 0, 10, 0));
 
         TabPane rightPanel = new TabPane(); // la partie de droite qui contient les onglets
+
+        Tab itineraires = new Tab();
+        itineraires.setText("Itinéraires");
+        itineraires.setContent(null);
+        itineraires.setClosable(false);
+
+        Tab favoris = new Tab();
+        favoris.setText("Favoris");
+        favoris.setContent(null);
+        favoris.setClosable(false);
+
+        Tab historique = new Tab();
+        historique.setText("Historique");
+        historique.setContent(null);
+        historique.setClosable(false);
+
+        ImageView historyIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/history.png")));
+        historique.setGraphic(historyIcon);
+
+        rightPanel.getTabs().addAll(
+            itineraires,
+            favoris,
+            historique
+        );
+
+        rightPanel.setSide(Side.LEFT);
 
         root.setLeft(leftPanel);
         root.setRight(rightPanel);
