@@ -1,6 +1,5 @@
 package poo;
 
-import fr.ulille.but.sae_s2_2026.Lieu;
 import fr.ulille.but.sae_s2_2026.ModaliteTransport;
 
 /**
@@ -10,7 +9,7 @@ import fr.ulille.but.sae_s2_2026.ModaliteTransport;
  */
 public interface Connexion {
     
-    public Lieu getDepart(); // renvoie le point de départ de la connexion
-    public Lieu getArrivee(); // renvoie le point d'arrivée de la connexion
+    public poo.Lieu getDepart(); // renvoie le point de départ de la connexion
+    public poo.Lieu getArrivee(); // renvoie le point d'arrivée de la connexion
     public ModaliteTransport getModalite(); // renvoie le type de transport utilisé
 }

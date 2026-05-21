@@ -1,7 +1,7 @@
 package poo;
 
-import fr.ulille.but.sae_s2_2026.Lieu; 
-import fr.ulille.but.sae_s2_2026.Connexion; 
+import fr.ulille.but.sae_s2_2026.Connexion;
+import fr.ulille.but.sae_s2_2026.Lieu;
 import fr.ulille.but.sae_s2_2026.ModaliteTransport;
 
 /**

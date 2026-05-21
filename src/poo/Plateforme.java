@@ -2,7 +2,7 @@ package poo;
 /**
  * Base de données centrale du réseau de transport.
  * @author Erwann Besegher
- * @author Amayas Mehmel
+ * @author Amayas Mehmel (ajout de methodes necessaires)
  * @version 1.1.0
  */
 
