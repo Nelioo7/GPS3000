@@ -1,9 +1,6 @@
 package ihm;
 
 import java.io.FileInputStream;
-
-import javax.swing.GroupLayout.Alignment;
-
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -27,7 +24,7 @@ import javafx.stage.Stage;
 /**
  * Interface graphique de l'app
  * @author Erwann Besegher
- * @version 1.2.0
+ * @version 1.3.0
  */
 public class Appli extends Application {
 
@@ -48,22 +45,27 @@ public class Appli extends Application {
             )
         );
 
-        leftPanel.setPadding(new Insets(15));
+        leftPanel.setPadding(new Insets(15)); // on ajoute un padding pour rendre l'interface plus agéable
 
+        // champ de recherche de la ville de départ
         TextField startSearch = new TextField("Ville de départ...");
         startSearch.setPadding(new Insets(7));
 
+        // bouton qui permet d'inverser la ville de départ et celle de destination
         Button switchArrows = new Button();
         switchArrows.setPrefSize(26, 26);
+        // on ajoute une icone
         ImageView switchIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/switch.png")));
         switchIcon.setFitHeight(26);
         switchIcon.setPreserveRatio(true);
         switchArrows.setGraphic(switchIcon);
         switchArrows.setRotate(90);
 
+        // champ de recherche de la ville d'arrivée
         TextField destinationSearch = new TextField("Ville de destination...");
         startSearch.setPadding(new Insets(7));
 
+        // on ajoute les items dans le panneau
         leftPanel.getChildren().addAll(
             startSearch,
             switchArrows,

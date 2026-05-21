@@ -50,7 +50,9 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │   ├── ihm
 │   │   ├── Appli.class
 │   │   ├── img
+│   │   │   ├── favorite.png
 │   │   │   ├── history.png
+│   │   │   ├── route.png
 │   │   │   └── switch.png
 │   │   └── maquettes
 │   │       └── Maquettes.png
@@ -63,6 +65,14 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │       ├── LieuModalite.class
 │       ├── Main.class
 │       ├── Plateforme.class
+│       ├── TestCoutConnexion.class
+│       ├── TestGestionnaireItineraire.class
+│       ├── TestPlateforme.class
+│       ├── TestTraitementDonnees.class
+│       ├── TestTrajet.class
+│       ├── TestVille.class
+│       ├── TestVoyageImpossibleException.class
+│       ├── TestVoyageur.class
 │       ├── TraitementDonnees.class
 │       ├── Trajet.class
 │       ├── TransportArete.class
@@ -73,8 +83,7 @@ Les paramètres à entrer dans l'appli sont les suivants:
 ├── lib
 │   ├── jgrapht-core-1.5.1.jar
 │   ├── jheaps-0.14.jar
-│   ├── junit-platform-console-standalone-6.0.3 (1).jar
-│   ├── junit-platform-console-standalone-6.0.3 (2).jar
+│   ├── junit-platform-console-standalone-6.0.3.jar
 │   └── sae_s2_2026.jar
 ├── rapport
 │   ├── img
@@ -96,7 +105,9 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │   ├── ihm
 │   │   ├── Appli.java
 │   │   ├── img
+│   │   │   ├── favorite.png
 │   │   │   ├── history.png
+│   │   │   ├── route.png
 │   │   │   └── switch.png
 │   │   └── maquettes
 │   │       └── Maquettes.png
@@ -119,10 +130,12 @@ Les paramètres à entrer dans l'appli sont les suivants:
 └── test
     └── poo
         ├── TestCoutConnexion.java
+        ├── TestGestionnaireItineraire.java
         ├── TestPlateforme.java
         ├── TestTraitementDonnees.java
         ├── TestTrajet.java
         ├── TestVille.java
+        ├── TestVoyageImpossibleException.java
         └── TestVoyageur.java
 ```
 
