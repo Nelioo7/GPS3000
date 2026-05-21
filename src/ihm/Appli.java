@@ -78,9 +78,19 @@ public class Appli extends Application {
         itineraires.setContent(null);
         itineraires.setClosable(false);
 
+        ImageView pathsIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/route.png")));
+        pathsIcon.setFitHeight(30);
+        pathsIcon.setPreserveRatio(true);
+        itineraires.setGraphic(pathsIcon);
+
         Tab favoris = new Tab();
         favoris.setContent(null);
         favoris.setClosable(false);
+
+        ImageView favoritesIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/favorite.png")));
+        favoritesIcon.setFitHeight(30);
+        favoritesIcon.setPreserveRatio(true);
+        favoris.setGraphic(favoritesIcon);
 
         Tab historique = new Tab();
         historique.setContent(null);
