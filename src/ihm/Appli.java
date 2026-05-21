@@ -1,7 +1,12 @@
 package ihm;
 
+import java.io.FileInputStream;
+
+import javax.swing.GroupLayout.Alignment;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
@@ -20,7 +25,7 @@ import javafx.stage.Stage;
 /**
  * Interface graphique de l'app
  * @author Erwann Besegher
- * @version 1.1.0
+ * @version 1.2.0
  */
 public class Appli extends Application {
 
@@ -29,6 +34,7 @@ public class Appli extends Application {
         BorderPane root = new BorderPane(); // le conteneur qui englobe tout
 
         VBox leftPanel = new VBox(); // le panneau de gauche
+        leftPanel.setAlignment(Pos.CENTER);
 
         leftPanel.setBackground(
             new Background(
@@ -46,19 +52,23 @@ public class Appli extends Application {
         startSearch.setPadding(new Insets(7));
 
         Button switchArrows = new Button();
-        switchArrows.setGraphic(
-            new ImageView(
-                new Image("") // TODO ajouter le chemin
-            )
-        );
+        switchArrows.setPrefSize(26, 26);
+        ImageView switchIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/switch.png")));
+        switchIcon.setFitHeight(26);
+        switchIcon.setPreserveRatio(true);
+        switchArrows.setGraphic(switchIcon);
+        switchArrows.setRotate(90);
 
         TextField destinationSearch = new TextField("Ville de destination...");
         startSearch.setPadding(new Insets(7));
 
         leftPanel.getChildren().addAll(
             startSearch,
+            switchArrows,
             destinationSearch
         );
+
+        VBox.setMargin(switchArrows, new Insets(10, 0, 10, 0));
 
         TabPane rightPanel = new TabPane(); // la partie de droite qui contient les onglets
 
