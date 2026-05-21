@@ -75,21 +75,20 @@ public class Appli extends Application {
         TabPane rightPanel = new TabPane(); // la partie de droite qui contient les onglets
 
         Tab itineraires = new Tab();
-        itineraires.setText("Itinéraires");
         itineraires.setContent(null);
         itineraires.setClosable(false);
 
         Tab favoris = new Tab();
-        favoris.setText("Favoris");
         favoris.setContent(null);
         favoris.setClosable(false);
 
         Tab historique = new Tab();
-        historique.setText("Historique");
         historique.setContent(null);
         historique.setClosable(false);
 
         ImageView historyIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/history.png")));
+        historyIcon.setFitHeight(30);
+        historyIcon.setPreserveRatio(true);
         historique.setGraphic(historyIcon);
 
         rightPanel.getTabs().addAll(

@@ -2,6 +2,7 @@
 
 ---
 - [SAE 2.1/2.2](#sae-2122)
+  - [IHM](#ihm)
   - [Lancement de de l'application](#lancement-de-de-lapplication)
     - [Execution](#execution)
     - [Paramètres d'entrée](#paramètres-dentrée)
@@ -15,6 +16,9 @@
     - [Cas testés](#cas-testés)
 
 ---
+
+## IHM
+*Toutes les ressources ainsi que la maquette et le code liés à la partie IHM se trouvent dans le dossier ihm.*
 
 ## Lancement de de l'application
 
@@ -41,6 +45,31 @@ Les paramètres à entrer dans l'appli sont les suivants:
 ```
 .
 ├── bin
+│   ├── graphes
+│   │   └── GraphesV1.class
+│   ├── ihm
+│   │   ├── Appli.class
+│   │   ├── img
+│   │   │   ├── history.png
+│   │   │   └── switch.png
+│   │   └── maquettes
+│   │       └── Maquettes.png
+│   └── poo
+│       ├── Connexion.class
+│       ├── CorrespondanceArete.class
+│       ├── CoutConnexion.class
+│       ├── GestionnaireItineraire.class
+│       ├── Lieu.class
+│       ├── LieuModalite.class
+│       ├── Main.class
+│       ├── Plateforme.class
+│       ├── TraitementDonnees.class
+│       ├── Trajet.class
+│       ├── TransportArete.class
+│       ├── TypeCout.class
+│       ├── Ville.class
+│       ├── VoyageImpossibleException.class
+│       └── Voyageur.class
 ├── lib
 │   ├── jgrapht-core-1.5.1.jar
 │   ├── jheaps-0.14.jar
@@ -49,24 +78,43 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │   └── sae_s2_2026.jar
 ├── rapport
 │   ├── img
+│   │   ├── gr1.png
+│   │   ├── gr2.png
 │   │   └── uml.png
 │   ├── RapportGraphes.md
+│   ├── RapportGraphes.pdf
 │   └── uml.drawio
+├── RapportV1.pdf
 ├── README.md
+├── res
+│   ├── exemple-correspondances.csv
+│   ├── exemple-reseau.csv
+│   └── test.csv
 ├── src
 │   ├── graphes
 │   │   └── GraphesV1.java
+│   ├── ihm
+│   │   ├── Appli.java
+│   │   ├── img
+│   │   │   ├── history.png
+│   │   │   └── switch.png
+│   │   └── maquettes
+│   │       └── Maquettes.png
 │   └── poo
 │       ├── Connexion.java
+│       ├── CorrespondanceArete.java
 │       ├── CoutConnexion.java
 │       ├── GestionnaireItineraire.java
 │       ├── Lieu.java
+│       ├── LieuModalite.java
 │       ├── Main.java
 │       ├── Plateforme.java
 │       ├── TraitementDonnees.java
 │       ├── Trajet.java
+│       ├── TransportArete.java
 │       ├── TypeCout.java
 │       ├── Ville.java
+│       ├── VoyageImpossibleException.java
 │       └── Voyageur.java
 └── test
     └── poo
