@@ -69,7 +69,7 @@ public class GestionnaireItineraire {
         pointsInteret.add(arretes.get(0).getDepart());
         
         // On compare chaque trajet avec le suivant
-        for (int i = 0; i < arretes.size(); i++) {
+        for (int i = 0; i < arretes.size() -1; i++) {
             
             Trajet trajetActuel = (Trajet) arretes.get(i);
             Trajet trajetSuivant = (Trajet) arretes.get(i + 1);
