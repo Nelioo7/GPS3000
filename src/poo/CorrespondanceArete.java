@@ -12,52 +12,52 @@ import fr.ulille.but.sae_s2_2026.ModaliteTransport;
 
 public class CorrespondanceArete implements Connexion {
 
-    private final Lieu depart;
-    private final Lieu arrivee;
-    private final ModaliteTransport modalite;
-    private final double prix;
-    private final double temps;
-    private final double co2;
+    private final Lieu DEPART;
+    private final Lieu ARRIVEE;
+    private final ModaliteTransport MODALITE;
+    private final double PRIX;
+    private final double TEMPS;
+    private final double CO2;
 
     public CorrespondanceArete(Lieu depart, Lieu arrivee, ModaliteTransport modalite, double prix, double temps, double co2) {
-        this.depart = depart;
-        this.arrivee = arrivee;
-        this.modalite = modalite;
-        this.prix = prix;
-        this.temps = temps;
-        this.co2 = co2;
+        this.DEPART = depart;
+        this.ARRIVEE = arrivee;
+        this.MODALITE = modalite;
+        this.PRIX = prix;
+        this.TEMPS = temps;
+        this.CO2 = co2;
     }
 
     @Override
     public Lieu getDepart() {
-        return depart;
+        return DEPART;
     }
 
     @Override
     public Lieu getArrivee() {
-        return arrivee;
+        return ARRIVEE;
     }
 
     @Override
     public ModaliteTransport getModalite() {
-        return modalite;
+        return MODALITE;
     }
 
     public double getPoids(TypeCout critere) {
         if (critere == TypeCout.PRIX) {
-            return prix;
+            return PRIX;
         }
         if (critere == TypeCout.CO2) {
-            return co2;
+            return CO2;
         }
         if (critere == TypeCout.TEMPS) {
-            return temps;
+            return TEMPS;
         }
         return 0;
     }
 
     @Override
     public String toString() {
-        return "[Correspondance] " + depart.toString() + " -> " + arrivee.toString();
+        return "[Correspondance] " + DEPART.toString() + " -> " + ARRIVEE.toString();
     }
 }

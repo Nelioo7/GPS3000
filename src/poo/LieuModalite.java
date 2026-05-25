@@ -9,17 +9,17 @@ import fr.ulille.but.sae_s2_2026.ModaliteTransport;
  * @version 1.0.0
  */
 public class LieuModalite implements Lieu {
-    private final Lieu lieuOrigine;
+    private final Lieu LIEUORIGINE;
     private final ModaliteTransport modalite;
 
     public LieuModalite(Lieu lieuOrigine, ModaliteTransport modalite) {
-        this.lieuOrigine = lieuOrigine;
+        this.LIEUORIGINE = lieuOrigine;
         this.modalite = modalite;
     }
 
     @Override
     public String toString() {
-        return lieuOrigine.toString() + "_" + modalite;
+        return LIEUORIGINE.toString() + "_" + modalite;
     }
 
     @Override
@@ -31,11 +31,11 @@ public class LieuModalite implements Lieu {
             return false;
         }
         LieuModalite that = (LieuModalite) obj;
-        return lieuOrigine.equals(that.lieuOrigine) && modalite == that.modalite;
+        return LIEUORIGINE.equals(that.LIEUORIGINE) && modalite == that.modalite;
     }
 
     @Override
     public int hashCode() {
-        return 31 * lieuOrigine.hashCode() + modalite.hashCode();
+        return 31 * LIEUORIGINE.hashCode() + modalite.hashCode();
     }
 }
