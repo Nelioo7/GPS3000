@@ -6,9 +6,11 @@ Equipe C2: Erwann Besegher, Alaeddine Oudriss, Jérôme Pardoue, Mehmel Amayas
 
 ### 2.1 Exemple
 
+*Nous ne l'avions pas précisé dans le rapport v1 mais les graphes sont dispos au format `.drawio`, c'est l'éditeur que nous avons utilisé pour les réaliser.
+
 Le schéma suivant représente la situation que nous avons modélisée.
 
-![image1Osef]()
+![image1Osef](./img/gr3.png)
 
 Nous avons défini les connexions directes:
 
@@ -72,9 +74,9 @@ Dans le code, la classe `Trajet` de la V1 est remplacée par `LienReseau`, qui a
 La V2 ajoute des blocs `try-catch` vus en cours de dev.
 Cela nous permet d'éviter un crash si le point de départ ou d'arrivée demandé ne correspond à rien dans une ville donnée (demander un départ en avion depuis une ville sans aéroport).
 
-![image2ToujoursOsef]()
+![image2ToujoursOsef](./img/gr4.png)
 
-### 2.3 Modélisation pour la Version 1 dans le cas général
+### 2.3 Modélisation pour la Version 2 dans le cas général
 
 - Type de graphe: On garde un multigraphe orienté et valué.
 - Les sommets: Chaque ville est séparée en autant de sommets qu'elle dispose de modes de transport disponibles. Un sommet est le couple `(nomVille, modalite)`, implémenté par `SommetEclate`.
