@@ -83,4 +83,4 @@ Cela nous permet d'éviter un crash si le point de départ ou d'arrivée demand�
 
 ### 2.4 Prototype pour la Version 2
 
-Lien du repo gitlab: https://gitlab.univ-lille.fr/sae2.01-2.02/2026/C2
+Lien du repo gitlab: *https://gitlab.univ-lille.fr/sae2.01-2.02/2026/C2*

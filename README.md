@@ -3,7 +3,7 @@
 ---
 - [SAE 2.1/2.2](#sae-2122)
   - [IHM](#ihm)
-  - [Lancement de de l'application](#lancement-de-de-lapplication)
+  - [POO](#poo)
     - [Execution](#execution)
     - [Paramètres d'entrée](#paramètres-dentrée)
     - [Structure du projet](#structure-du-projet)
@@ -20,14 +20,21 @@
 ## IHM
 *Toutes les ressources ainsi que la maquette et le code liés à la partie IHM se trouvent dans le dossier ihm.*
 
-## Lancement de de l'application
+Le prototype basse fidélité se trouve au lien suivant:
+
+*https://www.figma.com/proto/4IzpJgvGIfrHPEEoBLENXQ/Dev-C2?node-id=159-426&starting-point-node-id=159%3A395&t=jbjEH13LG4aSWXQa-1*
+
+Un début de programme pour une interface javafx est dispo mais pas encore fonctionnel, nous avons pris un poil d'avance.
+Nous nous baserons donc sur le prototype figma afin de réaliser l'application javafx.
+
+## POO
 
 ### Execution
 
 Pour compiler il faut utiliser `javac -cp "lib/*" -d bin src/poo/*.java`.
-*Nous nous étions trompés sur la ligne de compilations dans a versions précédente.*
+*Nous nous étions trompés sur la ligne de compilations dans la versions précédente.*
 
-Pour executer il faut utiliser `java -cp "bin:lib/*" poo.Main <nom> <prenom> <critereOpti> <transport> <tempsMax>`.
+Pour executer il faut utiliser `java -cp "bin:lib/*" poo.Main  <nom> <prenom> <critere> <transport> <dureeMax> <villeDepart> <villeArrivee>`.
 
 ### Paramètres d'entrée
 
@@ -147,7 +154,7 @@ Les paramètres à entrer dans l'appli sont les suivants:
 
 ### Filtrage
 
-Pour l'instant notre application ne permet que de filtrer les types de transport.
+Dans cette version on peut maintenant utiliser plusieurs modes de transport.
 
 ### Validation des données
 
@@ -252,12 +259,3 @@ Nous utilisons JUnit pour nos tests et nos tests sont dans le dossier `test/`
 | `equals()` | Nom et prenom differents (`v1.equals(v2)`) | `false` |
 | `equals()` | Comparaison ec `null` | `false` |
 | `toString()` | Voyageur `"Dupont"`, `"Jean"`, `PRIX` | La chaîne contient `"Dupont"`, `"Jean"` et `"PRIX"` |
-
-
-
-
-
-
-
-
-
