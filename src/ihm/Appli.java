@@ -24,12 +24,13 @@ import javafx.stage.Stage;
 /**
  * Interface graphique de l'app
  * @author Erwann Besegher
- * @version 1.3.2
+ * @version 1.3.3
  */
 public class Appli extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        
         BorderPane root = new BorderPane(); // le conteneur qui englobe tout
 
         VBox leftPanel = new VBox(); // le panneau de gauche
