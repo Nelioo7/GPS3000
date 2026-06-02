@@ -12,12 +12,8 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
@@ -39,37 +35,39 @@ public class Appli extends Application {
 
             VBox leftPanel = new VBox(); {
 
-                leftPanel.setAlignment(Pos.CENTER);
+                leftPanel.setId("left-panel"); // on ajoute un id afin de cibler le panneau précisément dans le css
 
-                leftPanel.setBackground(
-                    new Background(
-                        new BackgroundFill(
-                            Color.LIGHTGRAY, // gris clair pour le fond
-                            new CornerRadii(0), // on met les rayons des coins à 0 pour qu'ils restent carrés
-                            Insets.EMPTY // on ne met pas d'espace
-                        )
-                    )
-                );
+                leftPanel.setAlignment(Pos.CENTER);
 
                 leftPanel.setPadding(new Insets(15)); // on ajoute un padding pour rendre l'interface plus agéable
 
                 // champ de recherche de la ville de départ
-                TextField startSearch = new TextField("Ville de départ...");
-                startSearch.setPadding(new Insets(7));
-
+                TextField startSearch = new TextField("Ville de départ..."); {
+                    startSearch.setPadding(new Insets(7));
+                }
+                
                 // bouton qui permet d'inverser la ville de départ et celle de destination
-                Button switchArrows = new Button();
-                switchArrows.setPrefSize(26, 26);
+                Button switchArrows = new Button(); {
+                    switchArrows.setPrefSize(26, 26);
+                }
+                
                 // on ajoute une icone
-                ImageView switchIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/switch.png")));
-                switchIcon.setFitHeight(26);
-                switchIcon.setPreserveRatio(true);
-                switchArrows.setGraphic(switchIcon);
-                switchArrows.setRotate(90);
+                ImageView switchIcon = new ImageView(
+                    new Image(
+                        new FileInputStream("src/ihm/img/switch.png")
+                    )
+                ); {
+                    switchIcon.setFitHeight(26);
+                    switchIcon.setPreserveRatio(true);
+                    switchArrows.setGraphic(switchIcon);
+                    switchArrows.setRotate(90);
+                }
+                
 
                 // champ de recherche de la ville d'arrivée
-                TextField destinationSearch = new TextField("Ville de destination...");
-                startSearch.setPadding(new Insets(7));
+                TextField destinationSearch = new TextField("Ville de destination..."); {
+                    startSearch.setPadding(new Insets(7));
+                }
 
                 // on ajoute les items dans le panneau
                 leftPanel.getChildren().addAll(
@@ -86,43 +84,69 @@ public class Appli extends Application {
 
             TabPane rightPanel = new TabPane(); {
 
+                rightPanel.setId("right-panel"); // ajout de l'id pour cibler dans le css
+
                 // ------------------------------< Tab itinéraires >------------------------------
 
-                Tab itineraires = new Tab();
-                itineraires.setContent(null);
-                itineraires.setClosable(false);
-
-                ImageView pathsIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/route.png")));
-                pathsIcon.setFitHeight(30);
-                pathsIcon.setPreserveRatio(true);
-                itineraires.setGraphic(pathsIcon);
+                // création de la tab itinéraires
+                Tab itineraires = new Tab(); {
+                    itineraires.setContent(null);
+                    itineraires.setClosable(false);
+                }
+                
+                // ajout de l'icone sur la tab itinéraires
+                ImageView pathsIcon = new ImageView(
+                    new Image(
+                        new FileInputStream("src/ihm/img/route.png")
+                    )
+                ); {
+                    pathsIcon.setFitHeight(30);
+                    pathsIcon.setPreserveRatio(true);
+                    itineraires.setGraphic(pathsIcon);
+                }
 
 
                 // ------------------------------< Tab favoris >------------------------------
 
-                Tab favoris = new Tab();
-                favoris.setContent(null);
-                favoris.setClosable(false);
+                // création de la tab favoris
+                Tab favoris = new Tab(); {
+                    favoris.setContent(null);
+                    favoris.setClosable(false);
+                }
 
-                ImageView favoritesIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/favorite.png")));
-                favoritesIcon.setFitHeight(30);
-                favoritesIcon.setPreserveRatio(true);
-                favoris.setGraphic(favoritesIcon);
+                // ajout de l'icone sur la tab favoris
+                ImageView favoritesIcon = new ImageView(
+                    new Image(
+                        new FileInputStream("src/ihm/img/favorite.png")
+                    )
+                ); {
+                    favoritesIcon.setFitHeight(30);
+                    favoritesIcon.setPreserveRatio(true);
+                    favoris.setGraphic(favoritesIcon);
+                }
 
 
                 // ------------------------------< Tab historique >------------------------------
 
-                Tab historique = new Tab();
-                historique.setContent(null);
-                historique.setClosable(false);
+                // création de la tab historique
+                Tab historique = new Tab(); {
+                    historique.setContent(null);
+                    historique.setClosable(false);
+                }
+                
+                // ajout de l'icone sur la tab historique
+                ImageView historyIcon = new ImageView(
+                    new Image(
+                        new FileInputStream("src/ihm/img/history.png")
+                    )
+                ); {
+                    historyIcon.setFitHeight(30);
+                    historyIcon.setPreserveRatio(true);
+                    historique.setGraphic(historyIcon);
+                }
 
-                ImageView historyIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/history.png")));
-                historyIcon.setFitHeight(30);
-                historyIcon.setPreserveRatio(true);
-                historique.setGraphic(historyIcon);
 
-
-                // Ajoute des tabs dans le panel
+                // ajout des tabs dans le panel
                 rightPanel.getTabs().addAll(
                     itineraires,
                     favoris,
@@ -142,6 +166,7 @@ public class Appli extends Application {
         // ==============================< Gestion de la stage >==============================
 
         Scene home = new Scene(root);
+        home.getStylesheets().add("/ihm/style.css"); // ajout du fichier css
 
         stage.setScene(home);
         stage.setTitle("GPS 3000");
