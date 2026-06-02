@@ -30,101 +30,116 @@ public class Appli extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
+        // ==============================< Racine >==============================
         
-        BorderPane root = new BorderPane(); // le conteneur qui englobe tout
+        BorderPane root = new BorderPane(); {
 
-        VBox leftPanel = new VBox(); // le panneau de gauche
-        leftPanel.setAlignment(Pos.CENTER);
+            // ==============================< Panneau de gauche >==============================
 
-        leftPanel.setBackground(
-            new Background(
-                new BackgroundFill(
-                    Color.LIGHTGRAY, // gris clair pour le fond
-                    new CornerRadii(0), // on met les rayons des coins à 0 pour qu'ils restent carrés
-                    Insets.EMPTY // on ne met pas d'espace
-                )
-            )
-        );
+            VBox leftPanel = new VBox(); {
 
-        leftPanel.setPadding(new Insets(15)); // on ajoute un padding pour rendre l'interface plus agéable
+                leftPanel.setAlignment(Pos.CENTER);
 
-        // champ de recherche de la ville de départ
-        TextField startSearch = new TextField("Ville de départ...");
-        startSearch.setPadding(new Insets(7));
+                leftPanel.setBackground(
+                    new Background(
+                        new BackgroundFill(
+                            Color.LIGHTGRAY, // gris clair pour le fond
+                            new CornerRadii(0), // on met les rayons des coins à 0 pour qu'ils restent carrés
+                            Insets.EMPTY // on ne met pas d'espace
+                        )
+                    )
+                );
 
-        // bouton qui permet d'inverser la ville de départ et celle de destination
-        Button switchArrows = new Button();
-        switchArrows.setPrefSize(26, 26);
-        // on ajoute une icone
-        ImageView switchIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/switch.png")));
-        switchIcon.setFitHeight(26);
-        switchIcon.setPreserveRatio(true);
-        switchArrows.setGraphic(switchIcon);
-        switchArrows.setRotate(90);
+                leftPanel.setPadding(new Insets(15)); // on ajoute un padding pour rendre l'interface plus agéable
 
-        // champ de recherche de la ville d'arrivée
-        TextField destinationSearch = new TextField("Ville de destination...");
-        startSearch.setPadding(new Insets(7));
+                // champ de recherche de la ville de départ
+                TextField startSearch = new TextField("Ville de départ...");
+                startSearch.setPadding(new Insets(7));
 
-        // on ajoute les items dans le panneau
-        leftPanel.getChildren().addAll(
-            startSearch,
-            switchArrows,
-            destinationSearch
-        );
+                // bouton qui permet d'inverser la ville de départ et celle de destination
+                Button switchArrows = new Button();
+                switchArrows.setPrefSize(26, 26);
+                // on ajoute une icone
+                ImageView switchIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/switch.png")));
+                switchIcon.setFitHeight(26);
+                switchIcon.setPreserveRatio(true);
+                switchArrows.setGraphic(switchIcon);
+                switchArrows.setRotate(90);
 
-        VBox.setMargin(switchArrows, new Insets(10, 0, 10, 0));
+                // champ de recherche de la ville d'arrivée
+                TextField destinationSearch = new TextField("Ville de destination...");
+                startSearch.setPadding(new Insets(7));
 
-        TabPane rightPanel = new TabPane(); // la partie de droite qui contient les onglets
+                // on ajoute les items dans le panneau
+                leftPanel.getChildren().addAll(
+                    startSearch,
+                    switchArrows,
+                    destinationSearch
+                );
 
-        // ------------------------------< Tab itinéraires >------------------------------
+                VBox.setMargin(switchArrows, new Insets(10, 0, 10, 0));
+            }
 
-        Tab itineraires = new Tab();
-        itineraires.setContent(null);
-        itineraires.setClosable(false);
 
-        ImageView pathsIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/route.png")));
-        pathsIcon.setFitHeight(30);
-        pathsIcon.setPreserveRatio(true);
-        itineraires.setGraphic(pathsIcon);
+            // ==============================< Panneau de Droite >==============================
 
-        // ------------------------------< Tab favoris >------------------------------
+            TabPane rightPanel = new TabPane(); {
 
-        Tab favoris = new Tab();
-        favoris.setContent(null);
-        favoris.setClosable(false);
+                // ------------------------------< Tab itinéraires >------------------------------
 
-        ImageView favoritesIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/favorite.png")));
-        favoritesIcon.setFitHeight(30);
-        favoritesIcon.setPreserveRatio(true);
-        favoris.setGraphic(favoritesIcon);
+                Tab itineraires = new Tab();
+                itineraires.setContent(null);
+                itineraires.setClosable(false);
 
-        // ------------------------------< Tab historique >------------------------------
+                ImageView pathsIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/route.png")));
+                pathsIcon.setFitHeight(30);
+                pathsIcon.setPreserveRatio(true);
+                itineraires.setGraphic(pathsIcon);
 
-        Tab historique = new Tab();
-        historique.setContent(null);
-        historique.setClosable(false);
 
-        ImageView historyIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/history.png")));
-        historyIcon.setFitHeight(30);
-        historyIcon.setPreserveRatio(true);
-        historique.setGraphic(historyIcon);
+                // ------------------------------< Tab favoris >------------------------------
 
-        // -------------------------------------------------------------------------------
+                Tab favoris = new Tab();
+                favoris.setContent(null);
+                favoris.setClosable(false);
 
-        // Ajoute des tabs dans le panel
-        rightPanel.getTabs().addAll(
-            itineraires,
-            favoris,
-            historique
-        );
+                ImageView favoritesIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/favorite.png")));
+                favoritesIcon.setFitHeight(30);
+                favoritesIcon.setPreserveRatio(true);
+                favoris.setGraphic(favoritesIcon);
 
-        // on met l'orientation des onglets
-        rightPanel.setSide(Side.LEFT);
 
-        // on ajoute les deux panneaux dans la racine
-        root.setLeft(leftPanel);
-        root.setCenter(rightPanel);
+                // ------------------------------< Tab historique >------------------------------
+
+                Tab historique = new Tab();
+                historique.setContent(null);
+                historique.setClosable(false);
+
+                ImageView historyIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/history.png")));
+                historyIcon.setFitHeight(30);
+                historyIcon.setPreserveRatio(true);
+                historique.setGraphic(historyIcon);
+
+
+                // Ajoute des tabs dans le panel
+                rightPanel.getTabs().addAll(
+                    itineraires,
+                    favoris,
+                    historique
+                );
+
+                // on met l'orientation des onglets
+                rightPanel.setSide(Side.LEFT);
+            }
+
+            // on ajoute les deux panneaux dans la racine
+            root.setLeft(leftPanel);
+            root.setCenter(rightPanel);
+        }
+
+
+        // ==============================< Gestion de la stage >==============================
 
         Scene home = new Scene(root);
 
