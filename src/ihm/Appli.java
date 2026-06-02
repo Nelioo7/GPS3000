@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 /**
  * Interface graphique de l'app
  * @author Erwann Besegher
- * @version 1.3.0
+ * @version 1.3.2
  */
 public class Appli extends Application {
 
@@ -76,6 +76,8 @@ public class Appli extends Application {
 
         TabPane rightPanel = new TabPane(); // la partie de droite qui contient les onglets
 
+        // ------------------------------< Tab itinéraires >------------------------------
+
         Tab itineraires = new Tab();
         itineraires.setContent(null);
         itineraires.setClosable(false);
@@ -84,6 +86,8 @@ public class Appli extends Application {
         pathsIcon.setFitHeight(30);
         pathsIcon.setPreserveRatio(true);
         itineraires.setGraphic(pathsIcon);
+
+        // ------------------------------< Tab favoris >------------------------------
 
         Tab favoris = new Tab();
         favoris.setContent(null);
@@ -94,6 +98,8 @@ public class Appli extends Application {
         favoritesIcon.setPreserveRatio(true);
         favoris.setGraphic(favoritesIcon);
 
+        // ------------------------------< Tab historique >------------------------------
+
         Tab historique = new Tab();
         historique.setContent(null);
         historique.setClosable(false);
@@ -103,16 +109,21 @@ public class Appli extends Application {
         historyIcon.setPreserveRatio(true);
         historique.setGraphic(historyIcon);
 
+        // -------------------------------------------------------------------------------
+
+        // Ajoute des tabs dans le panel
         rightPanel.getTabs().addAll(
             itineraires,
             favoris,
             historique
         );
 
+        // on met l'orientation des onglets
         rightPanel.setSide(Side.LEFT);
 
+        // on ajoute les deux panneaux dans la racine
         root.setLeft(leftPanel);
-        root.setRight(rightPanel);
+        root.setCenter(rightPanel);
 
         Scene home = new Scene(root);
 
