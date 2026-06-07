@@ -1,7 +1,87 @@
 #left-panel {
-    -fx-background-color: #333333;
+    -fx-background-color: #E6E6E6; /* gris légèrement plus soutenu pour le contraste */
 }
 
-#right-panel {
-    -fx-background-color: purple;
+.co2-banner {
+    -fx-background-color: #DEF2E6; 
+    -fx-background-radius: 15px;
+    -fx-padding: 15px;
+    -fx-border-color: #C1E1CE;
+    -fx-border-width: 1px;
+    -fx-border-radius: 15px;
+}
+
+#lamp-icon {
+    -fx-fill: #F2C94C; 
+    -fx-font-size: 24px; 
+    -fx-effect: dropshadow(gaussian, rgba(242, 201, 76, 0.3), 5, 0, 0, 0);
+}
+
+
+.tab-pane .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+.tab {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 15px 5px;
+}
+
+.tab:focus {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab:selected {
+    -fx-background-color: transparent;
+    -fx-opacity: 1.0;
+}
+
+.tab {
+    -fx-opacity: 0.5;
+}
+.tab:hover {
+    -fx-opacity: 0.8;
+}
+
+.co2-text {
+    -fx-text-fill: #1E4620;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.search-bar {
+    -fx-background-color: white;
+    -fx-background-radius: 25px; 
+    -fx-padding: 12px 20px; 
+    -fx-font-size: 15px;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+    -fx-border-radius: 25px; 
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1);
+}
+
+.search-bar:focused {
+    -fx-border-color: #888888;
+}
+
+.switch-btn {
+    -fx-background-color: transparent; 
+    -fx-cursor: hand; 
+}
+
+.switch-btn:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 1);
+}
+
+.tab-pane > .tab-header-area > .control-buttons-tab {
+    -fx-padding: 0;
+    -fx-opacity: 0;
+    -fx-max-width: 0;
+}
+
+.tab-pane .tab-header-area {
+    -fx-min-width: 60px;
+    -fx-max-width: 60px;
 }
