@@ -115,6 +115,12 @@ public class Appli extends Application {
 
                 rightPanel.getTabs().addAll(itineraires, favoris, historique);
                 rightPanel.setSide(Side.LEFT);
+
+                // ==============================< Taille Dynamique >==============================
+                // forcer chaque onglet à prendre exactement 1/3 de la hauteur totale.
+                // -10 pour compenser les marges et éviter les débordements.
+                rightPanel.tabMinWidthProperty().bind(rightPanel.heightProperty().divide(3).subtract(34));
+                rightPanel.tabMaxWidthProperty().bind(rightPanel.heightProperty().divide(3).subtract(34));
             }
 
             root.setLeft(leftPanel);
