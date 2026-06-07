@@ -19,6 +19,7 @@ import fr.ulille.but.sae_s2_2026.MultiGrapheOrienteValue;
  * @author Amayas Mehmel 
  * @author Erwann Besegher (scanner & import csv & docs)
  * @author Jérôme Pardoue (itinerairenNotFoundException)
+ * * @author Alaëddine Oudriss (Historique)
  * @version 2.5.0
  */
 
@@ -28,6 +29,23 @@ public class Main {
             System.out.println("Erreur : Il manque des arguments.");
             System.out.println("Utilisation : java -cp \"bin;lib/*\" poo.Main <Nom> <Prenom> <Critere> <Transport> <DureeMax> <VilleDepart> <VilleArrivee>");
             return;
+        }
+    
+        String cheminHistorique = "res/historique.ser";
+        Historique monHistorique;
+        
+        try {
+            File f = new File(cheminHistorique);
+            if (f.exists()) {
+                monHistorique = Historique.charger(cheminHistorique);
+                System.out.println("Historique charge avec succes.");
+            } else {
+                monHistorique = new Historique();
+                System.out.println("Premier lancement : Creation d'un nouvel historique.");
+            }
+        } catch (Exception e) {
+            monHistorique = new Historique();
+            System.out.println("Erreur de chargement, création d'un historique vide.");
         }
 
     String cheminFichier = "res/exemple-reseau.csv";
@@ -234,5 +252,18 @@ public class Main {
         } else {
             System.out.println("Erreur : Impossible de trouver les villes de départ et d'arrivée spécifiées avec ce mode de transport.");
         }
+
+        String villeDep = args[5].toUpperCase();
+        String villeArr = args[6].toUpperCase();
+        monHistorique.ajouterRecherche(villeDep + " -> " + villeArr);
+
+        try {
+            monHistorique.sauvegarder(cheminHistorique);
+            System.out.println("\n--- Historique des recherches ---");
+            monHistorique.afficherHistorique();
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la sauvegarde : " + e.getMessage());
+        }
     }
+
 }
