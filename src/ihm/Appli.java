@@ -29,17 +29,22 @@ public class Appli extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
+        // ==============================< Racine >==============================
+
         BorderPane root = new BorderPane(); {
 
             // ==============================< Panneau de gauche >==============================
             VBox leftPanel = new VBox(); {
-                leftPanel.setId("left-panel"); 
+
+                leftPanel.setId("left-panel"); // nom pour le css
+
                 leftPanel.setAlignment(Pos.TOP_CENTER);
-                leftPanel.setPadding(new Insets(30, 15, 15, 15));
+                leftPanel.setPadding(new Insets(30, 15, 15, 15)); // on ajoute un padding pour rendre l'interface plus agéable
                 leftPanel.setSpacing(15); 
 
                 HBox co2Banner = new HBox(); {
                     co2Banner.getStyleClass().add("co2-banner");
+
                     co2Banner.setAlignment(Pos.CENTER);
                     co2Banner.setSpacing(10);
 
@@ -54,33 +59,48 @@ public class Appli extends Application {
                     co2Banner.getChildren().addAll(lampIcon, co2Text);
                 }
 
-                // --- Champs de recherche ---
+                // champ de recherche de la ville de départ
                 TextField startSearch = new TextField(); {
                     startSearch.setPromptText("Départ: ex. Lambersart"); 
                     startSearch.getStyleClass().add("search-bar"); 
                 }
                 
+                // champ de recherche de la ville d'arrivée
                 TextField destinationSearch = new TextField(); {
                     destinationSearch.setPromptText("Arrivée: ex. Croix");
                     destinationSearch.getStyleClass().add("search-bar"); 
                 }
 
+                // bouton qui permet d'inverser la ville de départ et celle de destination
                 Button switchArrows = new Button(); {
+
                     switchArrows.getStyleClass().add("switch-btn"); 
-                    ImageView switchIcon = new ImageView(new Image(new FileInputStream("src/ihm/img/switch.png")));
-                    switchIcon.setFitHeight(20); 
-                    switchIcon.setPreserveRatio(true);
-                    switchArrows.setGraphic(switchIcon);
-                    switchArrows.setRotate(90);
+
+                    ImageView switchIcon = new ImageView(
+                        new Image(
+                            new FileInputStream("src/ihm/img/switch.png")
+                        )
+                    ); {
+                        switchIcon.setFitHeight(20); 
+                        switchIcon.setPreserveRatio(true);
+                        switchArrows.setGraphic(switchIcon);
+                        switchArrows.setRotate(90);
+                    }
+
+                    switchArrows.setOnAction(event -> {
+                        String temp = startSearch.getText();
+                        startSearch.setText(destinationSearch.getText());
+                        destinationSearch.setText(temp);
+                    });
                 }
 
-                switchArrows.setOnAction(event -> {
-                    String temp = startSearch.getText();
-                    startSearch.setText(destinationSearch.getText());
-                    destinationSearch.setText(temp);
-                });
-
-                leftPanel.getChildren().addAll(co2Banner, startSearch, switchArrows, destinationSearch);
+                // on ajoute les items dans le panneau
+                leftPanel.getChildren().addAll(
+                    co2Banner,
+                    startSearch,
+                    switchArrows,
+                    destinationSearch
+                );
                 
                 VBox.setMargin(co2Banner, new Insets(0, 0, 30, 0));
             }
@@ -89,27 +109,48 @@ public class Appli extends Application {
             TabPane rightPanel = new TabPane(); {
                 rightPanel.setId("right-panel"); 
 
-                // Tab itinéraires
+                // ------------------------------< Tab itinéraires >------------------------------
                 Tab itineraires = new Tab(); {
+
                     itineraires.setClosable(false);
-                    Image imgRoute = new Image(new FileInputStream("src/ihm/img/route.png"), 30, 30, true, true);
-                    ImageView pathsIcon = new ImageView(imgRoute);
+                    itineraires.setContent(null);
+
+                    ImageView pathsIcon = new ImageView(
+                        new Image(
+                            new FileInputStream("src/ihm/img/route.png"), 30, 30, true, true
+                        )
+                    );
+
                     itineraires.setGraphic(pathsIcon);
                 }
 
-                // Tab favoris
+                // ------------------------------< Tab favoris >------------------------------
                 Tab favoris = new Tab(); {
+
                     favoris.setClosable(false);
-                    Image imgFav = new Image(new FileInputStream("src/ihm/img/favorite.png"), 30, 30, true, true);
-                    ImageView favoritesIcon = new ImageView(imgFav);
+                    itineraires.setContent(null);
+
+                    ImageView favoritesIcon = new ImageView(
+                        new Image(
+                            new FileInputStream("src/ihm/img/favorite.png"), 30, 30, true, true
+                        )
+                    );
+
                     favoris.setGraphic(favoritesIcon);
                 }
 
-                // Tab historique
+                // ------------------------------< Tab historique >------------------------------
                 Tab historique = new Tab(); {
+
                     historique.setClosable(false);
-                    Image imgHist = new Image(new FileInputStream("src/ihm/img/history.png"), 30, 30, true, true);
-                    ImageView historyIcon = new ImageView(imgHist);
+                    itineraires.setContent(null);
+
+                    ImageView historyIcon = new ImageView(
+                        new Image(
+                            new FileInputStream("src/ihm/img/history.png"), 30, 30, true, true
+                        )
+                    );
+
                     historique.setGraphic(historyIcon);
                 }
 
@@ -125,6 +166,8 @@ public class Appli extends Application {
             root.setLeft(leftPanel);
             root.setCenter(rightPanel);
         }
+
+        // ==============================< Gestion de la stage >==============================
 
         Scene home = new Scene(root);
         home.getStylesheets().add("/ihm/style.css"); 
