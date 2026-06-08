@@ -5,3 +5,10 @@
 #right-panel {
     -fx-background-color: purple;
 }
+#right-panel .tab-header-area .headers-region {
+    -fx-alignment: STRETCH;
+}
+
+#right-panel .tab {
+    -fx-max-height: infinity
+}

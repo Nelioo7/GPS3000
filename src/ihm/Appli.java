@@ -155,6 +155,9 @@ public class Appli extends Application {
 
                 // on met l'orientation des onglets
                 rightPanel.setSide(Side.LEFT);
+
+                rightPanel.setTabMaxHeight(Double.MAX_VALUE);
+                rightPanel.setMinHeight(30);
             }
 
             // on ajoute les deux panneaux dans la racine
