@@ -1,14 +1,125 @@
+/* ==============================< Couleurs & Fonds >============================== */
+
+* {
+    /* Variables globales pour garder une cohérence visuelle sur toute l'appli */
+    -fx-panneau-clair: #F2F2F2;
+    -fx-panneau-fonce: #E4E4E4;
+}
+
 #left-panel {
-    -fx-background-color: #333333;
+    -fx-background-color: -fx-panneau-clair;
 }
 
 #right-panel {
     -fx-background-color: purple;
 }
+
+
+/* ==============================< Barre des Onglets >============================== */
+/* Gère la colonne de droite contenant les icônes de navigation */
+
+.tab-pane .tab-header-background {
+    -fx-background-color: -fx-panneau-fonce;
+}
+
+.tab-pane .tab-header-area {
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.tab {
+    /* Style des onglets au repos (inactifs) */
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 25px 15px;
+    -fx-opacity: 0.4;
+    -fx-cursor: hand;
+}
 #right-panel .tab-header-area .headers-region {
     -fx-alignment: STRETCH;
 }
 
-#right-panel .tab {
-    -fx-max-height: infinity
+
+/* ==============================< Onglet Actif >============================== */
+/* Crée l'effet de continuité visuelle avec le panneau gauche quand on clique */
+
+.tab:selected {
+    -fx-background-color: -fx-panneau-clair;
+    
+    /* Arrondi sur la droite (inversé car JavaFX tourne l'onglet à 90°) */
+    -fx-background-radius: 0 0 20px 20px;
+    -fx-opacity: 1.0;
+}
+
+.tab:focus {
+    /* Masque les contours de sélection natifs (les fameux rectangles bleus) */
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab-pane > .tab-header-area > .control-buttons-tab {
+    /* Cache les flèches de défilement générées automatiquement s'il manque de la place */
+    -fx-padding: 0;
+    -fx-opacity: 0;
+    -fx-max-width: 0;
+}
+
+
+/* ==============================< Panneau Gauche >============================== */
+
+.co2-banner {
+    /* Style global de l'encart vert de prévention */
+    -fx-background-color: #DEF2E6; 
+    -fx-background-radius: 15px;
+    -fx-padding: 15px;
+    -fx-border-color: #C1E1CE;
+    -fx-border-width: 1px;
+    -fx-border-radius: 15px;
+}
+
+#lamp-icon {
+    /* Effet de lumière (halo) sur l'ampoule */
+    -fx-fill: #F2C94C; 
+    -fx-font-size: 24px;
+    -fx-effect: dropshadow(gaussian, rgba(242, 201, 76, 0.3), 5, 0, 0, 0);
+}
+
+.co2-text {
+    -fx-text-fill: #1E4620;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.search-bar {
+    /* Mise en forme des champs de texte de départ et d'arrivée */
+    -fx-background-color: white;
+    -fx-background-radius: 25px; 
+    -fx-padding: 12px 20px; 
+    -fx-font-size: 15px;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+    -fx-border-radius: 25px; 
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1);
+}
+
+.search-bar:focused {
+    -fx-border-color: #888888;
+}
+
+.switch-btn {
+    /* Rend le bouton d'inversion invisible pour ne garder que l'icône .png */
+    -fx-background-color: transparent; 
+    -fx-cursor: hand; 
+}
+
+.switch-btn:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 1);
+}
+
+.switch-btn:focused {
+    /* Supprime totalement l'effet de clic par défaut sur le bouton d'inversion */
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-color: transparent;
+    -fx-effect: none;
 }

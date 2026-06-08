@@ -19,7 +19,8 @@ import fr.ulille.but.sae_s2_2026.MultiGrapheOrienteValue;
  * @author Amayas Mehmel 
  * @author Erwann Besegher (scanner & import csv & docs)
  * @author Jérôme Pardoue (itinerairenNotFoundException)
- * @version 2.5.0
+ * * @author Alaëddine Oudriss (Historique)
+ * @version 3.0.0
  */
 
 public class Main {
@@ -28,6 +29,23 @@ public class Main {
             System.out.println("Erreur : Il manque des arguments.");
             System.out.println("Utilisation : java -cp \"bin;lib/*\" poo.Main <Nom> <Prenom> <Critere> <Transport> <DureeMax> <VilleDepart> <VilleArrivee>");
             return;
+        }
+    
+        String cheminHistorique = "res/historique.ser";
+        Historique monHistorique;
+        
+        try {
+            File f = new File(cheminHistorique);
+            if (f.exists()) {
+                monHistorique = Historique.charger(cheminHistorique);
+                System.out.println("Historique charge avec succes.");
+            } else {
+                monHistorique = new Historique();
+                System.out.println("Premier lancement : Creation d'un nouvel historique.");
+            }
+        } catch (Exception e) {
+            monHistorique = new Historique();
+            System.out.println("Erreur de chargement, création d'un historique vide.");
         }
 
     String cheminFichier = "res/exemple-reseau.csv";
@@ -225,8 +243,21 @@ public class Main {
             System.out.println("Aucun itinéraire trouvé : La ville de départ ou d'arrivée n'est pas desservie par le transport imposé (" + modeChoisi + ").");
         }
 
+        // Scénario d'utilisation -- Pardoue Jérôme
         GestionnaireItineraire gestionnaire = new GestionnaireItineraire(plateforme);
-        try { gestionnaire.trouverItineraires(departBase, arriveeBase, critereChoisi, 3);
+
+        Voyageur alice = new Voyageur("Dupont", "Alice", TypeCout.PRIX);
+        Voyageur bob = new Voyageur("Martin", "Bob", TypeCout.TEMPS);
+        Voyageur camille = new Voyageur("Leroy", "Camille", TypeCout.CO2);
+
+        try {
+            List<Chemin> trajet1 = gestionnaire.trouverItineraires(plateforme.trouverLieu("D"), plateforme.trouverLieu("A"), alice.getCritereOpti(), 3);
+            List<Chemin> trajet2 = gestionnaire.trouverItineraires(plateforme.trouverLieu("L"), plateforme.trouverLieu("B"), bob.getCritereOpti(), 3);
+            List<Chemin> trajet3 = gestionnaire.trouverItineraires(plateforme.trouverLieu("D"), plateforme.trouverLieu("G"), camille.getCritereOpti(), 3);
+
+            System.out.println("Alice (PRIX) : " + trajet1);
+            System.out.println("Bob (TEMPS) : " + trajet2);
+            System.out.println("Camille (CO2) : " + trajet3);
         } catch (VoyageImpossibleException e) {
             System.out.println(e.getMessage());
         }
@@ -234,5 +265,18 @@ public class Main {
         } else {
             System.out.println("Erreur : Impossible de trouver les villes de départ et d'arrivée spécifiées avec ce mode de transport.");
         }
+
+        String villeDep = args[5].toUpperCase();
+        String villeArr = args[6].toUpperCase();
+        monHistorique.ajouterRecherche(villeDep + " -> " + villeArr);
+
+        try {
+            monHistorique.sauvegarder(cheminHistorique);
+            System.out.println("\n--- Historique des recherches ---");
+            monHistorique.afficherHistorique();
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la sauvegarde : " + e.getMessage());
+        }
     }
+
 }
