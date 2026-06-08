@@ -20,7 +20,7 @@ import fr.ulille.but.sae_s2_2026.MultiGrapheOrienteValue;
  * @author Erwann Besegher (scanner & import csv & docs)
  * @author Jérôme Pardoue (itinerairenNotFoundException)
  * * @author Alaëddine Oudriss (Historique)
- * @version 2.5.0
+ * @version 3.0.0
  */
 
 public class Main {
@@ -243,8 +243,21 @@ public class Main {
             System.out.println("Aucun itinéraire trouvé : La ville de départ ou d'arrivée n'est pas desservie par le transport imposé (" + modeChoisi + ").");
         }
 
+        // Scénario d'utilisation -- Pardoue Jérôme
         GestionnaireItineraire gestionnaire = new GestionnaireItineraire(plateforme);
-        try { gestionnaire.trouverItineraires(departBase, arriveeBase, critereChoisi, 3);
+
+        Voyageur alice = new Voyageur("Dupont", "Alice", TypeCout.PRIX);
+        Voyageur bob = new Voyageur("Martin", "Bob", TypeCout.TEMPS);
+        Voyageur camille = new Voyageur("Leroy", "Camille", TypeCout.CO2);
+
+        try {
+            List<Chemin> trajet1 = gestionnaire.trouverItineraires(plateforme.trouverLieu("D"), plateforme.trouverLieu("A"), alice.getCritereOpti(), 3);
+            List<Chemin> trajet2 = gestionnaire.trouverItineraires(plateforme.trouverLieu("L"), plateforme.trouverLieu("B"), bob.getCritereOpti(), 3);
+            List<Chemin> trajet3 = gestionnaire.trouverItineraires(plateforme.trouverLieu("D"), plateforme.trouverLieu("G"), camille.getCritereOpti(), 3);
+
+            System.out.println("Alice (PRIX) : " + trajet1);
+            System.out.println("Bob (TEMPS) : " + trajet2);
+            System.out.println("Camille (CO2) : " + trajet3);
         } catch (VoyageImpossibleException e) {
             System.out.println(e.getMessage());
         }
