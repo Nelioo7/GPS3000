@@ -169,7 +169,7 @@ public class Appli extends Application {
 
         // ==============================< Gestion de la stage >==============================
 
-        Scene home = new Scene(root);
+        Scene home = new Scene(root, 1000, 600);
         home.getStylesheets().add("/ihm/style.css"); 
 
         stage.setScene(home);
