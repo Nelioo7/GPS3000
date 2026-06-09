@@ -61,7 +61,12 @@ Les paramètres à entrer dans l'appli sont les suivants:
 .
 ├── bin
 │   ├── graphes
-│   │   └── GraphesV1.class
+│   │   ├── GraphesV1$Trajet.class
+│   │   ├── GraphesV1$Ville.class
+│   │   ├── GraphesV1.class
+│   │   ├── GraphesV2$LienReseau.class
+│   │   ├── GraphesV2$SommetEclate.class
+│   │   └── GraphesV2.class
 │   ├── ihm
 │   │   ├── Appli.class
 │   │   ├── img
@@ -69,19 +74,24 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │   │   │   ├── history.png
 │   │   │   ├── route.png
 │   │   │   └── switch.png
-│   │   └── maquettes
-│   │       └── Maquettes.png
+│   │   ├── leaflet.css
+│   │   ├── map.html
+│   │   ├── maquettes
+│   │   │   └── Maquettes.png
+│   │   └── style.css
 │   └── poo
 │       ├── Connexion.class
 │       ├── CorrespondanceArete.class
 │       ├── CoutConnexion.class
 │       ├── GestionnaireItineraire.class
+│       ├── Historique.class
 │       ├── Lieu.class
 │       ├── LieuModalite.class
 │       ├── Main.class
 │       ├── Plateforme.class
 │       ├── TestCoutConnexion.class
 │       ├── TestGestionnaireItineraire.class
+│       ├── TestHistorique.class
 │       ├── TestPlateforme.class
 │       ├── TestTraitementDonnees.class
 │       ├── TestTrajet.class
@@ -101,14 +111,24 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │   ├── junit-platform-console-standalone-6.0.3.jar
 │   └── sae_s2_2026.jar
 ├── rapport
+│   ├── drawio
+│   │   ├── graphe1.drawio
+│   │   ├── graphe2.drawio
+│   │   ├── graphe3.drawio
+│   │   ├── graphe4.drawio
+│   │   └── uml.drawio
 │   ├── img
 │   │   ├── gr1.png
 │   │   ├── gr2.png
+│   │   ├── gr3.png
+│   │   ├── gr4.png
 │   │   └── uml.png
-│   ├── RapportGraphes.md
-│   ├── RapportGraphes.pdf
-│   └── uml.drawio
+│   ├── RapportGraphesV1.md
+│   ├── RapportGraphesV1.pdf
+│   ├── RapportGraphesV2.md
+│   └── RapportGraphesV2.pdf
 ├── RapportV1.pdf
+├── RapportV2.pdf
 ├── README.md
 ├── res
 │   ├── exemple-correspondances.csv
@@ -116,7 +136,8 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │   └── test.csv
 ├── src
 │   ├── graphes
-│   │   └── GraphesV1.java
+│   │   ├── GraphesV1.java
+│   │   └── GraphesV2.java
 │   ├── ihm
 │   │   ├── Appli.java
 │   │   ├── img
@@ -124,13 +145,17 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │   │   │   ├── history.png
 │   │   │   ├── route.png
 │   │   │   └── switch.png
-│   │   └── maquettes
-│   │       └── Maquettes.png
+│   │   ├── leaflet.css
+│   │   ├── map.html
+│   │   ├── maquettes
+│   │   │   └── Maquettes.png
+│   │   └── style.css
 │   └── poo
 │       ├── Connexion.java
 │       ├── CorrespondanceArete.java
 │       ├── CoutConnexion.java
 │       ├── GestionnaireItineraire.java
+│       ├── Historique.java
 │       ├── Lieu.java
 │       ├── LieuModalite.java
 │       ├── Main.java
@@ -146,6 +171,7 @@ Les paramètres à entrer dans l'appli sont les suivants:
     └── poo
         ├── TestCoutConnexion.java
         ├── TestGestionnaireItineraire.java
+        ├── TestHistorique.java
         ├── TestPlateforme.java
         ├── TestTraitementDonnees.java
         ├── TestTrajet.java
