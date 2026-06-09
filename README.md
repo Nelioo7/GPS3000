@@ -3,8 +3,10 @@
 ---
 - [SAE 2.1/2.2](#sae-2122)
   - [IHM](#ihm)
-  - [POO](#poo)
+    - [Infos](#infos)
     - [Execution](#execution)
+  - [POO](#poo)
+    - [Execution](#execution-1)
     - [Paramètres d'entrée](#paramètres-dentrée)
     - [Structure du projet](#structure-du-projet)
   - [Conception](#conception)
@@ -18,14 +20,20 @@
 ---
 
 ## IHM
+
+### Infos
 *Toutes les ressources ainsi que la maquette et le code liés à la partie IHM se trouvent dans le dossier ihm.*
 
 Le prototype basse fidélité se trouve au lien suivant:
 
 *https://www.figma.com/proto/4IzpJgvGIfrHPEEoBLENXQ/Dev-C2?node-id=159-426&starting-point-node-id=159%3A395&t=jbjEH13LG4aSWXQa-1*
 
-Un début de programme pour une interface javafx est dispo mais pas encore fonctionnel, nous avons pris un poil d'avance.
-Nous nous baserons donc sur le prototype figma afin de réaliser l'application javafx.
+### Execution
+*Nous avons du modifier notre `launch.json` afin d'y integrer les imports JavaFX nécessaires à l'éxecution de l'appli avec une webview de carte.*
+
+```json
+"vmArgs": "--module-path /home/elmouu/javafx-sdk-21.0.2/lib --add-modules=javafx.controls,javafx.fxml,javafx.web --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED"
+```
 
 ## POO
 
