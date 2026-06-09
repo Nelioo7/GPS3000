@@ -17,6 +17,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 /**
@@ -113,7 +115,17 @@ public class Appli extends Application {
                 Tab itineraires = new Tab(); {
 
                     itineraires.setClosable(false);
-                    itineraires.setContent(null);
+
+                    // ---< Carte >---
+                    WebView map = new WebView(); {
+                        WebEngine moteur = map.getEngine(); // instanciation du moteur de la webview
+                        moteur.load(getClass().getResource("/ihm/map.html").toExternalForm()); // chargement de la page web
+                        
+                        map.prefHeightProperty().bind(rightPanel.heightProperty());
+                    }
+
+                    // on ajoute la map dans la tab
+                    itineraires.setContent(map);
 
                     ImageView pathsIcon = new ImageView(
                         new Image(
@@ -128,7 +140,7 @@ public class Appli extends Application {
                 Tab favoris = new Tab(); {
 
                     favoris.setClosable(false);
-                    itineraires.setContent(null);
+                    // favoris.setContent();
 
                     ImageView favoritesIcon = new ImageView(
                         new Image(
@@ -143,7 +155,7 @@ public class Appli extends Application {
                 Tab historique = new Tab(); {
 
                     historique.setClosable(false);
-                    itineraires.setContent(null);
+                    // historique.setContent();
 
                     ImageView historyIcon = new ImageView(
                         new Image(

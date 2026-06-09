@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="Map" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+
+    <!-- import de leaflet -->
+    <link rel="stylesheet" href="./leaflet.css">
+
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+     
+</head>
+
+<body>
+
+    <!-- creation de la map -->
+    <div id="map"></div>
+
+    <!-- initialisation de la map sur lille -->
+    <script>
+    var map = L.map('map').setView([50.63297, 3.05858], 20);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: ''
+    }).addTo(map);
+    </script>
+
+</body>
+
+</html>
