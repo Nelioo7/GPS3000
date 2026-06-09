@@ -182,7 +182,7 @@ Les paramètres à entrer dans l'appli sont les suivants:
 
 ## Conception
 
-![Diagramme UML](./rapport/img/uml.png)
+![Diagramme UML](./img/uml.png)
 
 ## Logique
 
