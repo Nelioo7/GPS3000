@@ -119,3 +119,10 @@
     -fx-background-color: transparent;
     -fx-effect: none;
 }
+
+/* ==============================< Panneau de gauche >============================== */
+
+.save-btn {
+    -fx-background-color: transparent;
+    -fx-cursor: hand; 
+}

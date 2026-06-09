@@ -96,12 +96,40 @@ public class Appli extends Application {
                     });
                 }
 
+                
+                // ==========================< Bouton sauvegarde >==============================
+
+                Button saveBtn = new Button();
+                saveBtn.getStyleClass().add("save-btn"); 
+
+                Image imgEmpty = new Image("file:src/ihm/img/signet.png", 28, 28, true, true);
+                Image imgFilled = new Image("file:src/ihm/img/signet1.png", 28, 28, true, true);
+
+                //on met l'image non selectionné par défaut
+                ImageView saveIcon = new ImageView(imgEmpty);
+                saveBtn.setGraphic(saveIcon);
+
+                //on vérifie quelle image est affichée et on inverse quand on click dessus
+                saveBtn.setOnAction(event -> {
+                    if (saveIcon.getImage() == imgEmpty) {
+                        saveIcon.setImage(imgFilled); 
+                    } else {
+                        saveIcon.setImage(imgEmpty);  
+                    }
+                });
+
+                HBox saveBtnContainer = new HBox(saveBtn);
+                saveBtnContainer.setAlignment(Pos.CENTER_LEFT);
+
+                // ===================================<                    >======================
+
                 // on ajoute les items dans le panneau
                 leftPanel.getChildren().addAll(
                     co2Banner,
                     startSearch,
                     switchArrows,
-                    destinationSearch
+                    destinationSearch,
+                    saveBtnContainer
                 );
                 
                 VBox.setMargin(co2Banner, new Insets(0, 0, 30, 0));
