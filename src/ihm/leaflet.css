@@ -660,7 +660,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
     }
 }
 
-#map {
-    height: 300px;
-    width: 300px;
+html, body, #map {
+    height: 100%;
+	margin: 0;
+	padding: 0;
 }

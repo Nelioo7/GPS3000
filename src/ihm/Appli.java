@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Box;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -118,8 +119,10 @@ public class Appli extends Application {
 
                     // ---< Carte >---
                     WebView map = new WebView(); {
-                        WebEngine moteur = map.getEngine();
-                        moteur.load(getClass().getResource("/ihm/map.html").toExternalForm());
+                        WebEngine moteur = map.getEngine(); // instanciation du moteur de la webview
+                        moteur.load(getClass().getResource("/ihm/map.html").toExternalForm()); // chargement de la page web
+                        
+                        map.prefHeightProperty().bind(rightPanel.heightProperty());
                     }
 
                     // on ajoute la map dans la tab
