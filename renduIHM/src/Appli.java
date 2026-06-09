@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 
 /**
  * Interface graphique de l'app
- * @author Erwann Besegher
+ * @author Erwann Besegher, Jérôme PARDOUE
  * @version 1.4.1
  */
 public class Appli extends Application {
@@ -122,6 +122,83 @@ public class Appli extends Application {
                 saveBtnContainer.setAlignment(Pos.CENTER_LEFT);
 
                 // ===================================<                    >======================
+                
+                // Menu pour choisir les modalités de transport à afficher
+                HBox filterBar = new HBox(); {
+                    filterBar.getStyleClass().add("filter-bar");
+
+                    filterBar.setAlignment(Pos.CENTER);
+                    filterBar.setSpacing(30);
+                    filterBar.setPadding(new Insets(10, 0, 10, 0));
+
+                    Button BoutonTrain = new Button(); {
+                        BoutonTrain.getStyleClass().add("filter-btn");
+                        ImageView trainIcon = new ImageView(
+                            new Image(
+                                new FileInputStream("src/ihm/img/train.png")
+                            )
+                        );{
+                            trainIcon.setFitHeight(20); 
+                            trainIcon.setPreserveRatio(true);
+                            BoutonTrain.setGraphic(trainIcon);
+                        }
+
+                        BoutonTrain.setOnAction(event -> {
+                            if (BoutonTrain.getStyleClass().contains("filter-btn-selected")) {
+                                BoutonTrain.getStyleClass().remove("filter-btn-selected");
+                            } else {
+                                BoutonTrain.getStyleClass().add("filter-btn-selected");
+                            }
+                        });
+                    }
+                    Button BoutonBus = new Button(); {
+                        BoutonBus.getStyleClass().add("filter-btn");
+                        ImageView busIcon = new ImageView(
+                            new Image(
+                                new FileInputStream("src/ihm/img/autobus.png")
+                            )
+                        );{
+                            busIcon.setFitHeight(20); 
+                            busIcon.setPreserveRatio(true);
+                            BoutonBus.setGraphic(busIcon);
+                        }
+
+                        BoutonBus.setOnAction(event -> {
+                            if (BoutonBus.getStyleClass().contains("filter-btn-selected")) {
+                                BoutonBus.getStyleClass().remove("filter-btn-selected");
+                            } else {
+                                BoutonBus.getStyleClass().add("filter-btn-selected");
+                            }
+                        });
+                    }
+                    Button BoutonAvion = new Button(); {
+                        BoutonAvion.getStyleClass().add("filter-btn");
+                        ImageView avionIcon = new ImageView(
+                            new Image(
+                                new FileInputStream("src/ihm/img/avion.png")
+                            )
+                        );{
+                            avionIcon.setFitHeight(20); 
+                            avionIcon.setPreserveRatio(true);
+                            BoutonAvion.setGraphic(avionIcon);
+                        }
+                        
+
+                        BoutonAvion.setOnAction(event -> {
+                            if (BoutonAvion.getStyleClass().contains("filter-btn-selected")) {
+                                BoutonAvion.getStyleClass().remove("filter-btn-selected");
+                            } else {
+                                BoutonAvion.getStyleClass().add("filter-btn-selected");
+                            }
+                        });
+                    }
+
+                    filterBar.getChildren().addAll(
+                        BoutonTrain, 
+                        BoutonBus, 
+                        BoutonAvion
+                    );
+                }
 
                 // on ajoute les items dans le panneau
                 leftPanel.getChildren().addAll(
@@ -129,10 +206,8 @@ public class Appli extends Application {
                     startSearch,
                     switchArrows,
                     destinationSearch,
-                    saveBtnContainer
+                    filterBar
                 );
-                
-                VBox.setMargin(co2Banner, new Insets(0, 0, 30, 0));
             }
 
             // ==============================< Panneau de Droite >==============================
