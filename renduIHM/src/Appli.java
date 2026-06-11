@@ -131,8 +131,14 @@ public class Appli extends Application {
                     filterBar.setSpacing(30);
                     filterBar.setPadding(new Insets(10, 0, 10, 0));
 
-                    Button BoutonTrain = new Button(); {
-                        BoutonTrain.getStyleClass().add("filter-btn");
+                    Button boutonTrain;
+                    Button boutonBus;
+                    Button boutonAvion;
+
+                    boolean[] transportSelected = new boolean[]{false, false, false};
+
+                    boutonTrain = new Button(); {
+                        boutonTrain.getStyleClass().add("filter-btn");
                         ImageView trainIcon = new ImageView(
                             new Image(
                                 new FileInputStream("src/ihm/img/train.png")
@@ -140,19 +146,11 @@ public class Appli extends Application {
                         );{
                             trainIcon.setFitHeight(20); 
                             trainIcon.setPreserveRatio(true);
-                            BoutonTrain.setGraphic(trainIcon);
+                            boutonTrain.setGraphic(trainIcon);
                         }
-
-                        BoutonTrain.setOnAction(event -> {
-                            if (BoutonTrain.getStyleClass().contains("filter-btn-selected")) {
-                                BoutonTrain.getStyleClass().remove("filter-btn-selected");
-                            } else {
-                                BoutonTrain.getStyleClass().add("filter-btn-selected");
-                            }
-                        });
                     }
-                    Button BoutonBus = new Button(); {
-                        BoutonBus.getStyleClass().add("filter-btn");
+                    boutonBus = new Button(); {
+                        boutonBus.getStyleClass().add("filter-btn");
                         ImageView busIcon = new ImageView(
                             new Image(
                                 new FileInputStream("src/ihm/img/autobus.png")
@@ -160,19 +158,11 @@ public class Appli extends Application {
                         );{
                             busIcon.setFitHeight(20); 
                             busIcon.setPreserveRatio(true);
-                            BoutonBus.setGraphic(busIcon);
+                            boutonBus.setGraphic(busIcon);
                         }
-
-                        BoutonBus.setOnAction(event -> {
-                            if (BoutonBus.getStyleClass().contains("filter-btn-selected")) {
-                                BoutonBus.getStyleClass().remove("filter-btn-selected");
-                            } else {
-                                BoutonBus.getStyleClass().add("filter-btn-selected");
-                            }
-                        });
                     }
-                    Button BoutonAvion = new Button(); {
-                        BoutonAvion.getStyleClass().add("filter-btn");
+                    boutonAvion = new Button(); {
+                        boutonAvion.getStyleClass().add("filter-btn");
                         ImageView avionIcon = new ImageView(
                             new Image(
                                 new FileInputStream("src/ihm/img/avion.png")
@@ -180,23 +170,56 @@ public class Appli extends Application {
                         );{
                             avionIcon.setFitHeight(20); 
                             avionIcon.setPreserveRatio(true);
-                            BoutonAvion.setGraphic(avionIcon);
+                            boutonAvion.setGraphic(avionIcon);
                         }
-                        
-
-                        BoutonAvion.setOnAction(event -> {
-                            if (BoutonAvion.getStyleClass().contains("filter-btn-selected")) {
-                                BoutonAvion.getStyleClass().remove("filter-btn-selected");
-                            } else {
-                                BoutonAvion.getStyleClass().add("filter-btn-selected");
-                            }
-                        });
                     }
 
+                    boutonTrain.setOnAction(event -> {
+                        if (boutonTrain.getStyleClass().contains("filter-btn-selected")) {
+                            boutonTrain.getStyleClass().remove("filter-btn-selected");
+                            transportSelected[0] = false;
+                        } else {
+                            boutonTrain.getStyleClass().add("filter-btn-selected");
+                            boutonBus.getStyleClass().remove("filter-btn-selected");
+                            boutonAvion.getStyleClass().remove("filter-btn-selected");
+                            transportSelected[0] = true;
+                            transportSelected[1] = false;
+                            transportSelected[2] = false;
+                        }
+                    });
+
+                    boutonBus.setOnAction(event -> {
+                        if (boutonBus.getStyleClass().contains("filter-btn-selected")) {
+                            boutonBus.getStyleClass().remove("filter-btn-selected");
+                            transportSelected[1] = false;
+                        } else {
+                            boutonBus.getStyleClass().add("filter-btn-selected");
+                            boutonTrain.getStyleClass().remove("filter-btn-selected");
+                            boutonAvion.getStyleClass().remove("filter-btn-selected");
+                            transportSelected[0] = false;
+                            transportSelected[1] = true;
+                            transportSelected[2] = false;
+                        }
+                    });
+
+                    boutonAvion.setOnAction(event -> {
+                        if (boutonAvion.getStyleClass().contains("filter-btn-selected")) {
+                            boutonAvion.getStyleClass().remove("filter-btn-selected");
+                            transportSelected[2] = false;
+                        } else {
+                            boutonAvion.getStyleClass().add("filter-btn-selected");
+                            boutonTrain.getStyleClass().remove("filter-btn-selected");
+                            boutonBus.getStyleClass().remove("filter-btn-selected");
+                            transportSelected[0] = false;
+                            transportSelected[1] = false;
+                            transportSelected[2] = true;
+                        }
+                    });
+
                     filterBar.getChildren().addAll(
-                        BoutonTrain, 
-                        BoutonBus, 
-                        BoutonAvion
+                        boutonTrain, 
+                        boutonBus, 
+                        boutonAvion
                     );
                 }
 
