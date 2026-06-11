@@ -19,7 +19,7 @@ import fr.ulille.but.sae_s2_2026.MultiGrapheOrienteValue;
  * @author Amayas Mehmel 
  * @author Erwann Besegher (scanner & import csv & docs)
  * @author Jérôme Pardoue (itinerairenNotFoundException)
- * * @author Alaëddine Oudriss (Historique)
+ * @author Alaëddine Oudriss (Historique)
  * @version 3.0.0
  */
 

@@ -25,7 +25,6 @@
 *Toutes les ressources ainsi que la maquette et le code liés à la partie IHM se trouvent dans le dossier ihm.*
 
 Le prototype basse fidélité se trouve au lien suivant:
-
 *https://www.figma.com/proto/4IzpJgvGIfrHPEEoBLENXQ/Dev-C2?node-id=159-395&starting-point-node-id=159%3A395*
 
 ### Execution
