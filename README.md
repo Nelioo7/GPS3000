@@ -26,7 +26,7 @@
 
 Le prototype basse fidélité se trouve au lien suivant:
 
-*https://www.figma.com/proto/4IzpJgvGIfrHPEEoBLENXQ/Dev-C2?node-id=159-426&starting-point-node-id=159%3A395&t=jbjEH13LG4aSWXQa-1*
+*https://www.figma.com/proto/4IzpJgvGIfrHPEEoBLENXQ/Dev-C2?node-id=159-395&starting-point-node-id=159%3A395*
 
 ### Execution
 *Nous avons du modifier notre `launch.json` afin d'y integrer les imports JavaFX nécessaires à l'éxecution de l'appli avec une webview de carte.*
@@ -67,50 +67,55 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │   │   ├── GraphesV2$LienReseau.class
 │   │   ├── GraphesV2$SommetEclate.class
 │   │   └── GraphesV2.class
-│   ├── ihm
-│   │   ├── Appli.class
-│   │   ├── img
-│   │   │   ├── favorite.png
-│   │   │   ├── history.png
-│   │   │   ├── route.png
-│   │   │   └── switch.png
-│   │   ├── leaflet.css
-│   │   ├── map.html
-│   │   ├── maquettes
-│   │   │   └── Maquettes.png
-│   │   └── style.css
-│   └── poo
-│       ├── Connexion.class
-│       ├── CorrespondanceArete.class
-│       ├── CoutConnexion.class
-│       ├── GestionnaireItineraire.class
-│       ├── Historique.class
-│       ├── Lieu.class
-│       ├── LieuModalite.class
-│       ├── Main.class
-│       ├── Plateforme.class
-│       ├── TestCoutConnexion.class
-│       ├── TestGestionnaireItineraire.class
-│       ├── TestHistorique.class
-│       ├── TestPlateforme.class
-│       ├── TestTraitementDonnees.class
-│       ├── TestTrajet.class
-│       ├── TestVille.class
-│       ├── TestVoyageImpossibleException.class
-│       ├── TestVoyageur.class
-│       ├── TraitementDonnees.class
-│       ├── Trajet.class
-│       ├── TransportArete.class
-│       ├── TypeCout.class
-│       ├── Ville.class
-│       ├── VoyageImpossibleException.class
-│       └── Voyageur.class
+│   ├── poo
+│   │   ├── Connexion.class
+│   │   ├── CorrespondanceArete.class
+│   │   ├── CoutConnexion.class
+│   │   ├── GestionnaireItineraire.class
+│   │   ├── Historique.class
+│   │   ├── Lieu.class
+│   │   ├── LieuModalite.class
+│   │   ├── Main.class
+│   │   ├── Plateforme.class
+│   │   ├── TestCoutConnexion.class
+│   │   ├── TestGestionnaireItineraire.class
+│   │   ├── TestHistorique.class
+│   │   ├── TestPlateforme.class
+│   │   ├── TestTraitementDonnees.class
+│   │   ├── TestTrajet.class
+│   │   ├── TestVille.class
+│   │   ├── TestVoyageImpossibleException.class
+│   │   ├── TestVoyageur.class
+│   │   ├── TraitementDonnees.class
+│   │   ├── Trajet.class
+│   │   ├── TransportArete.class
+│   │   ├── TypeCout.class
+│   │   ├── Ville.class
+│   │   ├── VoyageImpossibleException.class
+│   │   └── Voyageur.class
+│   └── renduIHM
+│       ├── Appli.class
+│       ├── img
+│       │   ├── favorite.png
+│       │   ├── history.png
+│       │   ├── route.png
+│       │   ├── signet1.png
+│       │   ├── signet.png
+│       │   └── switch.png
+│       ├── leaflet.css
+│       ├── map.html
+│       ├── maquettes
+│       │   └── Maquettes.png
+│       ├── readme.md
+│       └── style.css
+├── img
+│   └── uml.png
 ├── lib
 │   ├── jgrapht-core-1.5.1.jar
 │   ├── jheaps-0.14.jar
 │   ├── junit-platform-console-standalone-6.0.3.jar
 │   └── sae_s2_2026.jar
-├── rapport
+├── partieGraphes
 │   ├── drawio
 │   │   ├── graphe1.drawio
 │   │   ├── graphe2.drawio
@@ -121,8 +126,7 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │   │   ├── gr1.png
 │   │   ├── gr2.png
 │   │   ├── gr3.png
-│   │   ├── gr4.png
-│   │   └── uml.png
+│   │   └── gr4.png
 │   ├── RapportGraphesV1.md
 │   ├── RapportGraphesV1.pdf
 │   ├── RapportGraphesV2.md
@@ -138,35 +142,38 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │   ├── graphes
 │   │   ├── GraphesV1.java
 │   │   └── GraphesV2.java
-│   ├── ihm
-│   │   ├── Appli.java
-│   │   ├── img
-│   │   │   ├── favorite.png
-│   │   │   ├── history.png
-│   │   │   ├── route.png
-│   │   │   └── switch.png
-│   │   ├── leaflet.css
-│   │   ├── map.html
-│   │   ├── maquettes
-│   │   │   └── Maquettes.png
-│   │   └── style.css
-│   └── poo
-│       ├── Connexion.java
-│       ├── CorrespondanceArete.java
-│       ├── CoutConnexion.java
-│       ├── GestionnaireItineraire.java
-│       ├── Historique.java
-│       ├── Lieu.java
-│       ├── LieuModalite.java
-│       ├── Main.java
-│       ├── Plateforme.java
-│       ├── TraitementDonnees.java
-│       ├── Trajet.java
-│       ├── TransportArete.java
-│       ├── TypeCout.java
-│       ├── Ville.java
-│       ├── VoyageImpossibleException.java
-│       └── Voyageur.java
+│   ├── poo
+│   │   ├── Connexion.java
+│   │   ├── CorrespondanceArete.java
+│   │   ├── CoutConnexion.java
+│   │   ├── GestionnaireItineraire.java
+│   │   ├── Historique.java
+│   │   ├── Lieu.java
+│   │   ├── LieuModalite.java
+│   │   ├── Main.java
+│   │   ├── Plateforme.java
+│   │   ├── TraitementDonnees.java
+│   │   ├── Trajet.java
+│   │   ├── TransportArete.java
+│   │   ├── TypeCout.java
+│   │   ├── Ville.java
+│   │   ├── VoyageImpossibleException.java
+│   │   └── Voyageur.java
+│   └── renduIHM
+│       ├── Appli.java
+│       ├── img
+│       │   ├── favorite.png
+│       │   ├── history.png
+│       │   ├── route.png
+│       │   ├── signet1.png
+│       │   ├── signet.png
+│       │   └── switch.png
+│       ├── leaflet.css
+│       ├── map.html
+│       ├── maquettes
+│       │   └── Maquettes.png
+│       ├── readme.md
+│       └── style.css
 └── test
     └── poo
         ├── TestCoutConnexion.java
