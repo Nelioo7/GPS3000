@@ -1,4 +1,4 @@
-package ihm;
+package renduIHM;
 
 import java.io.FileInputStream;
 import javafx.application.Application;
