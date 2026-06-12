@@ -22,7 +22,10 @@ import javafx.stage.Stage;
 
 /**
  * Interface graphique de l'app
- * @author Erwann Besegher, Jérôme PARDOUE
+ * @author Erwann Besegher
+ * @author Jérôme Pardoue
+ * @author Alaeddine Oudriss
+ * @author Amayas Mehmel
  * @version 1.4.1
  */
 public class Appli extends Application {
