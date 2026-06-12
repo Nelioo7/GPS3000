@@ -22,7 +22,6 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 import fr.ulille.but.sae_s2_2026.Lieu;
-import poo.Plateforme;
 import poo.TraitementDonnees;
 import poo.Trajet;
 import poo.TypeCout;
