@@ -12,7 +12,10 @@ Erwann Besegher - Alaëddine Oudriss - Mehmel Amayas - Pardoue Jérôme
 ---
 
 ## Application finale
+
 ![Screen appli]()
+
+*Notre appli utilise le fichier `villes.csv` afin de déterminer les coûts des transports, ainsi que `correspondances.csv` pour les correspondances internes.*
 
 ## Mockup Figma
 

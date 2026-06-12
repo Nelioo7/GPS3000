@@ -1,0 +1,16 @@
+Tokyo;Train;Bus;51;0.1;2
+Tokyo;Train;Avion;24;0;0
+Tokyo;Bus;Avion;46;0;4
+Jakarta;Bus;Avion;24;0;6
+NewYork;Train;Bus;47;0;8
+Lille;Train;Bus;33;0;20
+Londres;Train;Bus;79;0.1;14
+Berlin;Bus;Avion;71;0.1;4
+Dublin;Train;Bus;69;0.1;0
+Madrid;Train;Bus;46;0;6
+Madrid;Train;Avion;65;0.1;12
+Madrid;Bus;Avion;35;0;4
+Mexico;Bus;Avion;63;0.1;4
+Oslo;Train;Avion;88;0.1;6
+Moscou;Train;Bus;76;0.1;12
+Rome;Train;Bus;57;0.1;8

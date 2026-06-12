@@ -211,6 +211,8 @@ Les paramètres à entrer dans l'appli sont les suivants:
 
 ![Diagramme UML](./img/uml.png)
 
+*Notre appli utilise le fichier `villes.csv` afin de déterminer les coûts des transports, ainsi que `correspondances.csv` pour les correspondances internes.*
+
 ## Logique
 
 ### Filtrage

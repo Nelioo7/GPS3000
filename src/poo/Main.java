@@ -48,8 +48,8 @@ public class Main {
             System.out.println("Erreur de chargement, création d'un historique vide.");
         }
 
-    String cheminFichier = "res/exemple-reseau.csv";
-    String cheminCorrespondances = "res/exemple-correspondances.csv";
+    String cheminFichier = "res/villes.csv";
+    String cheminCorrespondances = "res/correspondances.csv";
 
     // on importe le fichier avec son chemin
     File fichierCSV = new File(cheminFichier);
