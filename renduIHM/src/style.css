@@ -191,6 +191,16 @@
 
 /* ==============================< Drag & Drop Critères >============================== */
 
+
+.critere-icon {
+    -fx-text-fill: #94A3B8; 
+    -fx-font-weight: bold;
+}
+
+.critere-label {
+    -fx-text-fill: #1E293B;
+}
+
 .critere-titre {
     -fx-font-size: 14px;
     -fx-font-weight: bold;

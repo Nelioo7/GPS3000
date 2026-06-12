@@ -31,18 +31,19 @@ import javafx.stage.Stage;
  */
 public class Appli extends Application {
 
-        private Node draggedNode;
+    private Node draggedNode;
 
     private HBox createDraggableItem(String text) {
         HBox item = new HBox(10);
         item.getStyleClass().add("critere-item");
         
-        // Le petit symbole ≡ pour faire comme sur Figma
+        // Le petit symbole ≡ 
         Label icon = new Label("≡");
-        icon.setStyle("-fx-text-fill: #94A3B8; -fx-font-weight: bold;");
+        icon.getStyleClass().add("critere-icon");
         
+        // Le texte du critère
         Label label = new Label(text);
-        label.setStyle("-fx-text-fill: #1E293B;");
+        label.getStyleClass().add("critere-label");
         
         item.getChildren().addAll(icon, label);
 
@@ -430,6 +431,20 @@ public class Appli extends Application {
                 VBox inactiveBox = new VBox(8);
                 inactiveBox.getStyleClass().add("drop-box");
                 inactiveBox.setMinHeight(100);
+
+                VBox.setVgrow(activeBox, javafx.scene.layout.Priority.ALWAYS);
+                VBox.setVgrow(inactiveBox, javafx.scene.layout.Priority.ALWAYS);
+                VBox.setVgrow(filterBar, javafx.scene.layout.Priority.ALWAYS);
+                VBox.setVgrow(co2Banner, javafx.scene.layout.Priority.ALWAYS);
+                VBox.setVgrow(startSearch, javafx.scene.layout.Priority.ALWAYS);
+                VBox.setVgrow(destinationSearch, javafx.scene.layout.Priority.ALWAYS);
+                VBox.setVgrow(saveBtnContainer, javafx.scene.layout.Priority.ALWAYS);
+                VBox.setVgrow(switchArrows, javafx.scene.layout.Priority.ALWAYS);
+                VBox.setVgrow(activeLabel, javafx.scene.layout.Priority.ALWAYS);
+                VBox.setVgrow(inactiveLabel, javafx.scene.layout.Priority.ALWAYS);
+
+
+
 
                 // active la réception du Drag & Drop sur les deux zones
                 setupDropZone(activeBox);
