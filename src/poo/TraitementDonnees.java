@@ -99,7 +99,7 @@ public class TraitementDonnees {
     //Charge la plateforme à partir du fichier CSV.
 
     public static poo.Plateforme chargerPlateforme() {
-        String cheminFichier = "res/villes.csv";
+        String cheminFichier = "res/reseau.csv";
         ArrayList<String> dataBrutes = new ArrayList<>();
         poo.Plateforme plateforme = new poo.Plateforme();
 
