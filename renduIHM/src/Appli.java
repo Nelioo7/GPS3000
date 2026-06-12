@@ -34,7 +34,16 @@ public class Appli extends Application {
     public void start(Stage stage) throws Exception {
 
         // ==============================< Racine >==============================
+                VBox favorisList = new VBox(); {
+                favorisList.setSpacing(10);
+                favorisList.setPadding(new Insets(15));
+                }
 
+                VBox historiqueList = new VBox(); {
+                historiqueList.setSpacing(10);
+                historiqueList.setPadding(new Insets(15));
+                }
+                
         BorderPane root = new BorderPane(); {
 
             // ==============================< Panneau de gauche >==============================
@@ -98,8 +107,8 @@ public class Appli extends Application {
                     });
                 }
 
-                
-                // ==========================< Bouton sauvegarde >==============================
+
+// ==========================< Bouton sauvegarde >==============================
 
                 Button saveBtn = new Button();
                 saveBtn.getStyleClass().add("save-btn"); 
@@ -113,17 +122,122 @@ public class Appli extends Application {
 
                 //on vérifie quelle image est affichée et on inverse quand on click dessus
                 saveBtn.setOnAction(event -> {
+                    if (startSearch.getText().isEmpty() || destinationSearch.getText().isEmpty()) {
+                        return;
+                    }
+
                     if (saveIcon.getImage() == imgEmpty) {
-                        saveIcon.setImage(imgFilled); 
+
+                        String texteTrajet = startSearch.getText() + "  →  " + destinationSearch.getText();
+
+                        // on vérifie si le trajet existe déjà avant de l'ajouter
+                        boolean dejaPresent = false;
+                        for (javafx.scene.Node n : favorisList.getChildren()) {
+                            HBox ligne = (HBox) n;
+                            Label l = (Label) ligne.getChildren().get(0);
+                            if (l.getText().equals(texteTrajet)) {
+                                dejaPresent = true;
+                            }
+                        }
+
+                        if (!dejaPresent) {
+
+                            Label trajet = new Label(texteTrajet);
+                            trajet.getStyleClass().add("favori-item");
+                            Button deleteBtn = new Button(); {
+                                deleteBtn.getStyleClass().add("delete-btn");
+                                
+                                Image imgDelete = new Image("file:renduIHM/img/signet1.png", 20, 20, true, true);
+                                ImageView deleteIcon = new ImageView(imgDelete);
+                                deleteBtn.setGraphic(deleteIcon);
+                            }
+
+                            HBox ligne = new HBox(trajet, deleteBtn);
+                            ligne.setSpacing(10);
+                            ligne.setAlignment(Pos.CENTER_LEFT);
+
+                            deleteBtn.setOnAction(e -> {
+                                favorisList.getChildren().remove(ligne);
+                            });
+
+                            favorisList.getChildren().add(ligne);
+                        }
+                        saveIcon.setImage(imgFilled);
                     } else {
-                        saveIcon.setImage(imgEmpty);  
+                        saveIcon.setImage(imgEmpty);
                     }
                 });
 
-                HBox saveBtnContainer = new HBox(saveBtn);
-                saveBtnContainer.setAlignment(Pos.CENTER_LEFT);
+                startSearch.textProperty().addListener((obs, oldVal, newVal) -> {
+                    saveIcon.setImage(imgEmpty);
+                });
 
-                // ===================================<                    >======================
+                destinationSearch.textProperty().addListener((obs, oldVal, newVal) -> {
+                    saveIcon.setImage(imgEmpty); 
+                });
+
+                // ==========================< Bouton recherche >==============================
+
+                Button rechercheBtn = new Button();
+                rechercheBtn.getStyleClass().add("recherche-btn");
+
+                Image imgRecherche = new Image("file:renduIHM/img/search.png", 28, 28, true, true);
+                ImageView rechercheIcon = new ImageView(imgRecherche);
+                rechercheBtn.setGraphic(rechercheIcon);
+
+                rechercheBtn.setOnAction(event -> {
+                    if (startSearch.getText().isEmpty() || destinationSearch.getText().isEmpty()) {
+                        return;
+                    }
+
+                    String texteTrajet = startSearch.getText() + "  →  " + destinationSearch.getText();
+
+                    // on cherche si le trajet existe déjà dans l'historique
+                    HBox ligneExistante = null;
+                    for (javafx.scene.Node n : historiqueList.getChildren()) {
+                        HBox ligne = (HBox) n;
+                        Label l = (Label) ligne.getChildren().get(0);
+                        if (l.getText().equals(texteTrajet)) {
+                            ligneExistante = ligne;
+                        }
+                    }
+
+                    // si présent, on l'enlève pour le remettre en haut après
+                    if (ligneExistante != null) {
+                        historiqueList.getChildren().remove(ligneExistante);
+                    } else {
+                        Label trajet = new Label(texteTrajet);
+                        trajet.getStyleClass().add("historique-item");
+
+                        Button deleteBtn = new Button();
+                        deleteBtn.getStyleClass().add("delete-btn");
+
+                        Image imgDelete = new Image("file:renduIHM/img/supprimer.png", 20, 20, true, true);
+                        ImageView deleteIcon = new ImageView(imgDelete);
+                        deleteBtn.setGraphic(deleteIcon);
+
+                        HBox ligne = new HBox(trajet, deleteBtn);
+                        ligne.setSpacing(10);
+                        ligne.setAlignment(Pos.CENTER_LEFT);
+
+                        deleteBtn.setOnAction(e -> {
+                            historiqueList.getChildren().remove(ligne);
+                        });
+
+                        ligneExistante = ligne;
+                    }
+                    // on remet la dernière recherche en haut
+                    historiqueList.getChildren().add(0, ligneExistante);
+                });
+
+                
+
+                javafx.scene.layout.Region spacer = new javafx.scene.layout.Region();
+                HBox.setHgrow(spacer, javafx.scene.layout.Priority.ALWAYS);
+
+                HBox saveBtnContainer = new HBox(saveBtn, spacer, rechercheBtn);
+                saveBtnContainer.setAlignment(Pos.CENTER);
+                
                 
                 // Menu pour choisir les modalités de transport à afficher
                 HBox filterBar = new HBox(); {
@@ -231,6 +345,7 @@ public class Appli extends Application {
                     startSearch,
                     switchArrows,
                     destinationSearch,
+                    saveBtnContainer,
                     filterBar
                 );
             }
@@ -268,7 +383,7 @@ public class Appli extends Application {
                 Tab favoris = new Tab(); {
 
                     favoris.setClosable(false);
-                    // favoris.setContent();
+                    favoris.setContent(favorisList);
 
                     ImageView favoritesIcon = new ImageView(
                         new Image(
@@ -283,7 +398,7 @@ public class Appli extends Application {
                 Tab historique = new Tab(); {
 
                     historique.setClosable(false);
-                    // historique.setContent();
+                    historique.setContent(historiqueList);
 
                     ImageView historyIcon = new ImageView(
                         new Image(

@@ -139,3 +139,52 @@
     -fx-background-color: #dddddd;
     -fx-background-radius: 10px;
 }
+
+/* ==============================< bouton sauvgarde et recherche >============================== */
+.save-btn {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 8px;
+}
+
+.save-btn .image-view {
+    -fx-fit-width: 32px;
+    -fx-fit-height: 32px;
+}
+/* ==============================< bouton recherche >============================== */
+.recherche-btn {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 6px;
+    -fx-fit-width: 20px;
+    -fx-fit-height: 20px;
+}
+.recherche-btn .image-view {
+    -fx-fit-width: 32px;
+    -fx-fit-height: 32px;
+}
+/* ==============================< bouton supprimer une sauvgarde>============================== */
+
+.delete-btn {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 6px;
+    -fx-fit-width: 20px;
+    -fx-fit-height: 20px;
+}
+
+.delete-btn .image-view {
+    -fx-fit-width: 20px;
+    -fx-fit-height: 20px;
+}
+
+/* ==============================< texte favoris >============================== */
+
+.favori-item {
+    -fx-font-size: 20px;
+    -fx-padding: 8px 0;
+}
+.historique-item {
+    -fx-font-size: 20px;
+    -fx-padding: 8px 0;
+}
