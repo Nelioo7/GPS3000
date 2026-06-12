@@ -156,13 +156,13 @@ public class Appli extends Application {
 
                 // champ de recherche de la ville de départ
                 TextField startSearch = new TextField(); {
-                    startSearch.setPromptText("Départ: ex. Lambersart"); 
+                    startSearch.setPromptText("Départ: ex. B"); 
                     startSearch.getStyleClass().add("search-bar"); 
                 }
                 
                 // champ de recherche de la ville d'arrivée
                 TextField destinationSearch = new TextField(); {
-                    destinationSearch.setPromptText("Arrivée: ex. Croix");
+                    destinationSearch.setPromptText("Arrivée: ex. D");
                     destinationSearch.getStyleClass().add("search-bar"); 
                 }
 
