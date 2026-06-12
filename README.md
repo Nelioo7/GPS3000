@@ -84,6 +84,7 @@ Les paramètres à entrer dans l'appli sont les suivants:
 ```
 .
 ├── bin
+│   ├── Appli.class
 │   ├── graphes
 │   │   ├── GraphesV1$Trajet.class
 │   │   ├── GraphesV1$Ville.class
@@ -91,6 +92,8 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │   │   ├── GraphesV2$LienReseau.class
 │   │   ├── GraphesV2$SommetEclate.class
 │   │   └── GraphesV2.class
+│   ├── leaflet.css
+│   ├── map.html
 │   ├── poo
 │   │   ├── Connexion.class
 │   │   ├── CorrespondanceArete.class
@@ -117,21 +120,7 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │   │   ├── Ville.class
 │   │   ├── VoyageImpossibleException.class
 │   │   └── Voyageur.class
-│   └── renduIHM
-│       ├── Appli.class
-│       ├── img
-│       │   ├── favorite.png
-│       │   ├── history.png
-│       │   ├── route.png
-│       │   ├── signet1.png
-│       │   ├── signet.png
-│       │   └── switch.png
-│       ├── leaflet.css
-│       ├── map.html
-│       ├── maquettes
-│       │   └── Maquettes.png
-│       ├── readme.md
-│       └── style.css
+│   └── style.css
 ├── img
 │   └── uml.png
 ├── lib
@@ -158,6 +147,26 @@ Les paramètres à entrer dans l'appli sont les suivants:
 ├── RapportV1.pdf
 ├── RapportV2.pdf
 ├── README.md
+├── renduIHM
+│   ├── img
+│   │   ├── autobus.png
+│   │   ├── avion.png
+│   │   ├── favorite.png
+│   │   ├── history.png
+│   │   ├── route.png
+│   │   ├── signet1.png
+│   │   ├── signet.png
+│   │   ├── switch.png
+│   │   └── train.png
+│   ├── jar
+│   ├── mockups
+│   │   └── maquette.pdf
+│   ├── readme.md
+│   └── src
+│       ├── Appli.java
+│       ├── leaflet.css
+│       ├── map.html
+│       └── style.css
 ├── res
 │   ├── exemple-correspondances.csv
 │   ├── exemple-reseau.csv
@@ -166,38 +175,23 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │   ├── graphes
 │   │   ├── GraphesV1.java
 │   │   └── GraphesV2.java
-│   ├── poo
-│   │   ├── Connexion.java
-│   │   ├── CorrespondanceArete.java
-│   │   ├── CoutConnexion.java
-│   │   ├── GestionnaireItineraire.java
-│   │   ├── Historique.java
-│   │   ├── Lieu.java
-│   │   ├── LieuModalite.java
-│   │   ├── Main.java
-│   │   ├── Plateforme.java
-│   │   ├── TraitementDonnees.java
-│   │   ├── Trajet.java
-│   │   ├── TransportArete.java
-│   │   ├── TypeCout.java
-│   │   ├── Ville.java
-│   │   ├── VoyageImpossibleException.java
-│   │   └── Voyageur.java
-│   └── renduIHM
-│       ├── Appli.java
-│       ├── img
-│       │   ├── favorite.png
-│       │   ├── history.png
-│       │   ├── route.png
-│       │   ├── signet1.png
-│       │   ├── signet.png
-│       │   └── switch.png
-│       ├── leaflet.css
-│       ├── map.html
-│       ├── maquettes
-│       │   └── Maquettes.png
-│       ├── readme.md
-│       └── style.css
+│   └── poo
+│       ├── Connexion.java
+│       ├── CorrespondanceArete.java
+│       ├── CoutConnexion.java
+│       ├── GestionnaireItineraire.java
+│       ├── Historique.java
+│       ├── Lieu.java
+│       ├── LieuModalite.java
+│       ├── Main.java
+│       ├── Plateforme.java
+│       ├── TraitementDonnees.java
+│       ├── Trajet.java
+│       ├── TransportArete.java
+│       ├── TypeCout.java
+│       ├── Ville.java
+│       ├── VoyageImpossibleException.java
+│       └── Voyageur.java
 └── test
     └── poo
         ├── TestCoutConnexion.java
