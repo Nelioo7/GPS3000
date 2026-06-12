@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 
 /**
  * Interface graphique de l'app
- * @author Erwann Besegher
+ * @author Erwann Besegher, Jérôme PARDOUE
  * @version 1.4.1
  */
 public class Appli extends Application {
@@ -122,6 +122,106 @@ public class Appli extends Application {
                 saveBtnContainer.setAlignment(Pos.CENTER_LEFT);
 
                 // ===================================<                    >======================
+                
+                // Menu pour choisir les modalités de transport à afficher
+                HBox filterBar = new HBox(); {
+                    filterBar.getStyleClass().add("filter-bar");
+
+                    filterBar.setAlignment(Pos.CENTER);
+                    filterBar.setSpacing(30);
+                    filterBar.setPadding(new Insets(10, 0, 10, 0));
+
+                    Button boutonTrain;
+                    Button boutonBus;
+                    Button boutonAvion;
+
+                    boolean[] transportSelected = new boolean[]{false, false, false};
+
+                    boutonTrain = new Button(); {
+                        boutonTrain.getStyleClass().add("filter-btn");
+                        ImageView trainIcon = new ImageView(
+                            new Image(
+                                new FileInputStream("src/ihm/img/train.png")
+                            )
+                        );{
+                            trainIcon.setFitHeight(20); 
+                            trainIcon.setPreserveRatio(true);
+                            boutonTrain.setGraphic(trainIcon);
+                        }
+                    }
+                    boutonBus = new Button(); {
+                        boutonBus.getStyleClass().add("filter-btn");
+                        ImageView busIcon = new ImageView(
+                            new Image(
+                                new FileInputStream("src/ihm/img/autobus.png")
+                            )
+                        );{
+                            busIcon.setFitHeight(20); 
+                            busIcon.setPreserveRatio(true);
+                            boutonBus.setGraphic(busIcon);
+                        }
+                    }
+                    boutonAvion = new Button(); {
+                        boutonAvion.getStyleClass().add("filter-btn");
+                        ImageView avionIcon = new ImageView(
+                            new Image(
+                                new FileInputStream("src/ihm/img/avion.png")
+                            )
+                        );{
+                            avionIcon.setFitHeight(20); 
+                            avionIcon.setPreserveRatio(true);
+                            boutonAvion.setGraphic(avionIcon);
+                        }
+                    }
+
+                    boutonTrain.setOnAction(event -> {
+                        if (boutonTrain.getStyleClass().contains("filter-btn-selected")) {
+                            boutonTrain.getStyleClass().remove("filter-btn-selected");
+                            transportSelected[0] = false;
+                        } else {
+                            boutonTrain.getStyleClass().add("filter-btn-selected");
+                            boutonBus.getStyleClass().remove("filter-btn-selected");
+                            boutonAvion.getStyleClass().remove("filter-btn-selected");
+                            transportSelected[0] = true;
+                            transportSelected[1] = false;
+                            transportSelected[2] = false;
+                        }
+                    });
+
+                    boutonBus.setOnAction(event -> {
+                        if (boutonBus.getStyleClass().contains("filter-btn-selected")) {
+                            boutonBus.getStyleClass().remove("filter-btn-selected");
+                            transportSelected[1] = false;
+                        } else {
+                            boutonBus.getStyleClass().add("filter-btn-selected");
+                            boutonTrain.getStyleClass().remove("filter-btn-selected");
+                            boutonAvion.getStyleClass().remove("filter-btn-selected");
+                            transportSelected[0] = false;
+                            transportSelected[1] = true;
+                            transportSelected[2] = false;
+                        }
+                    });
+
+                    boutonAvion.setOnAction(event -> {
+                        if (boutonAvion.getStyleClass().contains("filter-btn-selected")) {
+                            boutonAvion.getStyleClass().remove("filter-btn-selected");
+                            transportSelected[2] = false;
+                        } else {
+                            boutonAvion.getStyleClass().add("filter-btn-selected");
+                            boutonTrain.getStyleClass().remove("filter-btn-selected");
+                            boutonBus.getStyleClass().remove("filter-btn-selected");
+                            transportSelected[0] = false;
+                            transportSelected[1] = false;
+                            transportSelected[2] = true;
+                        }
+                    });
+
+                    filterBar.getChildren().addAll(
+                        boutonTrain, 
+                        boutonBus, 
+                        boutonAvion
+                    );
+                }
 
                 // on ajoute les items dans le panneau
                 leftPanel.getChildren().addAll(
@@ -129,10 +229,8 @@ public class Appli extends Application {
                     startSearch,
                     switchArrows,
                     destinationSearch,
-                    saveBtnContainer
+                    filterBar
                 );
-                
-                VBox.setMargin(co2Banner, new Insets(0, 0, 30, 0));
             }
 
             // ==============================< Panneau de Droite >==============================

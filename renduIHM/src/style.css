@@ -112,7 +112,7 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 1);
 }
 
-.switch-btn:focused {
+#switch-btn:focused {
     /* Supprime totalement l'effet de clic par défaut sur le bouton d'inversion */
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
@@ -120,9 +120,22 @@
     -fx-effect: none;
 }
 
-/* ==============================< Panneau de gauche >============================== */
+.filter-bar {
+    -fx-background-color: #ffffff;
+    -fx-border-width: 0;
+    -fx-padding: 10px;
+    -fx-background-radius: 10px;
+    -fx-alignment: center;
+}
 
-.save-btn {
+.filter-btn {
     -fx-background-color: transparent;
-    -fx-cursor: hand; 
+    -fx-padding: 10px 10px;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+}
+
+.filter-btn-selected {
+    -fx-background-color: #dddddd;
+    -fx-background-radius: 10px;
 }
