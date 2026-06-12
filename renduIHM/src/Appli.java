@@ -553,6 +553,7 @@ public class Appli extends Application {
         stage.setScene(home);
         stage.setTitle("GPS 3000");
         stage.setFullScreen(false);
+        stage.setResizable(false);
         stage.show();
     }
     
