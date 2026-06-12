@@ -79,3 +79,6 @@ Par souci de temps et afin de finir d'autres fonctionnalités nous avons choisi 
 Nous n'avons pas trouvé dans le TP6 les instructions afin de réaliser le `/jar`, néanmoins l'appli reste fonctionnelle en executant `Appli.java`.
 
 ## Vidéo
+
+Une démo de notre application est dispo ici:
+*https://drive.google.com/file/d/1yBncE-baeG1phHiC8OiDYgHJdox1kTft/view?usp=sharing*
