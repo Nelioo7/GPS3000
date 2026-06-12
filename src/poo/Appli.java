@@ -1,5 +1,6 @@
-package renduIHM;
+package poo;
 
+import java.io.File;
 import java.io.FileInputStream;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -80,7 +81,7 @@ public class Appli extends Application {
 
                     ImageView switchIcon = new ImageView(
                         new Image(
-                            new FileInputStream("src/ihm/img/switch.png")
+                            new FileInputStream("renduIHM/img/switch.png")
                         )
                     ); {
                         switchIcon.setFitHeight(20); 
@@ -102,8 +103,8 @@ public class Appli extends Application {
                 Button saveBtn = new Button();
                 saveBtn.getStyleClass().add("save-btn"); 
 
-                Image imgEmpty = new Image("file:src/ihm/img/signet.png", 28, 28, true, true);
-                Image imgFilled = new Image("file:src/ihm/img/signet1.png", 28, 28, true, true);
+                Image imgEmpty = new Image("file:renduIHM/img/signet.png", 28, 28, true, true);
+                Image imgFilled = new Image("file:renduIHM/img/signet1.png", 28, 28, true, true);
 
                 //on met l'image non selectionné par défaut
                 ImageView saveIcon = new ImageView(imgEmpty);
@@ -141,7 +142,7 @@ public class Appli extends Application {
                         boutonTrain.getStyleClass().add("filter-btn");
                         ImageView trainIcon = new ImageView(
                             new Image(
-                                new FileInputStream("src/ihm/img/train.png")
+                                new FileInputStream("renduIHM/img/train.png")
                             )
                         );{
                             trainIcon.setFitHeight(20); 
@@ -153,7 +154,7 @@ public class Appli extends Application {
                         boutonBus.getStyleClass().add("filter-btn");
                         ImageView busIcon = new ImageView(
                             new Image(
-                                new FileInputStream("src/ihm/img/autobus.png")
+                                new FileInputStream("renduIHM/img/autobus.png")
                             )
                         );{
                             busIcon.setFitHeight(20); 
@@ -165,7 +166,7 @@ public class Appli extends Application {
                         boutonAvion.getStyleClass().add("filter-btn");
                         ImageView avionIcon = new ImageView(
                             new Image(
-                                new FileInputStream("src/ihm/img/avion.png")
+                                new FileInputStream("renduIHM/img/avion.png")
                             )
                         );{
                             avionIcon.setFitHeight(20); 
@@ -245,7 +246,7 @@ public class Appli extends Application {
                     // ---< Carte >---
                     WebView map = new WebView(); {
                         WebEngine moteur = map.getEngine(); // instanciation du moteur de la webview
-                        moteur.load(getClass().getResource("/ihm/map.html").toExternalForm()); // chargement de la page web
+                        moteur.load(new File("renduIHM/src/map.html").toURI().toString()); // chargement de la page web
                         
                         map.prefHeightProperty().bind(rightPanel.heightProperty());
                     }
@@ -255,7 +256,7 @@ public class Appli extends Application {
 
                     ImageView pathsIcon = new ImageView(
                         new Image(
-                            new FileInputStream("src/ihm/img/route.png"), 30, 30, true, true
+                            new FileInputStream("renduIHM/img/route.png"), 30, 30, true, true
                         )
                     );
 
@@ -270,7 +271,7 @@ public class Appli extends Application {
 
                     ImageView favoritesIcon = new ImageView(
                         new Image(
-                            new FileInputStream("src/ihm/img/favorite.png"), 30, 30, true, true
+                            new FileInputStream("renduIHM/img/favorite.png"), 30, 30, true, true
                         )
                     );
 
@@ -285,7 +286,7 @@ public class Appli extends Application {
 
                     ImageView historyIcon = new ImageView(
                         new Image(
-                            new FileInputStream("src/ihm/img/history.png"), 30, 30, true, true
+                            new FileInputStream("renduIHM/img/history.png"), 30, 30, true, true
                         )
                     );
 
@@ -308,11 +309,11 @@ public class Appli extends Application {
         // ==============================< Gestion de la stage >==============================
 
         Scene home = new Scene(root, 1000, 600);
-        home.getStylesheets().add("/ihm/style.css"); 
+        home.getStylesheets().add(new File("renduIHM/src/style.css").toURI().toString()); 
 
         stage.setScene(home);
         stage.setTitle("GPS 3000");
-        stage.setFullScreen(true);
+        stage.setFullScreen(false);
         stage.show();
     }
     
