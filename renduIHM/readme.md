@@ -15,7 +15,7 @@ Erwann Besegher - Alaëddine Oudriss - Mehmel Amayas - Pardoue Jérôme
 
 ![Screen appli]()
 
-*Notre appli utilise le fichier `villes.csv` afin de déterminer les coûts des transports, ainsi que `correspondances.csv` pour les correspondances internes.*
+*Notre appli utilise le fichier `reseau.csv` afin de déterminer les villes, ainsi que `correspondances.csv` pour les correspondances internes.*
 
 ## Mockup Figma
 
@@ -75,5 +75,7 @@ Le problème principal est le manque de temps, implémenter cette carte m'a dema
 Le CSS est issu de la doc de Leaflet, de même pour le script de lancement dans la page html, que j'ai dû adapter aux besoins du projet.
 Encapsuler le tout dans notre appli n'était pas très compliqué néanmoins nous faisons face à un problème de rendu des tiles de la carte lorsqu'on la resize.
 Par souci de temps et afin de finir d'autres fonctionnalités nous avons choisi de laisser la carte telle qu'elle est, malgré que cela ait demandé du temps pour en arriver à ce point.
+
+Nous n'avons pas trouvé dans le TP6 les instructions afin de réaliser le `/jar`, néanmoins l'appli reste fonctionnelle en executant `Appli.java`.
 
 ## Vidéo

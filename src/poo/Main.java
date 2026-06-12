@@ -31,7 +31,7 @@ public class Main {
             return;
         }
     
-        String cheminHistorique = "res/historique";
+        String cheminHistorique = "res/historique"; // fichier de sauvegarde de l'historique
         Historique monHistorique;
         
         try {
