@@ -110,7 +110,7 @@ public class Appli extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
+        poo.Plateforme plateforme = poo.TraitementDonnees.chargerPlateforme();
         // ==============================< Racine >==============================
                 VBox favorisList = new VBox(); {
                 favorisList.setSpacing(10);
@@ -186,7 +186,7 @@ public class Appli extends Application {
                 }
 
 
-                // ==========================< Bouton sauvegarde >==============================
+// ==========================< Bouton sauvegarde >==============================
 
                 Button saveBtn = new Button();
                 saveBtn.getStyleClass().add("save-btn"); 
@@ -206,7 +206,29 @@ public class Appli extends Application {
 
                     if (saveIcon.getImage() == imgEmpty) {
 
-                        String texteTrajet = startSearch.getText() + "  →  " + destinationSearch.getText();
+                        String nomDepart = startSearch.getText().toUpperCase();
+                        String nomArrivee = destinationSearch.getText().toUpperCase();
+
+                        fr.ulille.but.sae_s2_2026.Lieu lieuDepart = plateforme.trouverLieu(nomDepart);
+                        fr.ulille.but.sae_s2_2026.Lieu lieuArrivee = plateforme.trouverLieu(nomArrivee);
+
+                        if (lieuDepart == null || lieuArrivee == null) {
+                            System.out.println("Ville inconnue dans le CSV.");
+                            return; 
+                        }
+
+                        poo.Trajet trajetTrouve = poo.TraitementDonnees.trouverTrajetDirect(plateforme, lieuDepart, lieuArrivee);
+
+                        if (trajetTrouve == null) {
+                            System.out.println("Aucun trajet direct entre ces deux villes.");
+                            return; 
+                        }
+
+                        String texteTrajet = trajetTrouve.getDepart().toString() 
+                            + " → " + trajetTrouve.getArrivee().toString() 
+                            + " | " + trajetTrouve.getModalite() 
+                            + " | Prix: " + trajetTrouve.getPoids(poo.TypeCout.PRIX) + "€" 
+                            + " | Temps: " + trajetTrouve.getPoids(poo.TypeCout.TEMPS) + "h";
 
                         // on vérifie si le trajet existe déjà avant de l'ajouter
                         boolean dejaPresent = false;
@@ -254,6 +276,8 @@ public class Appli extends Application {
                     saveIcon.setImage(imgEmpty); 
                 });
 
+
+
                 // ==========================< Bouton recherche >==============================
 
                 Button rechercheBtn = new Button();
@@ -268,7 +292,26 @@ public class Appli extends Application {
                         return;
                     }
 
-                    String texteTrajet = startSearch.getText() + "  →  " + destinationSearch.getText();
+                    String nomDepart = startSearch.getText().toUpperCase();
+                    String nomArrivee = destinationSearch.getText().toUpperCase();
+
+                    fr.ulille.but.sae_s2_2026.Lieu lieuDepart = plateforme.trouverLieu(nomDepart);
+                    fr.ulille.but.sae_s2_2026.Lieu lieuArrivee = plateforme.trouverLieu(nomArrivee);
+
+                    if (lieuDepart == null || lieuArrivee == null) {
+                        System.out.println("Ville inconnue dans le CSV.");
+                        return; 
+                    }
+
+                    poo.Trajet trajetTrouve = poo.TraitementDonnees.trouverTrajetDirect(plateforme, lieuDepart, lieuArrivee);
+
+                    if (trajetTrouve == null) {
+                        System.out.println("Aucun trajet direct entre ces deux villes.");
+                        return; 
+                    }
+
+                    String texteTrajet = trajetTrouve.getDepart().toString() + " → " + trajetTrouve.getArrivee().toString() + " | " + trajetTrouve.getModalite() + 
+                          " | prix: " + trajetTrouve.getPoids(poo.TypeCout.PRIX) + "€" + " | temps: " + trajetTrouve.getPoids(poo.TypeCout.TEMPS) + "h";
 
                     // on cherche si le trajet existe déjà dans l'historique
                     HBox ligneExistante = null;
@@ -455,8 +498,6 @@ public class Appli extends Application {
                     createDraggableItem("Émission de CO₂"),
                     createDraggableItem("Prix")
                 );
-
-                // ===================================<                    >======================
 
                 // on ajoute les items dans le panneau
                 leftPanel.getChildren().addAll(
