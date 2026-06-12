@@ -154,8 +154,10 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │   │   ├── favorite.png
 │   │   ├── history.png
 │   │   ├── route.png
+│   │   ├── search.png
 │   │   ├── signet1.png
 │   │   ├── signet.png
+│   │   ├── supprimer.png
 │   │   ├── switch.png
 │   │   └── train.png
 │   ├── jar
@@ -168,9 +170,12 @@ Les paramètres à entrer dans l'appli sont les suivants:
 │       ├── map.html
 │       └── style.css
 ├── res
-│   ├── exemple-correspondances.csv
-│   ├── exemple-reseau.csv
-│   └── test.csv
+│   ├── correspondances.csv
+│   ├── test
+│   │   ├── exemple-correspondances.csv
+│   │   ├── exemple-reseau.csv
+│   │   └── test.csv
+│   └── villes.csv
 ├── src
 │   ├── graphes
 │   │   ├── GraphesV1.java
