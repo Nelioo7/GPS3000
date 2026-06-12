@@ -188,3 +188,43 @@
     -fx-font-size: 20px;
     -fx-padding: 8px 0;
 }
+
+/* ==============================< Drag & Drop Critères >============================== */
+
+.critere-titre {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1E293B;
+    -fx-padding: 10px 0 0 5px;
+}
+
+/* Les zones grises qui reçoivent les critères */
+.drop-box {
+    -fx-background-color: transparent;
+    -fx-border-color: #CBD5E1;
+    -fx-border-width: 2px;
+    -fx-border-style: dashed;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-padding: 10px;
+}
+
+/* Quand on survole la zone avec un élément en main */
+.drop-zone-active {
+    -fx-background-color: #E2E8F0;
+    -fx-border-color: #94A3B8;
+}
+
+.critere-item {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 12px 15px;
+    -fx-cursor: move;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
+    -fx-alignment: center-left;
+}
+
+.critere-item:hover {
+    -fx-background-color: #F8FAFC;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 3);
+}

@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Side;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,6 +30,82 @@ import javafx.stage.Stage;
  * @version 1.4.1
  */
 public class Appli extends Application {
+
+        private Node draggedNode;
+
+    private HBox createDraggableItem(String text) {
+        HBox item = new HBox(10);
+        item.getStyleClass().add("critere-item");
+        
+        // Le petit symbole ≡ pour faire comme sur Figma
+        Label icon = new Label("≡");
+        icon.setStyle("-fx-text-fill: #94A3B8; -fx-font-weight: bold;");
+        
+        Label label = new Label(text);
+        label.setStyle("-fx-text-fill: #1E293B;");
+        
+        item.getChildren().addAll(icon, label);
+
+        // Quand on commence à cliquer et glisser
+        item.setOnDragDetected(event -> {
+            draggedNode = item; // On mémorise la carte
+            javafx.scene.input.Dragboard db = item.startDragAndDrop(javafx.scene.input.TransferMode.MOVE);
+            javafx.scene.input.ClipboardContent content = new javafx.scene.input.ClipboardContent();
+            content.putString(text);
+            db.setContent(content);
+            event.consume();
+        });
+
+        return item;
+    }
+
+    private void setupDropZone(VBox dropZone) {
+        
+        dropZone.setOnDragOver(event -> {
+            if (event.getGestureSource() != dropZone && event.getDragboard().hasString()) {
+                event.acceptTransferModes(javafx.scene.input.TransferMode.MOVE);
+            }
+            event.consume();
+        });
+
+        dropZone.setOnDragEntered(event -> {
+            if (event.getGestureSource() != dropZone && event.getDragboard().hasString()) {
+                dropZone.getStyleClass().add("drop-zone-active");
+            }
+            event.consume();
+        });
+
+        dropZone.setOnDragExited(event -> {
+            dropZone.getStyleClass().remove("drop-zone-active");
+            event.consume();
+        });
+
+        dropZone.setOnDragDropped(event -> {
+            boolean success = false;
+            if (draggedNode != null) {
+                VBox parent = (VBox) draggedNode.getParent();
+                
+                parent.getChildren().remove(draggedNode);
+                
+                int dropIndex = 0;
+                double dropY = event.getY();
+                
+                for (javafx.scene.Node child : dropZone.getChildren()) {
+                    double milieuElement = child.getBoundsInParent().getMinY() + (child.getBoundsInParent().getHeight() / 2);
+                    if (dropY < milieuElement) {
+                        break;
+                    }
+                    dropIndex++;
+                }
+                
+                dropZone.getChildren().add(dropIndex, draggedNode);
+                success = true;
+            }
+            event.setDropCompleted(success);
+            event.consume();
+        });
+    }
+
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -108,7 +185,7 @@ public class Appli extends Application {
                 }
 
 
-// ==========================< Bouton sauvegarde >==============================
+                // ==========================< Bouton sauvegarde >==============================
 
                 Button saveBtn = new Button();
                 saveBtn.getStyleClass().add("save-btn"); 
@@ -338,6 +415,33 @@ public class Appli extends Application {
                         boutonAvion
                     );
                 }
+                // ==========================< Drag & Drop Critères >==============================
+
+                Label activeLabel = new Label("Critères prioritaires :");
+                activeLabel.getStyleClass().add("critere-titre");
+                
+                VBox activeBox = new VBox(8);
+                activeBox.getStyleClass().add("drop-box");
+                activeBox.setMinHeight(120); // Hauteur minimum pour pouvoir drop dedans même si c'est vide
+
+                Label inactiveLabel = new Label("Critères ignorés :");
+                inactiveLabel.getStyleClass().add("critere-titre");
+                
+                VBox inactiveBox = new VBox(8);
+                inactiveBox.getStyleClass().add("drop-box");
+                inactiveBox.setMinHeight(100);
+
+                // active la réception du Drag & Drop sur les deux zones
+                setupDropZone(activeBox);
+                setupDropZone(inactiveBox);
+
+                activeBox.getChildren().addAll(
+                    createDraggableItem("Durée du trajet"),
+                    createDraggableItem("Émission de CO₂"),
+                    createDraggableItem("Prix")
+                );
+
+                // ===================================<                    >======================
 
                 // on ajoute les items dans le panneau
                 leftPanel.getChildren().addAll(
@@ -346,7 +450,11 @@ public class Appli extends Application {
                     switchArrows,
                     destinationSearch,
                     saveBtnContainer,
-                    filterBar
+                    filterBar,
+                    activeLabel,
+                    activeBox,
+                    inactiveLabel,
+                    inactiveBox
                 );
             }
 
@@ -424,7 +532,7 @@ public class Appli extends Application {
 
         // ==============================< Gestion de la stage >==============================
 
-        Scene home = new Scene(root, 1000, 600);
+        Scene home = new Scene(root, 1200, 850);
         home.getStylesheets().add(new File("renduIHM/src/style.css").toURI().toString()); 
 
         stage.setScene(home);
