@@ -1,15 +1,19 @@
 # SAE 2.1/2.2
 
+Besegher Erwann - Pardoue Jérôme - Oudriss Alaeddine - Mehmel Amayas
+
 ---
 - [SAE 2.1/2.2](#sae-2122)
   - [IHM](#ihm)
     - [Infos](#infos)
+    - [Configuration préalable](#configuration-préalable)
     - [Execution](#execution)
   - [POO](#poo)
     - [Execution](#execution-1)
     - [Paramètres d'entrée](#paramètres-dentrée)
     - [Structure du projet](#structure-du-projet)
   - [Conception](#conception)
+    - [Diagrame UML](#diagrame-uml)
   - [Logique](#logique)
     - [Filtrage](#filtrage)
     - [Validation des données](#validation-des-données)
@@ -27,11 +31,32 @@
 Le prototype basse fidélité se trouve au lien suivant:
 *https://www.figma.com/proto/4IzpJgvGIfrHPEEoBLENXQ/Dev-C2?node-id=159-395&starting-point-node-id=159%3A395*
 
+### Configuration préalable
+
+Afin de pouvoir executer le programme correctement nous devons avoir un `settings.json` qui ressemble à cela:
+
+```json
+{
+    "java.project.referencedLibraries": [
+        "/home/toto/javafx-sdk-21.0.2/lib/*.jar",
+        "lib/*.jar"
+    ],
+    "java.project.sourcePaths": [
+        "src",
+        "test",
+        "renduIHM/src"
+    ],
+    "java.project.outputPath": "bin",
+    "java.debug.settings.console": "internalConsole",
+    "java.debug.settings.onBuildFailureProceed": true
+}
+```
+
 ### Execution
 *Nous avons du modifier notre `launch.json` afin d'y integrer les imports JavaFX nécessaires à l'éxecution de l'appli avec une webview de carte.*
 
 ```json
-"vmArgs": "--module-path /home/elmouu/javafx-sdk-21.0.2/lib --add-modules=javafx.controls,javafx.fxml,javafx.web --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED"
+"vmArgs": "--module-path /home/toto/javafx-sdk-21.0.2/lib --add-modules=javafx.controls,javafx.fxml,javafx.web --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED"
 ```
 
 ## POO
@@ -187,6 +212,8 @@ Les paramètres à entrer dans l'appli sont les suivants:
 ```
 
 ## Conception
+
+### Diagrame UML
 
 ![Diagramme UML](./img/uml.png)
 
